@@ -1,0 +1,16 @@
+# PinkCrab Plugin Boilerplate PHPStan config
+
+includes:
+    - vendor/phpstan/phpstan/conf/bleedingEdge.neon
+    - vendor/szepeviktor/phpstan-wordpress/extension.neon
+parameters:
+    level: max
+    inferPrivatePropertyTypeFromConstructor: true
+    paths:
+        - %currentWorkingDirectory%/src/
+    excludes_analyse:
+        - %currentWorkingDirectory%/tests/*
+    bootstrapFiles:
+        - vendor/php-stubs/wordpress-stubs/wordpress-stubs.php
+        #- vendor/kimhf/woocommerce-stubs/woocommerce-stubs.php
+        #- vendor/kimhf/advanced-custom-fields-pro-stubs/advanced-custom-fields-pro-stubs.php
