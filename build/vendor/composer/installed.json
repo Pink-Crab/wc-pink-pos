@@ -1,0 +1,356 @@
+{
+    "packages": [
+        {
+            "name": "level-2\/dice",
+            "version": "4.0.3",
+            "version_normalized": "4.0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https:\/\/github.com\/Level-2\/Dice.git",
+                "reference": "3e9a8548398c01e2527110c916a93f6efa17ac9c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https:\/\/api.github.com\/repos\/Level-2\/Dice\/zipball\/3e9a8548398c01e2527110c916a93f6efa17ac9c",
+                "reference": "3e9a8548398c01e2527110c916a93f6efa17ac9c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "phpunit\/phpunit": "^6.5"
+            },
+            "time": "2021-04-20T14:06:06+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "pinkcrab_cccp_0_0_1\\Dice\\": ".\/"
+                }
+            },
+            "notification-url": "https:\/\/packagist.org\/downloads\/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Tom Butler",
+                    "email": "tom@r.je"
+                }
+            ],
+            "description": "A minimalist Dependency injection container (DIC) for PHP. Please note: 3.0+ is only compatible with PHP 7.0. The 2.0 branch is compatbile with PHP 5.6.",
+            "homepage": "http:\/\/r.je\/dice.html",
+            "keywords": [
+                "dependency injection",
+                "dependency injection container",
+                "di",
+                "ioc"
+            ],
+            "support": {
+                "issues": "https:\/\/github.com\/Level-2\/Dice\/issues",
+                "source": "https:\/\/github.com\/Level-2\/Dice\/tree\/4.0.3"
+            },
+            "install-path": "..\/level-2\/dice"
+        },
+        {
+            "name": "pinkcrab\/collection",
+            "version": "0.1.0",
+            "version_normalized": "0.1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https:\/\/github.com\/Pink-Crab\/Collection.git",
+                "reference": "c44a81faf109230479b5e2180d627499c047877c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https:\/\/api.github.com\/repos\/Pink-Crab\/Collection\/zipball\/c44a81faf109230479b5e2180d627499c047877c",
+                "reference": "c44a81faf109230479b5e2180d627499c047877c",
+                "shasum": ""
+            },
+            "require": {
+                "level-2\/dice": "4.0.*",
+                "php": ">=7.1.0",
+                "pinkcrab\/hook-loader": "1.*",
+                "psr\/container": "^1.0"
+            },
+            "require-dev": {
+                "dealerdirect\/phpcodesniffer-composer-installer": "*",
+                "gin0115\/wpunit-helpers": "^1.0",
+                "object-calisthenics\/phpcs-calisthenics-rules": "*",
+                "phpstan\/phpstan": "^0.12.6",
+                "phpunit\/phpunit": "^7.0",
+                "symfony\/var-dumper": "4.*",
+                "wp-coding-standards\/wpcs": "*"
+            },
+            "time": "2021-05-07T23:13:17+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "pinkcrab_cccp_0_0_1\\PinkCrab\\Collection\\": "src"
+                }
+            },
+            "notification-url": "https:\/\/packagist.org\/downloads\/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Glynn Quelch",
+                    "email": "glynn.quelch@pinkcrab.co.uk",
+                    "homepage": "http:\/\/clappo.co.uk",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A flexible and extendable Collection",
+            "homepage": "https:\/\/pinkcrab.co.uk",
+            "support": {
+                "issues": "https:\/\/github.com\/Pink-Crab\/Collection\/issues",
+                "source": "https:\/\/github.com\/Pink-Crab\/Collection\/tree\/0.1.0"
+            },
+            "install-path": "..\/pinkcrab\/collection"
+        },
+        {
+            "name": "pinkcrab\/hook-loader",
+            "version": "1.1.2",
+            "version_normalized": "1.1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https:\/\/github.com\/Pink-Crab\/Loader.git",
+                "reference": "ae53ce0ce075981d9595bd2f776dc98265c0d81f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https:\/\/api.github.com\/repos\/Pink-Crab\/Loader\/zipball\/ae53ce0ce075981d9595bd2f776dc98265c0d81f",
+                "reference": "ae53ce0ce075981d9595bd2f776dc98265c0d81f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "require-dev": {
+                "dealerdirect\/phpcodesniffer-composer-installer": "*",
+                "gin0115\/wpunit-helpers": "^1.0",
+                "object-calisthenics\/phpcs-calisthenics-rules": "*",
+                "php-stubs\/wordpress-stubs": "^5.6.0",
+                "phpstan\/phpstan": "^0.12.6",
+                "phpunit\/phpunit": "^7.0",
+                "roots\/wordpress": "^5.5",
+                "symfony\/var-dumper": "4.*",
+                "szepeviktor\/phpstan-wordpress": "^0.7.2",
+                "wp-coding-standards\/wpcs": "*",
+                "wp-phpunit\/wp-phpunit": "^5.0",
+                "yoast\/phpunit-polyfills": "^0.2.0"
+            },
+            "time": "2021-05-08T08:17:08+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "pinkcrab_cccp_0_0_1\\PinkCrab\\Loader\\": "src"
+                },
+                "files": [
+                    "tests\/Fixtures\/functions.php"
+                ]
+            },
+            "notification-url": "https:\/\/packagist.org\/downloads\/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Glynn Quelch",
+                    "email": "glynn.quelch@pinkcrab.co.uk",
+                    "homepage": "http:\/\/clappo.co.uk",
+                    "role": "Developer"
+                }
+            ],
+            "description": "An object based hook loader for WordPress.",
+            "homepage": "https:\/\/pinkcrab.co.uk",
+            "support": {
+                "issues": "https:\/\/github.com\/Pink-Crab\/Loader\/issues",
+                "source": "https:\/\/github.com\/Pink-Crab\/Loader\/tree\/1.1.2"
+            },
+            "install-path": "..\/pinkcrab\/hook-loader"
+        },
+        {
+            "name": "pinkcrab\/perique-framework-core",
+            "version": "1.0.0",
+            "version_normalized": "1.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "https:\/\/github.com\/Pink-Crab\/Perqiue-Framework.git",
+                "reference": "1e89bf9fae3c2ea53a60f14180e95c7c065ad25e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https:\/\/api.github.com\/repos\/Pink-Crab\/Perqiue-Framework\/zipball\/1e89bf9fae3c2ea53a60f14180e95c7c065ad25e",
+                "reference": "1e89bf9fae3c2ea53a60f14180e95c7c065ad25e",
+                "shasum": ""
+            },
+            "require": {
+                "level-2\/dice": "4.0.*",
+                "php": ">=7.1.0",
+                "pinkcrab\/hook-loader": "^1.1.2",
+                "psr\/container": "^1.0"
+            },
+            "require-dev": {
+                "dealerdirect\/phpcodesniffer-composer-installer": "*",
+                "gin0115\/wpunit-helpers": "^1.0",
+                "object-calisthenics\/phpcs-calisthenics-rules": "*",
+                "php-stubs\/wordpress-stubs": "^5.6.0",
+                "phpstan\/phpstan": "^0.12.6",
+                "phpunit\/phpunit": "^7.0",
+                "roots\/wordpress": "^5.5",
+                "symfony\/var-dumper": "4.*",
+                "szepeviktor\/phpstan-wordpress": "^0.7.2",
+                "wp-coding-standards\/wpcs": "*",
+                "wp-phpunit\/wp-phpunit": "^5.0"
+            },
+            "time": "2021-06-08T23:59:13+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "pinkcrab_cccp_0_0_1\\PinkCrab\\Perique\\": "src"
+                }
+            },
+            "notification-url": "https:\/\/packagist.org\/downloads\/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Glynn Quelch",
+                    "email": "glynn.quelch@pinkcrab.co.uk",
+                    "homepage": "http:\/\/clappo.co.uk",
+                    "role": "Developer"
+                }
+            ],
+            "description": "The core package of the PinkCrab Perique framework.",
+            "homepage": "https:\/\/pinkcrab.co.uk",
+            "support": {
+                "issues": "https:\/\/github.com\/Pink-Crab\/Perqiue-Framework\/issues",
+                "source": "https:\/\/github.com\/Pink-Crab\/Perqiue-Framework\/tree\/1.0.0"
+            },
+            "install-path": "..\/pinkcrab\/perique-framework-core"
+        },
+        {
+            "name": "pinkcrab\/perique-route",
+            "version": "0.1.0",
+            "version_normalized": "0.1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https:\/\/github.com\/Pink-Crab\/Perique-Route.git",
+                "reference": "5c811eba67006a68cbf1ed1dd1f25bec0f0d5f9f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https:\/\/api.github.com\/repos\/Pink-Crab\/Perique-Route\/zipball\/5c811eba67006a68cbf1ed1dd1f25bec0f0d5f9f",
+                "reference": "5c811eba67006a68cbf1ed1dd1f25bec0f0d5f9f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0",
+                "pinkcrab\/collection": "^0.1.0",
+                "pinkcrab\/perique-framework-core": "^1.0"
+            },
+            "require-dev": {
+                "dealerdirect\/phpcodesniffer-composer-installer": "*",
+                "gin0115\/wpunit-helpers": "~1.0.0",
+                "object-calisthenics\/phpcs-calisthenics-rules": "*",
+                "php-stubs\/wordpress-stubs": "^5.6.0",
+                "phpstan\/phpstan": "^0.12.6",
+                "phpunit\/phpunit": "^7.0",
+                "roots\/wordpress": "^5.5",
+                "symfony\/var-dumper": "4.*",
+                "szepeviktor\/phpstan-wordpress": "^0.7.2",
+                "wp-coding-standards\/wpcs": "*",
+                "wp-phpunit\/wp-phpunit": "^5.0",
+                "yoast\/phpunit-polyfills": "^0.2.0 || ^1.0.0"
+            },
+            "time": "2021-07-11T11:51:03+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "pinkcrab_cccp_0_0_1\\PinkCrab\\Route\\": "src\/"
+                },
+                "files": []
+            },
+            "notification-url": "https:\/\/packagist.org\/downloads\/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Glynn Quelch",
+                    "email": "glynn@pinkcrab.co.uk",
+                    "homepage": "http:\/\/clappo.co.uk",
+                    "role": "Developer"
+                }
+            ],
+            "description": "WP REST Endpoint creation library for the Perique Framework.",
+            "homepage": "https:\/\/pinkcrab.co.uk",
+            "support": {
+                "issues": "https:\/\/github.com\/Pink-Crab\/Perique-Route\/issues",
+                "source": "https:\/\/github.com\/Pink-Crab\/Perique-Route\/tree\/0.1.0"
+            },
+            "install-path": "..\/pinkcrab\/perique-route"
+        },
+        {
+            "name": "psr\/container",
+            "version": "1.1.1",
+            "version_normalized": "1.1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https:\/\/github.com\/php-fig\/container.git",
+                "reference": "8622567409010282b7aeebe4bb841fe98b58dcaf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https:\/\/api.github.com\/repos\/php-fig\/container\/zipball\/8622567409010282b7aeebe4bb841fe98b58dcaf",
+                "reference": "8622567409010282b7aeebe4bb841fe98b58dcaf",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.0"
+            },
+            "time": "2021-03-05T17:36:06+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "pinkcrab_cccp_0_0_1\\Psr\\Container\\": "src\/"
+                }
+            },
+            "notification-url": "https:\/\/packagist.org\/downloads\/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https:\/\/www.php-fig.org\/"
+                }
+            ],
+            "description": "Common Container Interface (PHP FIG PSR-11)",
+            "homepage": "https:\/\/github.com\/php-fig\/container",
+            "keywords": [
+                "PSR-11",
+                "container",
+                "container-interface",
+                "container-interop",
+                "psr"
+            ],
+            "support": {
+                "issues": "https:\/\/github.com\/php-fig\/container\/issues",
+                "source": "https:\/\/github.com\/php-fig\/container\/tree\/1.1.1"
+            },
+            "install-path": "..\/psr\/container"
+        }
+    ],
+    "dev": false,
+    "dev-package-names": []
+}

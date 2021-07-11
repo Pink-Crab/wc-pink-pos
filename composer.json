@@ -1,9 +1,9 @@
 {
-    "name": "pinkcrab/cccp-wc-bridge",
+    "name": "pinkcrab/wc_pink_pos-wc-bridge",
     "type": "library",
-    "description": "A bridge between WooCommerce and the PinkCrab CCCP Project.",
+    "description": "A bridge between WooCommerce and the PinkCrab WC_Pink_Pos Project.",
     "keywords": [],
-    "homepage": "https://github.com/pink-crab/cccp-wc-bridge",
+    "homepage": "https://github.com/pink-crab/wc_pink_pos-wc-bridge",
     "license": "MIT",
     "authors": [{
         "name": "Glynn Quelch",
@@ -12,13 +12,13 @@
     }],
     "autoload": {
         "psr-4": {
-            "PinkCrab\\CCCP\\": "../src"
+            "PinkCrab\\WC_Pink_Pos\\": "../src"
         },
         "files": []
     },
     "autoload-dev": {
         "psr-4": {
-            "PinkCrab\\CCCP\\Tests\\": "../tests"
+            "PinkCrab\\WC_Pink_Pos\\Tests\\": "../tests"
         }
     },
     "require-dev": {
@@ -41,7 +41,8 @@
     },
     "require": {
         "php": ">=7.1.0",
-        "pinkcrab/perique-framework-core": "^1.0"
+        "pinkcrab/perique-framework-core": "^1.0",
+        "pinkcrab/perique-route": "*"
     },
     "scripts": {
         "test": "./vendor/bin/phpunit --coverage-clover coverage.xml --testdox",
@@ -53,9 +54,9 @@
         "build-dev": "bash build.sh --dev",
         "build-dump": "composer dump-autoload --working-dir build --classmap-authoritative"
     },
-    "prefer-stable": true,
+    "prefer-stable": false,
     "config": {
         "prepend-autoloader": true,
-        "autoloader-suffix": "pinkcrab_cccp_dev"
+        "autoloader-suffix": "pinkcrab_pinkpos_dev"
     }
 }
