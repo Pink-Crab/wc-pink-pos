@@ -32,7 +32,7 @@ class Customer_Repository {
 	 * @return bool
 	 */
 	public function exists( int $id ): bool {
-		# code...
+		return ! is_null( $this->find( $id ) );
 	}
 
 	/**

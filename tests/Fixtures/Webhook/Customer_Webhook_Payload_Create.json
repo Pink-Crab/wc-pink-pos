@@ -16,7 +16,7 @@
         "billing_address": {
             "address_1": "12 Street Road",
             "address_2": "",
-            "town": "Townsville",
+            "city": "Townsville",
             "county": "Countyshire",
             "postcode": "TO1 2CS",
             "country": "UK"
@@ -24,7 +24,7 @@
         "delivery_address": {
             "address_1": "12 Street Road",
             "address_2": "",
-            "town": "Townsville",
+            "city": "Townsville",
             "county": "Countyshire",
             "postcode": "TO1 2CS",
             "country": "UK"

@@ -52,7 +52,7 @@
         "all": "composer test && composer analyse && composer sniff",
         "build": "bash build.sh",
         "build-dev": "bash build.sh --dev",
-        "build-dump": "composer dump-autoload --working-dir build --classmap-authoritative"
+        "build-dump": "composer dump-autoload --working-dir build "
     },
     "prefer-stable": false,
     "config": {

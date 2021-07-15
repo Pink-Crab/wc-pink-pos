@@ -33,7 +33,7 @@ php build-tools/scoper.phar add-prefix --output-dir=build --force --config=build
 # Reset autoloader pefix & dump the autoloader to the new build path.
 echo "Reset prefix for dev & rebuild autoloader in build"
 composer config autoloader-suffix pinkcrab_pinkpos_dev
-composer dump-autoload --working-dir build --classmap-authoritative
+composer dump-autoload --working-dir build
 
 if [ $instal_dev = "--dev" ]
 then
