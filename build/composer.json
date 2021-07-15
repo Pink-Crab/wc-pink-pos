@@ -14,13 +14,13 @@
     ],
     "autoload": {
         "psr-4": {
-            "pinkcrab_cccp_0_0_1\\PinkCrab\\WC_Pink_Pos\\": "..\/src"
+            "PinkCrab\\WC_Pink_Pos\\": "..\/src"
         },
         "files": []
     },
     "autoload-dev": {
         "psr-4": {
-            "pinkcrab_cccp_0_0_1\\PinkCrab\\WC_Pink_Pos\\Tests\\": "..\/tests"
+            "PinkCrab\\WC_Pink_Pos\\Tests\\": "..\/tests"
         }
     },
     "require-dev": {

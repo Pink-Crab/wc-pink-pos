@@ -21,22 +21,22 @@ declare (strict_types=1);
  * @package PinkCrab\Route
  *
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Route\Tests\Unit;
+namespace pc_pink_pos_0_0_1\PinkCrab\Route\Tests\Unit;
 
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route_Group;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route_Collection;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route_Group;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route_Collection;
 use stdClass;
-use pinkcrab_cccp_0_0_1\WP_UnitTestCase;
+use pc_pink_pos_0_0_1\WP_UnitTestCase;
 class Test_Route_Collection extends \WP_UnitTestCase
 {
     /** @testdox It should only be possible to pass Route and Route_Groups to a Route_Collection  */
     public function test_only_accepts_routes() : void
     {
-        $route1 = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route('GET', 'route');
-        $route2 = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route('POST', 'route');
-        $group = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route_Group('acme', 'route');
-        $collection = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route_Collection([$route1, new \stdClass()]);
+        $route1 = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route('GET', 'route');
+        $route2 = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route('POST', 'route');
+        $group = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route_Group('acme', 'route');
+        $collection = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route_Collection([$route1, new \stdClass()]);
         $collection->push($route2);
         $collection->add_route($group);
         $collection->push(new \stdClass());

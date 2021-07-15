@@ -8,20 +8,20 @@ declare (strict_types=1);
  * @author Glynn Quelch glynn@pinkcrab.co.uk
  * @since 0.0.1
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Route\Registration;
+namespace pc_pink_pos_0_0_1\PinkCrab\Route\Registration;
 
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route;
-use pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook_Loader;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route_Group;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Registration\WP_Rest_Registrar;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route_Exception;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route;
+use pc_pink_pos_0_0_1\PinkCrab\Loader\Hook_Loader;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route_Group;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Registration\WP_Rest_Registrar;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route_Exception;
 class Route_Manager
 {
     /** @var Hook_Loader */
     protected $loader;
     /** @var WP_Rest_Registrar */
     protected $registrar;
-    public function __construct(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Registration\WP_Rest_Registrar $registrar, \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook_Loader $hook_loader)
+    public function __construct(\pc_pink_pos_0_0_1\PinkCrab\Route\Registration\WP_Rest_Registrar $registrar, \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook_Loader $hook_loader)
     {
         $this->loader = $hook_loader;
         $this->registrar = $registrar;
@@ -32,7 +32,7 @@ class Route_Manager
      * @param Route $route
      * @return self
      */
-    public function from_route(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route $route) : self
+    public function from_route(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route $route) : self
     {
         $this->loader->action('rest_api_init', $this->registrar->create_callback($route));
         return $this;
@@ -43,7 +43,7 @@ class Route_Manager
      * @param \PinkCrab\Route\Route\Route_Group $group
      * @return self
      */
-    public function from_group(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route_Group $group) : self
+    public function from_group(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route_Group $group) : self
     {
         foreach ($this->unpack_group($group) as $route) {
             $this->from_route($route);
@@ -57,7 +57,7 @@ class Route_Manager
      * @return Route[]
      * @throws Route_Exception code 102
      */
-    protected function unpack_group(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route_Group $group) : array
+    protected function unpack_group(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route_Group $group) : array
     {
         $routes = array();
         // Loop through each group
@@ -73,7 +73,7 @@ class Route_Manager
             }
             // If we have no callback defined for route, throw.
             if (\is_null($route->get_callback())) {
-                throw \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route_Exception::callback_not_defined($route);
+                throw \pc_pink_pos_0_0_1\PinkCrab\Route\Route_Exception::callback_not_defined($route);
             }
             $populated_route->callback($route->get_callback());
             $routes[$method] = $populated_route;
@@ -89,9 +89,9 @@ class Route_Manager
      * @param Route_Group $group
      * @return Route
      */
-    protected function create_base_route_from_group(string $method, \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route_Group $group) : \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route
+    protected function create_base_route_from_group(string $method, \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route_Group $group) : \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route
     {
-        $route = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route(\strtoupper($method), $group->get_route());
+        $route = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route(\strtoupper($method), $group->get_route());
         $route->namespace($group->get_namespace());
         foreach ($group->get_authentication() as $auth_callback) {
             $route->authentication($auth_callback);

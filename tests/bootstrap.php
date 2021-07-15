@@ -4,8 +4,9 @@
  * PHPUnit bootstrap file
  */
 
+
 // Composer autoloader must be loaded before WP_PHPUNIT__DIR will be available
-require_once dirname( __DIR__ ) . '/vendor/autoload.php';
+require_once dirname( __DIR__ ) . '/build/vendor/autoload.php';
 
 // Give access to tests_add_filter() function.
 require_once getenv( 'WP_PHPUNIT__DIR' ) . '/includes/functions.php';
@@ -13,7 +14,7 @@ require_once getenv( 'WP_PHPUNIT__DIR' ) . '/includes/functions.php';
 tests_add_filter(
 	'muplugins_loaded',
 	function() {
-
+		require_once dirname( __DIR__, 1 ) . '/plugin.php';
 	}
 );
 

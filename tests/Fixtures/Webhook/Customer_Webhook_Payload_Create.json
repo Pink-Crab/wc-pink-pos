@@ -1,0 +1,37 @@
+{
+    "action": "create",
+    "type": "customer",
+    "employee": {
+        "id": 1,
+        "name": "Joe Bloggs"
+    },
+    "date": "",
+    "data": {
+        "customer_id": 12,
+        "name": "Customer Betty",
+        "email": "betty@customer.com",
+        "phone": "",
+        "marketing": ["phone"],
+        "ecommerce_sync": true,
+        "billing_address": {
+            "address_1": "12 Street Road",
+            "address_2": "",
+            "town": "Townsville",
+            "county": "Countyshire",
+            "postcode": "TO1 2CS",
+            "country": "UK"
+        },
+        "delivery_address": {
+            "address_1": "12 Street Road",
+            "address_2": "",
+            "town": "Townsville",
+            "county": "Countyshire",
+            "postcode": "TO1 2CS",
+            "country": "UK"
+        },
+        "notes": [
+            "Some note 1",
+            "Some note 2"
+        ]
+    }
+}

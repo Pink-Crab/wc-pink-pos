@@ -8,10 +8,10 @@ declare (strict_types=1);
  * @author Glynn Quelch glynn@pinkcrab.co.uk
  * @since 0.0.1
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Route;
+namespace pc_pink_pos_0_0_1\PinkCrab\Route;
 
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route_Group;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route_Group;
 class Route_Factory
 {
     /**
@@ -30,7 +30,7 @@ class Route_Factory
      * @param string $namespace
      * @return Route_Factory
      */
-    public static function for(string $namespace) : \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route_Factory
+    public static function for(string $namespace) : \pc_pink_pos_0_0_1\PinkCrab\Route\Route_Factory
     {
         return new self($namespace);
     }
@@ -42,9 +42,9 @@ class Route_Factory
      * @param callable $callback
      * @return Route
      */
-    protected function request(string $method, string $route, callable $callback) : \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route
+    protected function request(string $method, string $route, callable $callback) : \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route
     {
-        $route = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route($method, $route);
+        $route = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route($method, $route);
         return $route->callback($callback)->namespace($this->namespace);
     }
     /**
@@ -54,9 +54,9 @@ class Route_Factory
      * @param callable $callback
      * @return Route
      */
-    public function get(string $route, callable $callback) : \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route
+    public function get(string $route, callable $callback) : \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route
     {
-        return $this->request(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route::GET, $route, $callback);
+        return $this->request(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route::GET, $route, $callback);
     }
     /**
      * Creates a post request route with the defined namespace.
@@ -65,9 +65,9 @@ class Route_Factory
      * @param callable $callback
      * @return Route
      */
-    public function post(string $route, callable $callback) : \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route
+    public function post(string $route, callable $callback) : \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route
     {
-        return $this->request(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route::POST, $route, $callback);
+        return $this->request(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route::POST, $route, $callback);
     }
     /**
      * Creates a put request route with the defined namespace.
@@ -76,9 +76,9 @@ class Route_Factory
      * @param callable $callback
      * @return Route
      */
-    public function put(string $route, callable $callback) : \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route
+    public function put(string $route, callable $callback) : \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route
     {
-        return $this->request(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route::PUT, $route, $callback);
+        return $this->request(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route::PUT, $route, $callback);
     }
     /**
      * Creates a patch request route with the defined namespace.
@@ -87,9 +87,9 @@ class Route_Factory
      * @param callable $callback
      * @return Route
      */
-    public function patch(string $route, callable $callback) : \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route
+    public function patch(string $route, callable $callback) : \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route
     {
-        return $this->request(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route::PATCH, $route, $callback);
+        return $this->request(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route::PATCH, $route, $callback);
     }
     /**
      * Creates a delete request route with the defined namespace.
@@ -98,9 +98,9 @@ class Route_Factory
      * @param callable $callback
      * @return Route
      */
-    public function delete(string $route, callable $callback) : \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route
+    public function delete(string $route, callable $callback) : \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route
     {
-        return $this->request(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route::DELETE, $route, $callback);
+        return $this->request(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route::DELETE, $route, $callback);
     }
     /**
      * Allows the building of a group.
@@ -109,9 +109,9 @@ class Route_Factory
      * @param callable|null $config
      * @return Route_Group
      */
-    public function group_builder(string $route, ?callable $config) : \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route_Group
+    public function group_builder(string $route, ?callable $config) : \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route_Group
     {
-        $group = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route_Group($this->namespace, $route);
+        $group = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route_Group($this->namespace, $route);
         // Apply the callback.
         if (!\is_null($config)) {
             $config($group);

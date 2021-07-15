@@ -21,11 +21,11 @@ declare (strict_types=1);
  * @package PinkCrab\Route
  *
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Route\Tests\Unit\Registration;
+namespace pc_pink_pos_0_0_1\PinkCrab\Route\Tests\Unit\Registration;
 
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route_Group;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Tests\Fixtures\HTTP_TestCase;
-class Test_Group_Registration extends \pinkcrab_cccp_0_0_1\PinkCrab\Route\Tests\Fixtures\HTTP_TestCase
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route_Group;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Tests\Fixtures\HTTP_TestCase;
+class Test_Group_Registration extends \pc_pink_pos_0_0_1\PinkCrab\Route\Tests\Fixtures\HTTP_TestCase
 {
     /** Returns a callable for returnnig a 200 response with the passed data.*/
     protected function callback_provider(array $response_data) : callable
@@ -45,7 +45,7 @@ class Test_Group_Registration extends \pinkcrab_cccp_0_0_1\PinkCrab\Route\Tests\
     public function test_can_register_route_group() : void
     {
         // Mocked route.
-        $group = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route_Group('pinkcrab/v1', '/group-route');
+        $group = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route_Group('pinkcrab/v1', '/group-route');
         $group->get($this->callback_provider(['method' => 'get']));
         $group->post($this->callback_provider(['method' => 'post']))->authentication(function ($request) : bool {
             return $request->get_header('extra-key') === 'bar';

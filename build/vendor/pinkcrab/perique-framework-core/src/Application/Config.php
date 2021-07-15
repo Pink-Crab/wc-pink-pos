@@ -9,10 +9,10 @@ declare (strict_types=1);
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
  * @package PinkCrab\Perique
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Perique\Application;
+namespace pc_pink_pos_0_0_1\PinkCrab\Perique\Application;
 
-use pinkcrab_cccp_0_0_1\PinkCrab\Perique\Application\App;
-use pinkcrab_cccp_0_0_1\PinkCrab\Perique\Application\App_Config;
+use pc_pink_pos_0_0_1\PinkCrab\Perique\Application\App;
+use pc_pink_pos_0_0_1\PinkCrab\Perique\Application\App_Config;
 class Config
 {
     /**
@@ -33,7 +33,7 @@ class Config
     {
         if (!self::$config_cache) {
             /** @phpstan-ignore-next-line */
-            self::$config_cache = \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Application\App::make(\pinkcrab_cccp_0_0_1\PinkCrab\Perique\Application\App_Config::class);
+            self::$config_cache = \pc_pink_pos_0_0_1\PinkCrab\Perique\Application\App::make(\pc_pink_pos_0_0_1\PinkCrab\Perique\Application\App_Config::class);
         }
         return self::$config_cache->{$method}(...$params);
     }

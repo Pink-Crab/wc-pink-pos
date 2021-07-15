@@ -9,11 +9,11 @@ declare (strict_types=1);
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
  * @package PinkCrab\Collection
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Core\Tests\Collection;
+namespace pc_pink_pos_0_0_1\PinkCrab\Core\Tests\Collection;
 
 use OutOfRangeException;
 use PHPUnit\Framework\TestCase;
-use pinkcrab_cccp_0_0_1\PinkCrab\Collection\Tests\Fixtures\Indexed_Collection;
+use pc_pink_pos_0_0_1\PinkCrab\Collection\Tests\Fixtures\Indexed_Collection;
 class Test_Indexed_Collection_Trait extends \PHPUnit\Framework\TestCase
 {
     /**
@@ -23,7 +23,7 @@ class Test_Indexed_Collection_Trait extends \PHPUnit\Framework\TestCase
      */
     public function test_can_check_if_collection_has_index() : void
     {
-        $collection = new \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Tests\Fixtures\Indexed_Collection(array('a' => 1, 'b' => 2));
+        $collection = new \pc_pink_pos_0_0_1\PinkCrab\Collection\Tests\Fixtures\Indexed_Collection(array('a' => 1, 'b' => 2));
         $this->assertTrue($collection->has('b'));
         $this->assertFalse($collection->has('f'));
     }
@@ -34,7 +34,7 @@ class Test_Indexed_Collection_Trait extends \PHPUnit\Framework\TestCase
      */
     public function test_can_find_value_key_index() : void
     {
-        $collection = new \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Tests\Fixtures\Indexed_Collection(array('a' => 1, 'b' => 2));
+        $collection = new \pc_pink_pos_0_0_1\PinkCrab\Collection\Tests\Fixtures\Indexed_Collection(array('a' => 1, 'b' => 2));
         $this->assertEquals(2, $collection->get('b'));
     }
     /**
@@ -45,7 +45,7 @@ class Test_Indexed_Collection_Trait extends \PHPUnit\Framework\TestCase
     public function test_throws_exception_if_keys_inst_set() : void
     {
         $this->expectException(\OutOfRangeException::class);
-        $collection = new \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Tests\Fixtures\Indexed_Collection(array('a' => 1, 'b' => 2));
+        $collection = new \pc_pink_pos_0_0_1\PinkCrab\Collection\Tests\Fixtures\Indexed_Collection(array('a' => 1, 'b' => 2));
         $collection->get('c');
     }
     /**
@@ -55,7 +55,7 @@ class Test_Indexed_Collection_Trait extends \PHPUnit\Framework\TestCase
      */
     public function test_can_set_at_index() : void
     {
-        $collection = new \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Tests\Fixtures\Indexed_Collection(array('a' => 1, 'b' => 2));
+        $collection = new \pc_pink_pos_0_0_1\PinkCrab\Collection\Tests\Fixtures\Indexed_Collection(array('a' => 1, 'b' => 2));
         $collection->set('c', 3);
         $this->assertEquals(3, $collection->get('c'));
         // Test can overwrite.
@@ -69,7 +69,7 @@ class Test_Indexed_Collection_Trait extends \PHPUnit\Framework\TestCase
      */
     public function test_can_find_by_value() : void
     {
-        $collection = new \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Tests\Fixtures\Indexed_Collection(array('a' => 1, 'b' => 2, 'c' => 1, 'd' => 1));
+        $collection = new \pc_pink_pos_0_0_1\PinkCrab\Collection\Tests\Fixtures\Indexed_Collection(array('a' => 1, 'b' => 2, 'c' => 1, 'd' => 1));
         $this->assertEquals('a', $collection->find(1));
         // Usuing objects.
         $obj_a = new class
@@ -77,7 +77,7 @@ class Test_Indexed_Collection_Trait extends \PHPUnit\Framework\TestCase
             public $property = 'value';
         };
         $obj_b = (object) array('property' => 'value');
-        $collection_objects = new \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Tests\Fixtures\Indexed_Collection(array('a' => $obj_a, 'b' => $obj_b, 'c' => $obj_a));
+        $collection_objects = new \pc_pink_pos_0_0_1\PinkCrab\Collection\Tests\Fixtures\Indexed_Collection(array('a' => $obj_a, 'b' => $obj_b, 'c' => $obj_a));
         $this->assertEquals('a', $collection_objects->find($obj_a));
         $this->assertEquals('b', $collection_objects->find($obj_b));
         // Should fail as not same instance.
@@ -90,7 +90,7 @@ class Test_Indexed_Collection_Trait extends \PHPUnit\Framework\TestCase
      */
     public function test_can_remove_by_index() : void
     {
-        $collection = new \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Tests\Fixtures\Indexed_Collection(array('a' => 1, 'b' => 2, 'c' => 3, 'd' => 4));
+        $collection = new \pc_pink_pos_0_0_1\PinkCrab\Collection\Tests\Fixtures\Indexed_Collection(array('a' => 1, 'b' => 2, 'c' => 3, 'd' => 4));
         $this->assertEquals(3, $collection->remove('c'));
         $this->assertFalse($collection->has('c'));
     }
@@ -102,7 +102,7 @@ class Test_Indexed_Collection_Trait extends \PHPUnit\Framework\TestCase
     public function test_throws_exception_if_keys_isnt_set_for_remove() : void
     {
         $this->expectException(\OutOfRangeException::class);
-        $collection = new \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Tests\Fixtures\Indexed_Collection(array('a' => 1, 'b' => 2));
+        $collection = new \pc_pink_pos_0_0_1\PinkCrab\Collection\Tests\Fixtures\Indexed_Collection(array('a' => 1, 'b' => 2));
         $collection->remove('c');
     }
 }

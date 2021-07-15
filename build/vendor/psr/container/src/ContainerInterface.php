@@ -1,7 +1,7 @@
 <?php
 
 declare (strict_types=1);
-namespace pinkcrab_cccp_0_0_1\Psr\Container;
+namespace pc_pink_pos_0_0_1\Psr\Container;
 
 /**
  * Describes the interface of a container that exposes methods to read its entries.

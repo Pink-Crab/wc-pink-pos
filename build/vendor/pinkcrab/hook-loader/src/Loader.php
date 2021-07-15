@@ -22,12 +22,12 @@ declare (strict_types=1);
  * @package PinkCrab\Loader
  * @deprecated 1.1.2 This will be removed in future versions
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Loader;
+namespace pc_pink_pos_0_0_1\PinkCrab\Loader;
 
 /**
  * @deprecated 1.1.2
  */
-class Loader extends \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook_Loader
+class Loader extends \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook_Loader
 {
     /**
      * Boots the loader as a static instance.
@@ -37,6 +37,6 @@ class Loader extends \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook_Loader
      */
     public static function boot() : self
     {
-        return new \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Loader();
+        return new \pc_pink_pos_0_0_1\PinkCrab\Loader\Loader();
     }
 }

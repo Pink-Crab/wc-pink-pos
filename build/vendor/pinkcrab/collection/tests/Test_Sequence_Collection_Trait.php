@@ -9,14 +9,14 @@ declare (strict_types=1);
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
  * @package PinkCrab\Collection
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Core\Tests\Collection;
+namespace pc_pink_pos_0_0_1\PinkCrab\Core\Tests\Collection;
 
 use TypeError;
 use PHPUnit\Framework\TestCase;
 use UnderflowException;
-use pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection;
-use pinkcrab_cccp_0_0_1\PinkCrab\Collection\Tests\Fixtures\Sample_Class;
-use pinkcrab_cccp_0_0_1\PinkCrab\Collection\Tests\Fixtures\Sequence_Collection;
+use pc_pink_pos_0_0_1\PinkCrab\Collection\Collection;
+use pc_pink_pos_0_0_1\PinkCrab\Collection\Tests\Fixtures\Sample_Class;
+use pc_pink_pos_0_0_1\PinkCrab\Collection\Tests\Fixtures\Sequence_Collection;
 class Test_Sequence_Collection_Trait extends \PHPUnit\Framework\TestCase
 {
     /**
@@ -26,7 +26,7 @@ class Test_Sequence_Collection_Trait extends \PHPUnit\Framework\TestCase
      */
     public function test_can_reverse() : void
     {
-        $collection = new \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Tests\Fixtures\Sequence_Collection(array(1, 2, 3, 4, 5));
+        $collection = new \pc_pink_pos_0_0_1\PinkCrab\Collection\Tests\Fixtures\Sequence_Collection(array(1, 2, 3, 4, 5));
         $collection->reverse();
         $this->assertEquals(5, $collection->to_array()[0]);
         $this->assertEquals(4, $collection->to_array()[1]);
@@ -42,7 +42,7 @@ class Test_Sequence_Collection_Trait extends \PHPUnit\Framework\TestCase
      */
     public function test_can_reversed() : void
     {
-        $collection = new \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Tests\Fixtures\Sequence_Collection(array(1, 2, 3, 4, 5));
+        $collection = new \pc_pink_pos_0_0_1\PinkCrab\Collection\Tests\Fixtures\Sequence_Collection(array(1, 2, 3, 4, 5));
         $reversed = $collection->reversed();
         $this->assertEquals(5, $reversed->to_array()[0]);
         $this->assertEquals(4, $reversed->to_array()[1]);
@@ -59,7 +59,7 @@ class Test_Sequence_Collection_Trait extends \PHPUnit\Framework\TestCase
      */
     public function test_can_rotate() : void
     {
-        $collection = new \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Tests\Fixtures\Sequence_Collection(array(1, 2, 3, 4, 5));
+        $collection = new \pc_pink_pos_0_0_1\PinkCrab\Collection\Tests\Fixtures\Sequence_Collection(array(1, 2, 3, 4, 5));
         $this->assertEquals(1, $collection->to_array()[0]);
         $collection->rotate(1);
         $this->assertEquals(2, $collection->to_array()[0]);
@@ -79,7 +79,7 @@ class Test_Sequence_Collection_Trait extends \PHPUnit\Framework\TestCase
      */
     public function test_can_get_first_value()
     {
-        $collection = new \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Tests\Fixtures\Sequence_Collection(array(1, 2, 3, 4, 5));
+        $collection = new \pc_pink_pos_0_0_1\PinkCrab\Collection\Tests\Fixtures\Sequence_Collection(array(1, 2, 3, 4, 5));
         $this->assertEquals(1, $collection->first());
     }
     /**
@@ -90,7 +90,7 @@ class Test_Sequence_Collection_Trait extends \PHPUnit\Framework\TestCase
     public function test_throws_if_getting_first_of_empty_collection() : void
     {
         $this->expectException(\UnderflowException::class);
-        $collection = \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Tests\Fixtures\Sequence_Collection::from(array());
+        $collection = \pc_pink_pos_0_0_1\PinkCrab\Collection\Tests\Fixtures\Sequence_Collection::from(array());
         $collection->first();
     }
     /**
@@ -100,7 +100,7 @@ class Test_Sequence_Collection_Trait extends \PHPUnit\Framework\TestCase
      */
     public function test_can_get_last_value()
     {
-        $collection = new \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Tests\Fixtures\Sequence_Collection(array(1, 2, 3, 4, 5));
+        $collection = new \pc_pink_pos_0_0_1\PinkCrab\Collection\Tests\Fixtures\Sequence_Collection(array(1, 2, 3, 4, 5));
         $this->assertEquals(5, $collection->last());
     }
     /**
@@ -111,7 +111,7 @@ class Test_Sequence_Collection_Trait extends \PHPUnit\Framework\TestCase
     public function test_throws_if_getting_last_of_empty_collection() : void
     {
         $this->expectException(\UnderflowException::class);
-        $collection = \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Tests\Fixtures\Sequence_Collection::from(array());
+        $collection = \pc_pink_pos_0_0_1\PinkCrab\Collection\Tests\Fixtures\Sequence_Collection::from(array());
         $collection->last();
     }
     /**
@@ -121,7 +121,7 @@ class Test_Sequence_Collection_Trait extends \PHPUnit\Framework\TestCase
      */
     public function test_can_sum_collection() : void
     {
-        $collection = new \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Tests\Fixtures\Sequence_Collection(array(1, 2, 3, 4, 5));
+        $collection = new \pc_pink_pos_0_0_1\PinkCrab\Collection\Tests\Fixtures\Sequence_Collection(array(1, 2, 3, 4, 5));
         $this->assertEquals(15, $collection->sum());
     }
     /**
@@ -131,7 +131,7 @@ class Test_Sequence_Collection_Trait extends \PHPUnit\Framework\TestCase
      */
     public function test_ignores_none_numerical_values() : void
     {
-        $collection = new \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Tests\Fixtures\Sequence_Collection(array(1, 'tree', '2', 5, 9.9));
+        $collection = new \pc_pink_pos_0_0_1\PinkCrab\Collection\Tests\Fixtures\Sequence_Collection(array(1, 'tree', '2', 5, 9.9));
         $this->assertEquals(17.9, $collection->sum());
     }
     /**
@@ -142,7 +142,7 @@ class Test_Sequence_Collection_Trait extends \PHPUnit\Framework\TestCase
     public function test_can_join_collection_to_string() : void
     {
         $inital_data = array(1, 2, 3, 4);
-        $collection = \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection::from($inital_data);
+        $collection = \pc_pink_pos_0_0_1\PinkCrab\Collection\Collection::from($inital_data);
         $this->assertEquals('1234', $collection->join());
         $this->assertEquals('1-2-3-4', $collection->join('-'));
     }

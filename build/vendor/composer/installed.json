@@ -26,7 +26,7 @@
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "pinkcrab_cccp_0_0_1\\Dice\\": ".\/"
+                    "pc_pink_pos_0_0_1\\Dice\\": ".\/"
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -88,7 +88,7 @@
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "pinkcrab_cccp_0_0_1\\PinkCrab\\Collection\\": "src"
+                    "pc_pink_pos_0_0_1\\PinkCrab\\Collection\\": "src"
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -148,7 +148,7 @@
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "pinkcrab_cccp_0_0_1\\PinkCrab\\Loader\\": "src"
+                    "pc_pink_pos_0_0_1\\PinkCrab\\Loader\\": "src"
                 },
                 "files": [
                     "tests\/Fixtures\/functions.php"
@@ -213,7 +213,7 @@
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "pinkcrab_cccp_0_0_1\\PinkCrab\\Perique\\": "src"
+                    "pc_pink_pos_0_0_1\\PinkCrab\\Perique\\": "src"
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -275,7 +275,7 @@
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "pinkcrab_cccp_0_0_1\\PinkCrab\\Route\\": "src\/"
+                    "pc_pink_pos_0_0_1\\PinkCrab\\Route\\": "src\/"
                 },
                 "files": []
             },
@@ -322,7 +322,7 @@
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "pinkcrab_cccp_0_0_1\\Psr\\Container\\": "src\/"
+                    "pc_pink_pos_0_0_1\\Psr\\Container\\": "src\/"
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",

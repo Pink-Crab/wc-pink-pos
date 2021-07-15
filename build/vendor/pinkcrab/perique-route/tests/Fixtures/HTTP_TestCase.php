@@ -21,12 +21,12 @@ declare (strict_types=1);
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
  * @package PinkCrab\Route
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Route\Tests\Fixtures;
+namespace pc_pink_pos_0_0_1\PinkCrab\Route\Tests\Fixtures;
 
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Registration\Route_Manager;
-use pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook_Loader;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Registration\WP_Rest_Registrar;
-use pinkcrab_cccp_0_0_1\WP_REST_Response;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Registration\Route_Manager;
+use pc_pink_pos_0_0_1\PinkCrab\Loader\Hook_Loader;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Registration\WP_Rest_Registrar;
+use pc_pink_pos_0_0_1\WP_REST_Response;
 abstract class HTTP_TestCase extends \WP_UnitTestCase
 {
     /** @var Spy_REST_Server */
@@ -38,10 +38,10 @@ abstract class HTTP_TestCase extends \WP_UnitTestCase
         parent::setUp();
         add_filter('rest_url', array($this, 'filter_rest_url_for_leading_slash'), 10, 2);
         // Create route manager.
-        $this->route_manager = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Registration\Route_Manager(new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Registration\WP_Rest_Registrar(), new \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook_Loader());
+        $this->route_manager = new \pc_pink_pos_0_0_1\PinkCrab\Route\Registration\Route_Manager(new \pc_pink_pos_0_0_1\PinkCrab\Route\Registration\WP_Rest_Registrar(), new \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook_Loader());
         /** @var WP_REST_Server $wp_rest_server */
         global $wp_rest_server;
-        $wp_rest_server = new \pinkcrab_cccp_0_0_1\Spy_REST_Server();
+        $wp_rest_server = new \pc_pink_pos_0_0_1\Spy_REST_Server();
         $this->server = $wp_rest_server;
     }
     public function tearDown()

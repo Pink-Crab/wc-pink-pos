@@ -1,10 +1,10 @@
 <?php
 
-namespace pinkcrab_cccp_0_0_1\Psr\Container;
+namespace pc_pink_pos_0_0_1\Psr\Container;
 
 /**
  * No entry was found in the container.
  */
-interface NotFoundExceptionInterface extends \pinkcrab_cccp_0_0_1\Psr\Container\ContainerExceptionInterface
+interface NotFoundExceptionInterface extends \pc_pink_pos_0_0_1\Psr\Container\ContainerExceptionInterface
 {
 }

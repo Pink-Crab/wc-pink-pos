@@ -21,19 +21,19 @@ declare (strict_types=1);
  * @package PinkCrab\Route
  *
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Route\Tests\Unit\Registration;
+namespace pc_pink_pos_0_0_1\PinkCrab\Route\Tests\Unit\Registration;
 
-use pinkcrab_cccp_0_0_1\WP_REST_Response;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Tests\Fixtures\HTTP_TestCase;
-class Test_Route_Registration extends \pinkcrab_cccp_0_0_1\PinkCrab\Route\Tests\Fixtures\HTTP_TestCase
+use pc_pink_pos_0_0_1\WP_REST_Response;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Tests\Fixtures\HTTP_TestCase;
+class Test_Route_Registration extends \pc_pink_pos_0_0_1\PinkCrab\Route\Tests\Fixtures\HTTP_TestCase
 {
     /** @testdox A basic GET route with no auth or arguments should be accessible via a rest call. */
     public function test_get_route_no_arguments() : void
     {
         // Mocked route.
-        $route = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route('GET', '/test');
+        $route = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route('GET', '/test');
         $route->namespace('pinkcrab/v1');
         $route->callback(function ($request) {
             return new \WP_REST_Response(array('hi' => 'hello'));
@@ -55,7 +55,7 @@ class Test_Route_Registration extends \pinkcrab_cccp_0_0_1\PinkCrab\Route\Tests\
     public function test_put_with_authentication() : void
     {
         // Create route.
-        $route = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route('PUT', '/put-test');
+        $route = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route('PUT', '/put-test');
         $route->namespace('pinkcrab/v1');
         $route->callback(function ($request) {
             return new \WP_REST_Response(array('key_is' => '3'));
@@ -85,12 +85,12 @@ class Test_Route_Registration extends \pinkcrab_cccp_0_0_1\PinkCrab\Route\Tests\
     /** @testdox A route with arguments should allow arguments to validated and sanitized. */
     public function test_post_with_arguments() : void
     {
-        $route = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route('POST', '/post-test/(?P<id>[\\d]+)');
+        $route = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route('POST', '/post-test/(?P<id>[\\d]+)');
         $route->namespace('pinkcrab/v1');
         $route->callback(function ($request) {
             return new \WP_REST_Response($request->get_params());
         });
-        $route->argument(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument::on('id')->type('number')->validation(function ($value, $request, $key) {
+        $route->argument(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument::on('id')->type('number')->validation(function ($value, $request, $key) {
             return $value !== '9';
         })->sanitization(
             // Return 12 if value is 4

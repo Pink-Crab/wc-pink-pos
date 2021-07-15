@@ -1,7 +1,7 @@
 <?php
 
 declare (strict_types=1);
-namespace pinkcrab_cccp_0_0_1;
+namespace pc_pink_pos_0_0_1;
 
 /**
  * Assorted functions, assed to the global namespace.

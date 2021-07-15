@@ -20,13 +20,13 @@ declare (strict_types=1);
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
  * @package PinkCrab\Perique\Dice
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Perique\Services\Dice;
+namespace pc_pink_pos_0_0_1\PinkCrab\Perique\Services\Dice;
 
-use pinkcrab_cccp_0_0_1\Dice\Dice;
-use pinkcrab_cccp_0_0_1\PinkCrab\Perique\Application\Hooks;
-use pinkcrab_cccp_0_0_1\PinkCrab\Perique\Interfaces\DI_Container;
-use pinkcrab_cccp_0_0_1\PinkCrab\Perique\Exceptions\DI_Container_Exception;
-class PinkCrab_Dice implements \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Interfaces\DI_Container
+use pc_pink_pos_0_0_1\Dice\Dice;
+use pc_pink_pos_0_0_1\PinkCrab\Perique\Application\Hooks;
+use pc_pink_pos_0_0_1\PinkCrab\Perique\Interfaces\DI_Container;
+use pc_pink_pos_0_0_1\PinkCrab\Perique\Exceptions\DI_Container_Exception;
+class PinkCrab_Dice implements \pc_pink_pos_0_0_1\PinkCrab\Perique\Interfaces\DI_Container
 {
     /**
      * Holds the instance of DICE to work with.
@@ -39,7 +39,7 @@ class PinkCrab_Dice implements \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Interfaces\
      *
      * @param Dice $dice
      */
-    public function __construct(\pinkcrab_cccp_0_0_1\Dice\Dice $dice)
+    public function __construct(\pc_pink_pos_0_0_1\Dice\Dice $dice)
     {
         $this->dice = $dice;
     }
@@ -49,10 +49,10 @@ class PinkCrab_Dice implements \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Interfaces\
      * @param Dice $dice
      * @return self
      */
-    public static function withDice(\pinkcrab_cccp_0_0_1\Dice\Dice $dice) : self
+    public static function withDice(\pc_pink_pos_0_0_1\Dice\Dice $dice) : self
     {
         // phpcs:disable WordPress.NamingConventions.ValidFunctionName.MethodNameInvalid
-        return new \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Services\Dice\PinkCrab_Dice($dice);
+        return new \pc_pink_pos_0_0_1\PinkCrab\Perique\Services\Dice\PinkCrab_Dice($dice);
     }
     /**
      * ContainerInterface implementation of get.
@@ -64,7 +64,7 @@ class PinkCrab_Dice implements \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Interfaces\
     public function get($id)
     {
         if (!$this->has($id)) {
-            throw new \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Exceptions\DI_Container_Exception("{$id} not defined in container", 1);
+            throw new \pc_pink_pos_0_0_1\PinkCrab\Perique\Exceptions\DI_Container_Exception("{$id} not defined in container", 1);
         }
         return $this->create($id);
     }
@@ -96,7 +96,7 @@ class PinkCrab_Dice implements \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Interfaces\
      * @param array<string, string|object|array> $rule
      * @return PinkCrab_Dice
      */
-    public function addRule(string $name, array $rule) : \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Interfaces\DI_Container
+    public function addRule(string $name, array $rule) : \pc_pink_pos_0_0_1\PinkCrab\Perique\Interfaces\DI_Container
     {
         // phpcs:disable WordPress.NamingConventions.ValidFunctionName.MethodNameInvalid
         $this->dice = $this->dice->addRule($name, $rule);
@@ -108,10 +108,10 @@ class PinkCrab_Dice implements \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Interfaces\
      * @param array<string, array> $rules
      * @return PinkCrab_Dice
      */
-    public function addRules(array $rules) : \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Interfaces\DI_Container
+    public function addRules(array $rules) : \pc_pink_pos_0_0_1\PinkCrab\Perique\Interfaces\DI_Container
     {
         // phpcs:disable WordPress.NamingConventions.ValidFunctionName.MethodNameInvalid
-        $this->dice = $this->dice->addRules(apply_filters(\pinkcrab_cccp_0_0_1\PinkCrab\Perique\Application\Hooks::APP_INIT_SET_DI_RULES, $rules));
+        $this->dice = $this->dice->addRules(apply_filters(\pc_pink_pos_0_0_1\PinkCrab\Perique\Application\Hooks::APP_INIT_SET_DI_RULES, $rules));
         return $this;
     }
     /**

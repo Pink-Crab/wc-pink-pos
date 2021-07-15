@@ -21,17 +21,17 @@ declare (strict_types=1);
  * @package PinkCrab\Route
  *
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Route\Tests\Unit\Registration;
+namespace pc_pink_pos_0_0_1\PinkCrab\Route\Tests\Unit\Registration;
 
-use pinkcrab_cccp_0_0_1\WP_UnitTestCase;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route;
-use pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook_Loader;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument;
-use pinkcrab_cccp_0_0_1\Gin0115\WPUnit_Helpers\Objects;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route_Group;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Registration\Route_Manager;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Registration\WP_Rest_Registrar;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route_Exception;
+use pc_pink_pos_0_0_1\WP_UnitTestCase;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route;
+use pc_pink_pos_0_0_1\PinkCrab\Loader\Hook_Loader;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument;
+use pc_pink_pos_0_0_1\Gin0115\WPUnit_Helpers\Objects;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route_Group;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Registration\Route_Manager;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Registration\WP_Rest_Registrar;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route_Exception;
 class Test_Route_Manager extends \WP_UnitTestCase
 {
     /** @var Route_Manager */
@@ -39,27 +39,27 @@ class Test_Route_Manager extends \WP_UnitTestCase
     function setUp() : void
     {
         parent::setUp();
-        $this->route_manager = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Registration\Route_Manager(new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Registration\WP_Rest_Registrar(), new \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook_Loader());
+        $this->route_manager = new \pc_pink_pos_0_0_1\PinkCrab\Route\Registration\Route_Manager(new \pc_pink_pos_0_0_1\PinkCrab\Route\Registration\WP_Rest_Registrar(), new \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook_Loader());
     }
     /**
      * Returns a basic route group with post and get methods.
      *
      * @return \PinkCrab\Route\Route\Route_Group
      */
-    public static function basic_group_provider() : \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route_Group
+    public static function basic_group_provider() : \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route_Group
     {
-        $group = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route_Group('acme', '/route');
-        $group->get('is_string')->argument(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument::on('id')->type('string'))->authentication('is_string');
+        $group = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route_Group('acme', '/route');
+        $group->get('is_string')->argument(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument::on('id')->type('string'))->authentication('is_string');
         $group->post('is_array')->authentication('is_array');
         $group->authentication('is_bool');
-        $group->argument(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument::on('id')->type('boolean'));
+        $group->argument(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument::on('id')->type('boolean'));
         return $group;
     }
     /** @testdox It should be possible to create partially populated route based on the values set in the group. */
     public function test_can_create_base_route_from_group() : void
     {
         $group = self::basic_group_provider();
-        $route = \pinkcrab_cccp_0_0_1\Gin0115\WPUnit_Helpers\Objects::invoke_method($this->route_manager, 'create_base_route_from_group', array('GET', $group));
+        $route = \pc_pink_pos_0_0_1\Gin0115\WPUnit_Helpers\Objects::invoke_method($this->route_manager, 'create_base_route_from_group', array('GET', $group));
         $this->assertEquals('/route', $route->get_route());
         $this->assertEquals('acme', $route->get_namespace());
         $this->assertEquals('GET', $route->get_method());
@@ -70,7 +70,7 @@ class Test_Route_Manager extends \WP_UnitTestCase
     public function test_can_unpack_group() : void
     {
         $group = self::basic_group_provider();
-        $routes = \pinkcrab_cccp_0_0_1\Gin0115\WPUnit_Helpers\Objects::invoke_method($this->route_manager, 'unpack_group', array($group));
+        $routes = \pc_pink_pos_0_0_1\Gin0115\WPUnit_Helpers\Objects::invoke_method($this->route_manager, 'unpack_group', array($group));
         $this->assertIsArray($routes);
         $this->assertArrayHasKey('GET', $routes);
         $this->assertArrayHasKey('POST', $routes);
@@ -104,12 +104,12 @@ class Test_Route_Manager extends \WP_UnitTestCase
     /** @testdox If a group is created that has a route/method with no callback defined, an eror should be thrown and the registration process ended. */
     public function test_throws_exception_if_route_has_no_callback() : void
     {
-        $this->expectException(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route_Exception::class);
+        $this->expectException(\pc_pink_pos_0_0_1\PinkCrab\Route\Route_Exception::class);
         $this->expectExceptionCode(102);
         // Create a group with a route that has no callback.
-        $group = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route_Group('namespace', 'no-callback');
-        \pinkcrab_cccp_0_0_1\Gin0115\WPUnit_Helpers\Objects::set_property($group, 'routes', ['GET' => new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route('GET', 'ignore')]);
+        $group = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route_Group('namespace', 'no-callback');
+        \pc_pink_pos_0_0_1\Gin0115\WPUnit_Helpers\Objects::set_property($group, 'routes', ['GET' => new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route('GET', 'ignore')]);
         // Attempt to unpack
-        \pinkcrab_cccp_0_0_1\Gin0115\WPUnit_Helpers\Objects::invoke_method($this->route_manager, 'unpack_group', array($group));
+        \pc_pink_pos_0_0_1\Gin0115\WPUnit_Helpers\Objects::invoke_method($this->route_manager, 'unpack_group', array($group));
     }
 }

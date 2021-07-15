@@ -9,25 +9,25 @@ declare (strict_types=1);
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
  * @package PinkCrab\Loader
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Loader\Tests;
+namespace pc_pink_pos_0_0_1\PinkCrab\Loader\Tests;
 
 use PHPUnit\Framework\TestCase;
-use pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook;
-use pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook_Collection;
+use pc_pink_pos_0_0_1\PinkCrab\Loader\Hook;
+use pc_pink_pos_0_0_1\PinkCrab\Loader\Hook_Collection;
 class Test_Hook_Collection extends \PHPUnit\Framework\TestCase
 {
     /** @testdox When a Hook is pushed to a Hook_Collection is should be included in the collected */
     public function test_push() : void
     {
-        $collection = new \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook_Collection();
-        $collection->push(new \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook('action', 'is_string'));
+        $collection = new \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook_Collection();
+        $collection->push(new \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook('action', 'is_string'));
         $this->assertCount(1, $collection);
     }
     /** @testdox When being registered, the functionality will be applied to all Hooks */
     public function test_can_register_hooks() : void
     {
-        $collection = new \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook_Collection();
-        $collection->push(new \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook('action', 'is_string'));
+        $collection = new \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook_Collection();
+        $collection->push(new \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook('action', 'is_string'));
         $this->expectOutputString('action');
         $collection->register(function ($hook) {
             print $hook->get_handle();
@@ -36,15 +36,15 @@ class Test_Hook_Collection extends \PHPUnit\Framework\TestCase
     /** @testdox Hooks added to the collection can be removed one at a time as they were added */
     public function test_can_pop_hook_from_collection() : void
     {
-        $data = new \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook('action', 'is_string');
-        $collection = new \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook_Collection();
+        $data = new \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook('action', 'is_string');
+        $collection = new \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook_Collection();
         $collection->push($data);
         $this->assertSame($data, $collection->pop());
     }
     /** @testdox Attempting to get the last element and none of are set, it should return null.  */
     public function test_returns_null_if_pop_with_empty_collection() : void
     {
-        $collection = new \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook_Collection();
+        $collection = new \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook_Collection();
         $this->assertNull($collection->pop());
     }
 }

@@ -22,7 +22,7 @@ declare (strict_types=1);
  * @package PinkCrab\Collection
  * @phpcs:disable WordPress.NamingConventions.ValidFunctionName.MethodNameInvalid, conforms to ArrayAccess interface
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Collection\Traits;
+namespace pc_pink_pos_0_0_1\PinkCrab\Collection\Traits;
 
 trait Is_Iterable
 {

@@ -21,24 +21,24 @@ declare (strict_types=1);
  * @package PinkCrab\Route
  *
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Route\Tests\Unit\Route;
+namespace pc_pink_pos_0_0_1\PinkCrab\Route\Tests\Unit\Route;
 
-use pinkcrab_cccp_0_0_1\WP_UnitTestCase;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument;
+use pc_pink_pos_0_0_1\WP_UnitTestCase;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument;
 class Test_Route extends \WP_UnitTestCase
 {
     /** @testdox It should be possible to create a route using the method and route and be able to access those values. */
     public function test_get_route_get_method() : void
     {
-        $route = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route('GET', '/test/(?P<id>[\\d]+)');
+        $route = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route('GET', '/test/(?P<id>[\\d]+)');
         $this->assertEquals('GET', $route->get_method());
         $this->assertEquals('/test/(?P<id>[\\d]+)', $route->get_route());
     }
     /** @testdox It should be possible to stackup multiple authentication callbacks. */
     public function test_add_authentication() : void
     {
-        $route = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route('GET', '/route');
+        $route = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route('GET', '/route');
         $route->authentication('is_string');
         $route->authentication('is_bool');
         $this->AssertCount(2, $route->get_authentication());
@@ -48,14 +48,14 @@ class Test_Route extends \WP_UnitTestCase
     /** @testdox It should be possible to define and get the base namespace for a route. */
     public function test_set_get_namespace() : void
     {
-        $route = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route('GET', '/route');
+        $route = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route('GET', '/route');
         $route->namespace('namespace');
         $this->assertEquals('namespace', $route->get_namespace());
     }
     /** @testdox It should be possible to set and use the primary callback. */
     public function test_set_get_callback() : void
     {
-        $route = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route('GET', '/route');
+        $route = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route('GET', '/route');
         $route->callback(function (\WP_REST_Request $request) {
             return array('success', 200);
         });
@@ -65,9 +65,9 @@ class Test_Route extends \WP_UnitTestCase
     /** @testdox It  should be possible to set and get all arguments to a route. */
     public function test_can_set_get_arguments() : void
     {
-        $route = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route('GET', '/route');
-        $arg1 = \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument::on('arg1');
-        $arg2 = \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument::on('arg2');
+        $route = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route('GET', '/route');
+        $arg1 = \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument::on('arg1');
+        $arg2 = \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument::on('arg2');
         $route->argument($arg1);
         $route->argument($arg2);
         $this->assertSame($arg1, $route->get_arguments()['arg1']);
@@ -76,11 +76,11 @@ class Test_Route extends \WP_UnitTestCase
     /** @testdox It should be possible to create a copy of a route wth a different method type and have all other values retained. */
     public function test_with_method() : void
     {
-        $route = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route('GET', 'test/');
+        $route = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route('GET', 'test/');
         $route->callback('is_string');
         $route->namespace('NS');
-        $route->argument(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument::on('arg1'));
-        $route->argument(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument::on('arg2'));
+        $route->argument(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument::on('arg1'));
+        $route->argument(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument::on('arg2'));
         $route->authentication('is_string');
         $route->authentication('is_bool');
         // Create clone.

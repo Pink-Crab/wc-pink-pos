@@ -21,17 +21,17 @@ declare (strict_types=1);
  * @package PinkCrab\Perique
  * @since 0.4.0
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Perique\Application;
+namespace pc_pink_pos_0_0_1\PinkCrab\Perique\Application;
 
 use Closure;
-use pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook_Loader;
-use pinkcrab_cccp_0_0_1\PinkCrab\Perique\Application\Hooks;
-use pinkcrab_cccp_0_0_1\PinkCrab\Perique\Services\View\View;
-use pinkcrab_cccp_0_0_1\PinkCrab\Perique\Application\App_Config;
-use pinkcrab_cccp_0_0_1\PinkCrab\Perique\Interfaces\DI_Container;
-use pinkcrab_cccp_0_0_1\PinkCrab\Perique\Interfaces\Registration_Middleware;
-use pinkcrab_cccp_0_0_1\PinkCrab\Perique\Exceptions\App_Initialization_Exception;
-use pinkcrab_cccp_0_0_1\PinkCrab\Perique\Services\Registration\Registration_Service;
+use pc_pink_pos_0_0_1\PinkCrab\Loader\Hook_Loader;
+use pc_pink_pos_0_0_1\PinkCrab\Perique\Application\Hooks;
+use pc_pink_pos_0_0_1\PinkCrab\Perique\Services\View\View;
+use pc_pink_pos_0_0_1\PinkCrab\Perique\Application\App_Config;
+use pc_pink_pos_0_0_1\PinkCrab\Perique\Interfaces\DI_Container;
+use pc_pink_pos_0_0_1\PinkCrab\Perique\Interfaces\Registration_Middleware;
+use pc_pink_pos_0_0_1\PinkCrab\Perique\Exceptions\App_Initialization_Exception;
+use pc_pink_pos_0_0_1\PinkCrab\Perique\Services\Registration\Registration_Service;
 final class App
 {
     /**
@@ -80,10 +80,10 @@ final class App
      * @return self
      * @throws App_Initialization_Exception Code 2
      */
-    public function set_container(\pinkcrab_cccp_0_0_1\PinkCrab\Perique\Interfaces\DI_Container $container) : self
+    public function set_container(\pc_pink_pos_0_0_1\PinkCrab\Perique\Interfaces\DI_Container $container) : self
     {
         if (self::$container !== null) {
-            throw \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Exceptions\App_Initialization_Exception::di_container_exists();
+            throw \pc_pink_pos_0_0_1\PinkCrab\Perique\Exceptions\App_Initialization_Exception::di_container_exists();
         }
         self::$container = $container;
         return $this;
@@ -98,9 +98,9 @@ final class App
     public function set_app_config(array $settings) : self
     {
         if (self::$app_config !== null) {
-            throw \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Exceptions\App_Initialization_Exception::app_config_exists();
+            throw \pc_pink_pos_0_0_1\PinkCrab\Perique\Exceptions\App_Initialization_Exception::app_config_exists();
         }
-        self::$app_config = new \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Application\App_Config(apply_filters(\pinkcrab_cccp_0_0_1\PinkCrab\Perique\Application\Hooks::APP_INIT_CONFIG_VALUES, $settings));
+        self::$app_config = new \pc_pink_pos_0_0_1\PinkCrab\Perique\Application\App_Config(apply_filters(\pc_pink_pos_0_0_1\PinkCrab\Perique\Application\Hooks::APP_INIT_CONFIG_VALUES, $settings));
         return $this;
     }
     /**
@@ -109,10 +109,10 @@ final class App
      * @param \PinkCrab\Perique\Services\Registration\Registration_Service $registration
      * @return self
      */
-    public function set_registration_services(\pinkcrab_cccp_0_0_1\PinkCrab\Perique\Services\Registration\Registration_Service $registration) : self
+    public function set_registration_services(\pc_pink_pos_0_0_1\PinkCrab\Perique\Services\Registration\Registration_Service $registration) : self
     {
         if ($this->registration !== null) {
-            throw \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Exceptions\App_Initialization_Exception::registration_exists();
+            throw \pc_pink_pos_0_0_1\PinkCrab\Perique\Exceptions\App_Initialization_Exception::registration_exists();
         }
         $this->registration = $registration;
         return $this;
@@ -123,10 +123,10 @@ final class App
      * @param \PinkCrab\Loader\Hook_Loader $loader
      * @return self
      */
-    public function set_loader(\pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook_Loader $loader) : self
+    public function set_loader(\pc_pink_pos_0_0_1\PinkCrab\Loader\Hook_Loader $loader) : self
     {
         if ($this->loader !== null) {
-            throw \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Exceptions\App_Initialization_Exception::loader_exists();
+            throw \pc_pink_pos_0_0_1\PinkCrab\Perique\Exceptions\App_Initialization_Exception::loader_exists();
         }
         $this->loader = $loader;
         return $this;
@@ -141,7 +141,7 @@ final class App
     public function container_config(callable $callback) : self
     {
         if (self::$container === null) {
-            throw \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Exceptions\App_Initialization_Exception::requires_di_container();
+            throw \pc_pink_pos_0_0_1\PinkCrab\Perique\Exceptions\App_Initialization_Exception::requires_di_container();
         }
         $callback(self::$container);
         return $this;
@@ -153,10 +153,10 @@ final class App
      * @return self
      * @throws App_Initialization_Exception Code 3
      */
-    public function registration_middleware(\pinkcrab_cccp_0_0_1\PinkCrab\Perique\Interfaces\Registration_Middleware $middleware) : self
+    public function registration_middleware(\pc_pink_pos_0_0_1\PinkCrab\Perique\Interfaces\Registration_Middleware $middleware) : self
     {
         if ($this->registration === null) {
-            throw \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Exceptions\App_Initialization_Exception::requires_registration_service();
+            throw \pc_pink_pos_0_0_1\PinkCrab\Perique\Exceptions\App_Initialization_Exception::requires_registration_service();
         }
         $this->registration->push_middleware($middleware);
         return $this;
@@ -171,7 +171,7 @@ final class App
     public function registration_classes(array $class_list) : self
     {
         if ($this->registration === null) {
-            throw \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Exceptions\App_Initialization_Exception::requires_registration_service();
+            throw \pc_pink_pos_0_0_1\PinkCrab\Perique\Exceptions\App_Initialization_Exception::requires_registration_service();
         }
         $this->registration->set_classes($class_list);
         return $this;
@@ -184,9 +184,9 @@ final class App
     public function boot() : self
     {
         // Validate.
-        $validate = new \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Application\App_Validation($this);
+        $validate = new \pc_pink_pos_0_0_1\PinkCrab\Perique\Application\App_Validation($this);
         if ($validate->validate() === \false || $this->registration === null) {
-            throw \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Exceptions\App_Initialization_Exception::failed_boot_validation($validate->errors);
+            throw \pc_pink_pos_0_0_1\PinkCrab\Perique\Exceptions\App_Initialization_Exception::failed_boot_validation($validate->errors);
         }
         // Process registration
         $this->registration->set_container(self::$container);
@@ -203,16 +203,16 @@ final class App
     protected function finalise() : self
     {
         // Bind self to container.
-        self::$container->addRule('*', array('substitutions' => array(self::class => $this, \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Interfaces\DI_Container::class => self::$container)));
-        self::$container->addRule(\pinkcrab_cccp_0_0_1\PinkCrab\Perique\Application\App_Config::class, array('constructParams' => array(self::$app_config->export_settings())));
+        self::$container->addRule('*', array('substitutions' => array(self::class => $this, \pc_pink_pos_0_0_1\PinkCrab\Perique\Interfaces\DI_Container::class => self::$container)));
+        self::$container->addRule(\pc_pink_pos_0_0_1\PinkCrab\Perique\Application\App_Config::class, array('constructParams' => array(self::$app_config->export_settings())));
         /** @hook{string, App_Config, Loader, DI_Container} */
-        do_action(\pinkcrab_cccp_0_0_1\PinkCrab\Perique\Application\Hooks::APP_INIT_PRE_BOOT, self::$app_config, $this->loader, self::$container);
+        do_action(\pc_pink_pos_0_0_1\PinkCrab\Perique\Application\Hooks::APP_INIT_PRE_BOOT, self::$app_config, $this->loader, self::$container);
         // phpcs:disable WordPress.NamingConventions.ValidHookName.*
         // Initialise on init
         add_action('init', function () {
-            do_action(\pinkcrab_cccp_0_0_1\PinkCrab\Perique\Application\Hooks::APP_INIT_PRE_REGISTRATION, self::$app_config, $this->loader, self::$container);
+            do_action(\pc_pink_pos_0_0_1\PinkCrab\Perique\Application\Hooks::APP_INIT_PRE_REGISTRATION, self::$app_config, $this->loader, self::$container);
             $this->registration->process();
-            do_action(\pinkcrab_cccp_0_0_1\PinkCrab\Perique\Application\Hooks::APP_INIT_POST_REGISTRATION, self::$app_config, $this->loader, self::$container);
+            do_action(\pc_pink_pos_0_0_1\PinkCrab\Perique\Application\Hooks::APP_INIT_POST_REGISTRATION, self::$app_config, $this->loader, self::$container);
             $this->loader->register_hooks();
         }, 1);
         return $this;
@@ -229,7 +229,7 @@ final class App
     public static function make(string $class, array $args = array())
     {
         if (self::$booted === \false) {
-            throw \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Exceptions\App_Initialization_Exception::app_not_initialized(\pinkcrab_cccp_0_0_1\PinkCrab\Perique\Interfaces\DI_Container::class);
+            throw \pc_pink_pos_0_0_1\PinkCrab\Perique\Exceptions\App_Initialization_Exception::app_not_initialized(\pc_pink_pos_0_0_1\PinkCrab\Perique\Interfaces\DI_Container::class);
         }
         return self::$container->create($class, $args);
     }
@@ -244,7 +244,7 @@ final class App
     public static function config(string $key, string ...$child)
     {
         if (self::$booted === \false) {
-            throw \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Exceptions\App_Initialization_Exception::app_not_initialized(\pinkcrab_cccp_0_0_1\PinkCrab\Perique\Application\App_Config::class);
+            throw \pc_pink_pos_0_0_1\PinkCrab\Perique\Exceptions\App_Initialization_Exception::app_not_initialized(\pc_pink_pos_0_0_1\PinkCrab\Perique\Application\App_Config::class);
         }
         return self::$app_config->{$key}(...$child);
     }
@@ -254,13 +254,13 @@ final class App
      * @return View|null
      * @throws App_Initialization_Exception Code 4
      */
-    public static function view() : ?\pinkcrab_cccp_0_0_1\PinkCrab\Perique\Services\View\View
+    public static function view() : ?\pc_pink_pos_0_0_1\PinkCrab\Perique\Services\View\View
     {
         if (self::$booted === \false) {
-            throw \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Exceptions\App_Initialization_Exception::app_not_initialized(\pinkcrab_cccp_0_0_1\PinkCrab\Perique\Services\View\View::class);
+            throw \pc_pink_pos_0_0_1\PinkCrab\Perique\Exceptions\App_Initialization_Exception::app_not_initialized(\pc_pink_pos_0_0_1\PinkCrab\Perique\Services\View\View::class);
         }
         /** @var ?View */
-        return self::$container->create(\pinkcrab_cccp_0_0_1\PinkCrab\Perique\Services\View\View::class);
+        return self::$container->create(\pc_pink_pos_0_0_1\PinkCrab\Perique\Services\View\View::class);
     }
     /** @return array{container:DI_Container,app_config:App_Config,booted:bool} */
     public function __debugInfo()
@@ -274,7 +274,7 @@ final class App
      */
     public function has_app_config() : bool
     {
-        return \is_a(self::$app_config, \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Application\App_Config::class);
+        return \is_a(self::$app_config, \pc_pink_pos_0_0_1\PinkCrab\Perique\Application\App_Config::class);
     }
     /**
      * Returns the defined container.
@@ -282,11 +282,11 @@ final class App
      * @return DI_Container
      * @throws App_Initialization_Exception (Code 1)
      */
-    public function get_container() : \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Interfaces\DI_Container
+    public function get_container() : \pc_pink_pos_0_0_1\PinkCrab\Perique\Interfaces\DI_Container
     {
         if (self::$container === null) {
             // Throw container not set.
-            throw \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Exceptions\App_Initialization_Exception::requires_di_container();
+            throw \pc_pink_pos_0_0_1\PinkCrab\Perique\Exceptions\App_Initialization_Exception::requires_di_container();
         }
         return self::$container;
     }

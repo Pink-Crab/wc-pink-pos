@@ -1,13 +1,13 @@
 <?php
 
-namespace pinkcrab_cccp_0_0_1;
+namespace pc_pink_pos_0_0_1;
 
 /* @description Dice - A minimal Dependency Injection Container for PHP *
  * @author Tom Butler tom@r.je *
  * @copyright 2012-2018 Tom Butler <tom@r.je> | https:// r.je/dice.html *
  * @license http:// www.opensource.org/licenses/bsd-license.php BSD License *
  * @version 3.0 */
-class BasicTest extends \pinkcrab_cccp_0_0_1\DiceTest
+class BasicTest extends \pc_pink_pos_0_0_1\DiceTest
 {
     public function testCreate()
     {
@@ -142,13 +142,13 @@ class BasicTest extends \pinkcrab_cccp_0_0_1\DiceTest
     {
         //write to the global $_GET variable
         $_GET['foo'] = 'bar';
-        $dice = $this->dice->addRule('CheckConstructorArgs', ['constructParams' => [[\pinkcrab_cccp_0_0_1\Dice\Dice::GLOBAL => '_GET']]]);
+        $dice = $this->dice->addRule('CheckConstructorArgs', ['constructParams' => [[\pc_pink_pos_0_0_1\Dice\Dice::GLOBAL => '_GET']]]);
         $obj = $dice->create('CheckConstructorArgs');
         $this->assertEquals($_GET, $obj->arg1);
     }
     public function testPassConstantString()
     {
-        $dice = $this->dice->addRule('CheckConstructorArgs', ['constructParams' => [[\pinkcrab_cccp_0_0_1\Dice\Dice::CONSTANT => '\\PDO::FETCH_ASSOC']]]);
+        $dice = $this->dice->addRule('CheckConstructorArgs', ['constructParams' => [[\pc_pink_pos_0_0_1\Dice\Dice::CONSTANT => '\\PDO::FETCH_ASSOC']]]);
         $obj = $dice->create('CheckConstructorArgs');
         $this->assertEquals(\PDO::FETCH_ASSOC, $obj->arg1);
     }
@@ -160,7 +160,7 @@ class BasicTest extends \pinkcrab_cccp_0_0_1\DiceTest
     }
     public function testPassSelf()
     {
-        $dice = $this->dice->addRule('CheckConstructorArgs', ['constructParams' => [[\pinkcrab_cccp_0_0_1\Dice\Dice::INSTANCE => \pinkcrab_cccp_0_0_1\Dice\Dice::SELF]]]);
+        $dice = $this->dice->addRule('CheckConstructorArgs', ['constructParams' => [[\pc_pink_pos_0_0_1\Dice\Dice::INSTANCE => \pc_pink_pos_0_0_1\Dice\Dice::SELF]]]);
         $obj = $dice->create('CheckConstructorArgs');
         $this->assertEquals($dice, $obj->arg1);
     }
@@ -178,4 +178,4 @@ class BasicTest extends \pinkcrab_cccp_0_0_1\DiceTest
  * @copyright 2012-2018 Tom Butler <tom@r.je> | https:// r.je/dice.html *
  * @license http:// www.opensource.org/licenses/bsd-license.php BSD License *
  * @version 3.0 */
-\class_alias('pinkcrab_cccp_0_0_1\\BasicTest', 'BasicTest', \false);
+\class_alias('pc_pink_pos_0_0_1\\BasicTest', 'BasicTest', \false);

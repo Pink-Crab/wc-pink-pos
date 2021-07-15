@@ -9,7 +9,7 @@ declare (strict_types=1);
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
  * @package PinkCrab\Perique
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Perique\Application;
+namespace pc_pink_pos_0_0_1\PinkCrab\Perique\Application;
 
 class Hooks
 {

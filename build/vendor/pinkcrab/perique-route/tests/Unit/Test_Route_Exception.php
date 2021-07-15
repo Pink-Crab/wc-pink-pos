@@ -21,19 +21,19 @@ declare (strict_types=1);
  * @package PinkCrab\Route
  *
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Route\Tests\Unit;
+namespace pc_pink_pos_0_0_1\PinkCrab\Route\Tests\Unit;
 
 use Exception;
-use pinkcrab_cccp_0_0_1\WP_UnitTestCase;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route_Exception;
+use pc_pink_pos_0_0_1\WP_UnitTestCase;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route_Exception;
 class Test_Route_Exception extends \WP_UnitTestCase
 {
     /** @testdox It should be possible to create an exception for a route with no namespace */
     public function test_missing_namespace() : void
     {
-        $exception = \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route_Exception::namespace_not_defined('no__namespace');
-        $this->assertInstanceOf(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route_Exception::class, $exception);
+        $exception = \pc_pink_pos_0_0_1\PinkCrab\Route\Route_Exception::namespace_not_defined('no__namespace');
+        $this->assertInstanceOf(\pc_pink_pos_0_0_1\PinkCrab\Route\Route_Exception::class, $exception);
         $this->assertInstanceOf(\Exception::class, $exception);
         $this->assertEquals(101, $exception->getCode());
         $this->assertEquals('Namespace not defined in no__namespace', $exception->getMessage());
@@ -41,24 +41,24 @@ class Test_Route_Exception extends \WP_UnitTestCase
     /** @testdox It should be possible to create an exception for a route with no callback */
     public function test_missing_callback_exception() : void
     {
-        $route = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route('GET', 'route');
+        $route = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route('GET', 'route');
         $route->namespace('namespace');
-        $exception = \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route_Exception::callback_not_defined($route);
-        $this->assertInstanceOf(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route_Exception::class, $exception);
+        $exception = \pc_pink_pos_0_0_1\PinkCrab\Route\Route_Exception::callback_not_defined($route);
+        $this->assertInstanceOf(\pc_pink_pos_0_0_1\PinkCrab\Route\Route_Exception::class, $exception);
         $this->assertInstanceOf(\Exception::class, $exception);
         $this->assertEquals(102, $exception->getCode());
         $this->assertEquals('Callback not defined for [GET] NAMESPACE/ROUTE', $exception->getMessage());
         // With no namespace supplied
-        $route2 = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route('PUT', 'no-ns');
-        $exception2 = \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route_Exception::callback_not_defined($route2);
+        $route2 = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route('PUT', 'no-ns');
+        $exception2 = \pc_pink_pos_0_0_1\PinkCrab\Route\Route_Exception::callback_not_defined($route2);
         $this->assertEquals('Callback not defined for [PUT] _MISSING_NAMESPACE_/NO-NS', $exception2->getMessage());
     }
     /** @testdox It should be possible to create and exception for a route with an invlid method */
     public function test_invalid_method() : void
     {
-        $route = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route('INVALID', 'route');
-        $exception = \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route_Exception::invalid_http_method($route);
-        $this->assertInstanceOf(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route_Exception::class, $exception);
+        $route = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route('INVALID', 'route');
+        $exception = \pc_pink_pos_0_0_1\PinkCrab\Route\Route_Exception::invalid_http_method($route);
+        $this->assertInstanceOf(\pc_pink_pos_0_0_1\PinkCrab\Route\Route_Exception::class, $exception);
         $this->assertInstanceOf(\Exception::class, $exception);
         $this->assertEquals(103, $exception->getCode());
         $this->assertEquals('INVALID is a none supported HTTP Mehtod.', $exception->getMessage());

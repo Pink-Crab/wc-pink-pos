@@ -8,7 +8,7 @@ declare (strict_types=1);
  * @author Glynn Quelch glynn@pinkcrab.co.uk
  * @since 0.0.1
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Route\Route;
+namespace pc_pink_pos_0_0_1\PinkCrab\Route\Route;
 
 class Argument
 {

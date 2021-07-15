@@ -21,9 +21,9 @@ declare (strict_types=1);
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
  * @package PinkCrab\Loader
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Loader;
+namespace pc_pink_pos_0_0_1\PinkCrab\Loader;
 
-use pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook;
+use pc_pink_pos_0_0_1\PinkCrab\Loader\Hook;
 class Hook_Factory
 {
     /**
@@ -37,10 +37,10 @@ class Hook_Factory
      * @param boolean $is_public
      * @return Hook
      */
-    public function action(string $handle, callable $callable, int $args = 1, int $priroty = 10, bool $is_admin = \true, bool $is_public = \true) : \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook
+    public function action(string $handle, callable $callable, int $args = 1, int $priroty = 10, bool $is_admin = \true, bool $is_public = \true) : \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook
     {
-        $hook = new \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook($handle, $callable, $priroty, $args);
-        $hook->type(\pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook::ACTION);
+        $hook = new \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook($handle, $callable, $priroty, $args);
+        $hook->type(\pc_pink_pos_0_0_1\PinkCrab\Loader\Hook::ACTION);
         $hook->admin($is_admin);
         $hook->front($is_public);
         return $hook;
@@ -56,10 +56,10 @@ class Hook_Factory
      * @param boolean $is_public
      * @return Hook
      */
-    public function filter(string $handle, callable $callable, int $args = 1, int $priroty = 10, bool $is_admin = \true, bool $is_public = \true) : \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook
+    public function filter(string $handle, callable $callable, int $args = 1, int $priroty = 10, bool $is_admin = \true, bool $is_public = \true) : \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook
     {
-        $hook = new \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook($handle, $callable, $priroty, $args);
-        $hook->type(\pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook::FILTER);
+        $hook = new \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook($handle, $callable, $priroty, $args);
+        $hook->type(\pc_pink_pos_0_0_1\PinkCrab\Loader\Hook::FILTER);
         $hook->admin($is_admin);
         $hook->front($is_public);
         return $hook;
@@ -72,10 +72,10 @@ class Hook_Factory
      * @param integer $priroty
      * @return Hook
      */
-    public function remove(string $handle, $callable, int $priroty = 10) : \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook
+    public function remove(string $handle, $callable, int $priroty = 10) : \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook
     {
-        $hook = new \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook($handle, $callable, $priroty);
-        $hook->type(\pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook::REMOVE);
+        $hook = new \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook($handle, $callable, $priroty);
+        $hook->type(\pc_pink_pos_0_0_1\PinkCrab\Loader\Hook::REMOVE);
         return $hook;
     }
     /**
@@ -85,10 +85,10 @@ class Hook_Factory
      * @param callable $callable
      * @return Hook
      */
-    public function shortcode(string $handle, callable $callable) : \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook
+    public function shortcode(string $handle, callable $callable) : \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook
     {
-        $hook = new \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook($handle, $callable);
-        $hook->type(\pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook::SHORTCODE);
+        $hook = new \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook($handle, $callable);
+        $hook->type(\pc_pink_pos_0_0_1\PinkCrab\Loader\Hook::SHORTCODE);
         return $hook;
     }
     /**
@@ -100,10 +100,10 @@ class Hook_Factory
      * @param boolean $public
      * @return Hook
      */
-    public function ajax(string $handle, callable $callable, bool $public = \true, bool $private = \true) : \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook
+    public function ajax(string $handle, callable $callable, bool $public = \true, bool $private = \true) : \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook
     {
-        $hook = new \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook($handle, $callable);
-        $hook->type(\pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook::AJAX);
+        $hook = new \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook($handle, $callable);
+        $hook->type(\pc_pink_pos_0_0_1\PinkCrab\Loader\Hook::AJAX);
         $hook->ajax_private($private);
         $hook->ajax_public($public);
         return $hook;

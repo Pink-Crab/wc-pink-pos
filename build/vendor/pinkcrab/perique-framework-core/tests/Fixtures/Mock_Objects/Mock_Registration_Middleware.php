@@ -12,10 +12,10 @@ declare (strict_types=1);
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
  * @package PinkCrab\Perique
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Perique\Tests\Fixtures\Mock_Objects;
+namespace pc_pink_pos_0_0_1\PinkCrab\Perique\Tests\Fixtures\Mock_Objects;
 
-use pinkcrab_cccp_0_0_1\PinkCrab\Perique\Interfaces\Registration_Middleware;
-class Mock_Registration_Middleware implements \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Interfaces\Registration_Middleware
+use pc_pink_pos_0_0_1\PinkCrab\Perique\Interfaces\Registration_Middleware;
+class Mock_Registration_Middleware implements \pc_pink_pos_0_0_1\PinkCrab\Perique\Interfaces\Registration_Middleware
 {
     public $message;
     /** Used for testing setup and teardown */

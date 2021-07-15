@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInita27474360419c8e7db1ab556b114ea0f
+class ComposerStaticInitfcf86c0ed39aadbe044c5df9a053f153
 {
     public static $files = array (
         'be8785f285476d960a9374d1a827f21a' => __DIR__ . '/..' . '/pinkcrab/hook-loader/tests/Fixtures/functions.php',
@@ -13,112 +13,123 @@ class ComposerStaticInita27474360419c8e7db1ab556b114ea0f
     public static $prefixLengthsPsr4 = array (
         'p' => 
         array (
-            'pinkcrab_cccp_0_0_1\\Psr\\Container\\' => 34,
-            'pinkcrab_cccp_0_0_1\\PinkCrab\\WC_Pink_Pos\\Tests\\' => 47,
-            'pinkcrab_cccp_0_0_1\\PinkCrab\\WC_Pink_Pos\\' => 41,
-            'pinkcrab_cccp_0_0_1\\PinkCrab\\Route\\' => 35,
-            'pinkcrab_cccp_0_0_1\\PinkCrab\\Perique\\' => 37,
-            'pinkcrab_cccp_0_0_1\\PinkCrab\\Loader\\' => 36,
-            'pinkcrab_cccp_0_0_1\\PinkCrab\\Collection\\' => 40,
-            'pinkcrab_cccp_0_0_1\\Dice\\' => 25,
+            'pc_pink_pos_0_0_1\\Psr\\Container\\' => 32,
+            'pc_pink_pos_0_0_1\\PinkCrab\\Route\\' => 33,
+            'pc_pink_pos_0_0_1\\PinkCrab\\Perique\\' => 35,
+            'pc_pink_pos_0_0_1\\PinkCrab\\Loader\\' => 34,
+            'pc_pink_pos_0_0_1\\PinkCrab\\Collection\\' => 38,
+            'pc_pink_pos_0_0_1\\Dice\\' => 23,
+        ),
+        'P' => 
+        array (
+            'PinkCrab\\WC_Pink_Pos\\Tests\\' => 27,
+            'PinkCrab\\WC_Pink_Pos\\' => 21,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'pinkcrab_cccp_0_0_1\\Psr\\Container\\' => 
+        'pc_pink_pos_0_0_1\\Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
         ),
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\WC_Pink_Pos\\Tests\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/../tests',
-        ),
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\WC_Pink_Pos\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/../src',
-        ),
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Route\\' => 
+        'pc_pink_pos_0_0_1\\PinkCrab\\Route\\' => 
         array (
             0 => __DIR__ . '/..' . '/pinkcrab/perique-route/src',
         ),
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Perique\\' => 
+        'pc_pink_pos_0_0_1\\PinkCrab\\Perique\\' => 
         array (
             0 => __DIR__ . '/..' . '/pinkcrab/perique-framework-core/src',
         ),
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Loader\\' => 
+        'pc_pink_pos_0_0_1\\PinkCrab\\Loader\\' => 
         array (
             0 => __DIR__ . '/..' . '/pinkcrab/hook-loader/src',
         ),
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Collection\\' => 
+        'pc_pink_pos_0_0_1\\PinkCrab\\Collection\\' => 
         array (
             0 => __DIR__ . '/..' . '/pinkcrab/collection/src',
         ),
-        'pinkcrab_cccp_0_0_1\\Dice\\' => 
+        'pc_pink_pos_0_0_1\\Dice\\' => 
         array (
             0 => __DIR__ . '/..' . '/level-2/dice',
+        ),
+        'PinkCrab\\WC_Pink_Pos\\Tests\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/../tests',
+        ),
+        'PinkCrab\\WC_Pink_Pos\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/../src',
         ),
     );
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'pinkcrab_cccp_0_0_1\\Dice\\Dice' => __DIR__ . '/..' . '/level-2/dice/Dice.php',
-        'pinkcrab_cccp_0_0_1\\Dice\\Extra\\RuleValidator' => __DIR__ . '/..' . '/level-2/dice/Extra/RuleValidator.php',
-        'pinkcrab_cccp_0_0_1\\Dice\\Loader\\Xml' => __DIR__ . '/..' . '/level-2/dice/Loader/Xml.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Collection\\Collection' => __DIR__ . '/..' . '/pinkcrab/collection/src/Collection.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Collection\\Traits\\Has_ArrayAccess' => __DIR__ . '/..' . '/pinkcrab/collection/src/Traits/Has_ArrayAccess.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Collection\\Traits\\Indexed' => __DIR__ . '/..' . '/pinkcrab/collection/src/Traits/Indexed.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Collection\\Traits\\Is_Iterable' => __DIR__ . '/..' . '/pinkcrab/collection/src/Traits/Is_Iterable.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Collection\\Traits\\Is_JsonSerializable' => __DIR__ . '/..' . '/pinkcrab/collection/src/Traits/Is_JsonSerializable.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Collection\\Traits\\Sequence' => __DIR__ . '/..' . '/pinkcrab/collection/src/Traits/Sequence.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Loader\\Exceptions\\Invalid_Hook_Callback_Exception' => __DIR__ . '/..' . '/pinkcrab/hook-loader/src/Exceptions/Invalid_Hook_Callback_Exception.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Loader\\Hook' => __DIR__ . '/..' . '/pinkcrab/hook-loader/src/Hook.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Loader\\Hook_Collection' => __DIR__ . '/..' . '/pinkcrab/hook-loader/src/Hook_Collection.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Loader\\Hook_Factory' => __DIR__ . '/..' . '/pinkcrab/hook-loader/src/Hook_Factory.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Loader\\Hook_Loader' => __DIR__ . '/..' . '/pinkcrab/hook-loader/src/Hook_Loader.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Loader\\Hook_Manager' => __DIR__ . '/..' . '/pinkcrab/hook-loader/src/Hook_Manager.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Loader\\Hook_Removal' => __DIR__ . '/..' . '/pinkcrab/hook-loader/src/Hook_Removal.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Loader\\Loader' => __DIR__ . '/..' . '/pinkcrab/hook-loader/src/Loader.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Perique\\Application\\App' => __DIR__ . '/..' . '/pinkcrab/perique-framework-core/src/Application/App.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Perique\\Application\\App_Config' => __DIR__ . '/..' . '/pinkcrab/perique-framework-core/src/Application/App_Config.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Perique\\Application\\App_Factory' => __DIR__ . '/..' . '/pinkcrab/perique-framework-core/src/Application/App_Factory.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Perique\\Application\\App_Validation' => __DIR__ . '/..' . '/pinkcrab/perique-framework-core/src/Application/App_Validation.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Perique\\Application\\Config' => __DIR__ . '/..' . '/pinkcrab/perique-framework-core/src/Application/Config.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Perique\\Application\\Hooks' => __DIR__ . '/..' . '/pinkcrab/perique-framework-core/src/Application/Hooks.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Perique\\Exceptions\\App_Initialization_Exception' => __DIR__ . '/..' . '/pinkcrab/perique-framework-core/src/Exceptions/App_Initialization_Exception.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Perique\\Exceptions\\DI_Container_Exception' => __DIR__ . '/..' . '/pinkcrab/perique-framework-core/src/Exceptions/DI_Container_Exception.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Perique\\Interfaces\\DI_Container' => __DIR__ . '/..' . '/pinkcrab/perique-framework-core/src/Interfaces/DI_Container.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Perique\\Interfaces\\Hookable' => __DIR__ . '/..' . '/pinkcrab/perique-framework-core/src/Interfaces/Hookable.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Perique\\Interfaces\\Registration_Middleware' => __DIR__ . '/..' . '/pinkcrab/perique-framework-core/src/Interfaces/Registration_Middleware.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Perique\\Interfaces\\Renderable' => __DIR__ . '/..' . '/pinkcrab/perique-framework-core/src/Interfaces/Renderable.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Perique\\Services\\Dice\\PinkCrab_Dice' => __DIR__ . '/..' . '/pinkcrab/perique-framework-core/src/Services/Dice/PinkCrab_Dice.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Perique\\Services\\Registration\\Middleware\\Hookable_Middleware' => __DIR__ . '/..' . '/pinkcrab/perique-framework-core/src/Services/Registration/Middleware/Hookable_Middleware.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Perique\\Services\\Registration\\Registration_Service' => __DIR__ . '/..' . '/pinkcrab/perique-framework-core/src/Services/Registration/Registration_Service.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Perique\\Services\\View\\PHP_Engine' => __DIR__ . '/..' . '/pinkcrab/perique-framework-core/src/Services/View/PHP_Engine.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Perique\\Services\\View\\View' => __DIR__ . '/..' . '/pinkcrab/perique-framework-core/src/Services/View/View.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Route\\Registration\\Route_Manager' => __DIR__ . '/..' . '/pinkcrab/perique-route/src/Registration/Route_Manager.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Route\\Registration\\WP_Rest_Registrar' => __DIR__ . '/..' . '/pinkcrab/perique-route/src/Registration/WP_Rest_Registrar.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Route\\Registration\\WP_Rest_Route' => __DIR__ . '/..' . '/pinkcrab/perique-route/src/Registration/WP_Rest_Route.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Route\\Registration_Middleware\\Route_Controller' => __DIR__ . '/..' . '/pinkcrab/perique-route/src/Registration_Middleware/Route_Controller.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Route\\Registration_Middleware\\Route_Middleware' => __DIR__ . '/..' . '/pinkcrab/perique-route/src/Registration_Middleware/Route_Middleware.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Route\\Route\\Abstract_Route' => __DIR__ . '/..' . '/pinkcrab/perique-route/src/Route/Abstract_Route.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Route\\Route\\Argument' => __DIR__ . '/..' . '/pinkcrab/perique-route/src/Route/Argument.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Route\\Route\\Route' => __DIR__ . '/..' . '/pinkcrab/perique-route/src/Route/Route.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Route\\Route\\Route_Group' => __DIR__ . '/..' . '/pinkcrab/perique-route/src/Route/Route_Group.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Route\\Route_Collection' => __DIR__ . '/..' . '/pinkcrab/perique-route/src/Route_Collection.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Route\\Route_Exception' => __DIR__ . '/..' . '/pinkcrab/perique-route/src/Route_Exception.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Route\\Route_Factory' => __DIR__ . '/..' . '/pinkcrab/perique-route/src/Route_Factory.php',
-        'pinkcrab_cccp_0_0_1\\PinkCrab\\Route\\Utils' => __DIR__ . '/..' . '/pinkcrab/perique-route/src/Utils.php',
-        'pinkcrab_cccp_0_0_1\\Psr\\Container\\ContainerExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerExceptionInterface.php',
-        'pinkcrab_cccp_0_0_1\\Psr\\Container\\ContainerInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerInterface.php',
-        'pinkcrab_cccp_0_0_1\\Psr\\Container\\NotFoundExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/NotFoundExceptionInterface.php',
+        'PinkCrab\\WC_Pink_Pos\\Sample' => __DIR__ . '/../..' . '/../src/Sample.php',
+        'PinkCrab\\WC_Pink_Pos\\Webhook\\Authentication\\Webhook_Authentication' => __DIR__ . '/../..' . '/../src/Webhook/Authentication/Webhook_Authentication.php',
+        'PinkCrab\\WC_Pink_Pos\\Webhook\\Customer\\Customer_Route_Controller' => __DIR__ . '/../..' . '/../src/Webhook/Customer/Customer_Route_Controller.php',
+        'PinkCrab\\WC_Pink_Pos\\Webhook\\Customer\\Customer_Webhook_Subscriber' => __DIR__ . '/../..' . '/../src/Webhook/Customer/Customer_Webhook_Subscriber.php',
+        'PinkCrab\\WC_Pink_Pos\\Webhook\\Webhook' => __DIR__ . '/../..' . '/../src/Webhook/Webhook.php',
+        'PinkCrab\\WC_Pink_Pos\\Webhook\\Webhook_Hooks' => __DIR__ . '/../..' . '/../src/Webhook/Webhook_Hooks.php',
+        'PinkCrab\\WC_Pink_Pos\\Webhook\\Webhook_Settings' => __DIR__ . '/../..' . '/../src/Webhook/Webhook_Settings.php',
+        'PinkCrab\\WC_Pink_Pos\\Webhook\\Webhook_Subscriber' => __DIR__ . '/../..' . '/../src/Webhook/Webhook_Subscriber.php',
+        'pc_pink_pos_0_0_1\\Dice\\Dice' => __DIR__ . '/..' . '/level-2/dice/Dice.php',
+        'pc_pink_pos_0_0_1\\Dice\\Extra\\RuleValidator' => __DIR__ . '/..' . '/level-2/dice/Extra/RuleValidator.php',
+        'pc_pink_pos_0_0_1\\Dice\\Loader\\Xml' => __DIR__ . '/..' . '/level-2/dice/Loader/Xml.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Collection\\Collection' => __DIR__ . '/..' . '/pinkcrab/collection/src/Collection.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Collection\\Traits\\Has_ArrayAccess' => __DIR__ . '/..' . '/pinkcrab/collection/src/Traits/Has_ArrayAccess.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Collection\\Traits\\Indexed' => __DIR__ . '/..' . '/pinkcrab/collection/src/Traits/Indexed.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Collection\\Traits\\Is_Iterable' => __DIR__ . '/..' . '/pinkcrab/collection/src/Traits/Is_Iterable.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Collection\\Traits\\Is_JsonSerializable' => __DIR__ . '/..' . '/pinkcrab/collection/src/Traits/Is_JsonSerializable.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Collection\\Traits\\Sequence' => __DIR__ . '/..' . '/pinkcrab/collection/src/Traits/Sequence.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Loader\\Exceptions\\Invalid_Hook_Callback_Exception' => __DIR__ . '/..' . '/pinkcrab/hook-loader/src/Exceptions/Invalid_Hook_Callback_Exception.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Loader\\Hook' => __DIR__ . '/..' . '/pinkcrab/hook-loader/src/Hook.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Loader\\Hook_Collection' => __DIR__ . '/..' . '/pinkcrab/hook-loader/src/Hook_Collection.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Loader\\Hook_Factory' => __DIR__ . '/..' . '/pinkcrab/hook-loader/src/Hook_Factory.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Loader\\Hook_Loader' => __DIR__ . '/..' . '/pinkcrab/hook-loader/src/Hook_Loader.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Loader\\Hook_Manager' => __DIR__ . '/..' . '/pinkcrab/hook-loader/src/Hook_Manager.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Loader\\Hook_Removal' => __DIR__ . '/..' . '/pinkcrab/hook-loader/src/Hook_Removal.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Loader\\Loader' => __DIR__ . '/..' . '/pinkcrab/hook-loader/src/Loader.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Perique\\Application\\App' => __DIR__ . '/..' . '/pinkcrab/perique-framework-core/src/Application/App.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Perique\\Application\\App_Config' => __DIR__ . '/..' . '/pinkcrab/perique-framework-core/src/Application/App_Config.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Perique\\Application\\App_Factory' => __DIR__ . '/..' . '/pinkcrab/perique-framework-core/src/Application/App_Factory.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Perique\\Application\\App_Validation' => __DIR__ . '/..' . '/pinkcrab/perique-framework-core/src/Application/App_Validation.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Perique\\Application\\Config' => __DIR__ . '/..' . '/pinkcrab/perique-framework-core/src/Application/Config.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Perique\\Application\\Hooks' => __DIR__ . '/..' . '/pinkcrab/perique-framework-core/src/Application/Hooks.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Perique\\Exceptions\\App_Initialization_Exception' => __DIR__ . '/..' . '/pinkcrab/perique-framework-core/src/Exceptions/App_Initialization_Exception.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Perique\\Exceptions\\DI_Container_Exception' => __DIR__ . '/..' . '/pinkcrab/perique-framework-core/src/Exceptions/DI_Container_Exception.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Perique\\Interfaces\\DI_Container' => __DIR__ . '/..' . '/pinkcrab/perique-framework-core/src/Interfaces/DI_Container.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Perique\\Interfaces\\Hookable' => __DIR__ . '/..' . '/pinkcrab/perique-framework-core/src/Interfaces/Hookable.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Perique\\Interfaces\\Registration_Middleware' => __DIR__ . '/..' . '/pinkcrab/perique-framework-core/src/Interfaces/Registration_Middleware.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Perique\\Interfaces\\Renderable' => __DIR__ . '/..' . '/pinkcrab/perique-framework-core/src/Interfaces/Renderable.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Perique\\Services\\Dice\\PinkCrab_Dice' => __DIR__ . '/..' . '/pinkcrab/perique-framework-core/src/Services/Dice/PinkCrab_Dice.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Perique\\Services\\Registration\\Middleware\\Hookable_Middleware' => __DIR__ . '/..' . '/pinkcrab/perique-framework-core/src/Services/Registration/Middleware/Hookable_Middleware.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Perique\\Services\\Registration\\Registration_Service' => __DIR__ . '/..' . '/pinkcrab/perique-framework-core/src/Services/Registration/Registration_Service.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Perique\\Services\\View\\PHP_Engine' => __DIR__ . '/..' . '/pinkcrab/perique-framework-core/src/Services/View/PHP_Engine.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Perique\\Services\\View\\View' => __DIR__ . '/..' . '/pinkcrab/perique-framework-core/src/Services/View/View.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Route\\Registration\\Route_Manager' => __DIR__ . '/..' . '/pinkcrab/perique-route/src/Registration/Route_Manager.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Route\\Registration\\WP_Rest_Registrar' => __DIR__ . '/..' . '/pinkcrab/perique-route/src/Registration/WP_Rest_Registrar.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Route\\Registration\\WP_Rest_Route' => __DIR__ . '/..' . '/pinkcrab/perique-route/src/Registration/WP_Rest_Route.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Route\\Registration_Middleware\\Route_Controller' => __DIR__ . '/..' . '/pinkcrab/perique-route/src/Registration_Middleware/Route_Controller.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Route\\Registration_Middleware\\Route_Middleware' => __DIR__ . '/..' . '/pinkcrab/perique-route/src/Registration_Middleware/Route_Middleware.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Route\\Route\\Abstract_Route' => __DIR__ . '/..' . '/pinkcrab/perique-route/src/Route/Abstract_Route.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Route\\Route\\Argument' => __DIR__ . '/..' . '/pinkcrab/perique-route/src/Route/Argument.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Route\\Route\\Route' => __DIR__ . '/..' . '/pinkcrab/perique-route/src/Route/Route.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Route\\Route\\Route_Group' => __DIR__ . '/..' . '/pinkcrab/perique-route/src/Route/Route_Group.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Route\\Route_Collection' => __DIR__ . '/..' . '/pinkcrab/perique-route/src/Route_Collection.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Route\\Route_Exception' => __DIR__ . '/..' . '/pinkcrab/perique-route/src/Route_Exception.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Route\\Route_Factory' => __DIR__ . '/..' . '/pinkcrab/perique-route/src/Route_Factory.php',
+        'pc_pink_pos_0_0_1\\PinkCrab\\Route\\Utils' => __DIR__ . '/..' . '/pinkcrab/perique-route/src/Utils.php',
+        'pc_pink_pos_0_0_1\\Psr\\Container\\ContainerExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerExceptionInterface.php',
+        'pc_pink_pos_0_0_1\\Psr\\Container\\ContainerInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerInterface.php',
+        'pc_pink_pos_0_0_1\\Psr\\Container\\NotFoundExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/NotFoundExceptionInterface.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInita27474360419c8e7db1ab556b114ea0f::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInita27474360419c8e7db1ab556b114ea0f::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInita27474360419c8e7db1ab556b114ea0f::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitfcf86c0ed39aadbe044c5df9a053f153::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitfcf86c0ed39aadbe044c5df9a053f153::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitfcf86c0ed39aadbe044c5df9a053f153::$classMap;
 
         }, null, ClassLoader::class);
     }

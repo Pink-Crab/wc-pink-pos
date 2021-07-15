@@ -21,17 +21,17 @@ declare (strict_types=1);
  * @package PinkCrab\Route
  *
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Route\Tests\Unit\Route;
+namespace pc_pink_pos_0_0_1\PinkCrab\Route\Tests\Unit\Route;
 
-use pinkcrab_cccp_0_0_1\WP_UnitTestCase;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument;
+use pc_pink_pos_0_0_1\WP_UnitTestCase;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument;
 class Test_Argument extends \WP_UnitTestCase
 {
     /** @testdox It should be possible to create an argument using the static constructor without the config callable passed*/
     public function test_static_constructor_without_config() : void
     {
-        $argument = \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument::on('id')->validation('is_string')->sanitization('esc_html');
-        $this->assertInstanceOf(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument::class, $argument);
+        $argument = \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument::on('id')->validation('is_string')->sanitization('esc_html');
+        $this->assertInstanceOf(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument::class, $argument);
         $this->assertEquals('id', $argument->get_key());
         $this->assertEquals('is_string', $argument->get_validation());
         $this->assertEquals('esc_html', $argument->get_sanitization());
@@ -39,10 +39,10 @@ class Test_Argument extends \WP_UnitTestCase
     /** @testdox It should be possible to create an argument using the static constructor with the config callable passed*/
     public function test_can_use_static_constructor_with_config_param() : void
     {
-        $argument = \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument::on('id', function (\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument $argument) : Argument {
+        $argument = \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument::on('id', function (\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument $argument) : Argument {
             return $argument->validation('is_string')->sanitization('esc_html');
         });
-        $this->assertInstanceOf(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument::class, $argument);
+        $this->assertInstanceOf(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument::class, $argument);
         $this->assertEquals('id', $argument->get_key());
         $this->assertEquals('is_string', $argument->get_validation());
         $this->assertEquals('esc_html', $argument->get_sanitization());
@@ -50,21 +50,21 @@ class Test_Argument extends \WP_UnitTestCase
     /** @testdox It should be possible to set and get the validation callback. */
     public function test_set_get_validation() : void
     {
-        $argument = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument('id');
+        $argument = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument('id');
         $argument->validation('is_float');
         $this->assertEquals('is_float', $argument->get_validation());
     }
     /** @testdox It should be possible to set and get the sanitization callback. */
     public function test_set_get_sanitization() : void
     {
-        $argument = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument('id');
+        $argument = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument('id');
         $argument->sanitization('esc_attr');
         $this->assertEquals('esc_attr', $argument->get_sanitization());
     }
     /** @testdox By defalt an argument should have its required property set to false, but it should be possible to change that*/
     public function test_required_is_set_false_by_default() : void
     {
-        $argument = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument('id');
+        $argument = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument('id');
         $this->assertFalse($argument->is_required());
         // Set to true (without passing true)
         $argument->required();
@@ -79,24 +79,24 @@ class Test_Argument extends \WP_UnitTestCase
     /** @testdox It should be possible to set the type of an arguments value and have access to class constants for easy setting */
     public function test_set_argument_type() : void
     {
-        $argument = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument('id');
+        $argument = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument('id');
         // Integer
-        $argument->type(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument::TYPE_INTEGER);
+        $argument->type(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument::TYPE_INTEGER);
         $this->assertEquals('integer', $argument->get_type());
         // Number
-        $argument->type(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument::TYPE_NUMBER);
+        $argument->type(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument::TYPE_NUMBER);
         $this->assertEquals('number', $argument->get_type());
         // Bool
-        $argument->type(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument::TYPE_BOOLEAN);
+        $argument->type(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument::TYPE_BOOLEAN);
         $this->assertEquals('boolean', $argument->get_type());
         // String
-        $argument->type(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument::TYPE_STRING);
+        $argument->type(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument::TYPE_STRING);
         $this->assertEquals('string', $argument->get_type());
     }
     /** @testdox It should be possible to set, get and check if an argument has a default applied. */
     public function test_argument_defaults() : void
     {
-        $argument = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument('id');
+        $argument = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument('id');
         // Should have no default
         $this->assertFalse($argument->has_default());
         $this->assertNull($argument->get_default());
@@ -108,7 +108,7 @@ class Test_Argument extends \WP_UnitTestCase
     /** @testdox It should be possible to set a description to an argument. */
     public function test_argument_description() : void
     {
-        $argument = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument('id');
+        $argument = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument('id');
         $this->assertEquals('', $argument->get_description());
         // With description.
         $argument->description('DESC');
@@ -117,25 +117,25 @@ class Test_Argument extends \WP_UnitTestCase
     /** @testdox It should be possible to set the format for an argument and have access to constants for accepted formats. */
     public function test_argument_format() : void
     {
-        $argument = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument('id');
+        $argument = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument('id');
         $this->assertNull($argument->get_format());
         // IP
-        $argument->format(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument::FORMAT_IP);
+        $argument->format(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument::FORMAT_IP);
         $this->assertEquals('ip', $argument->get_format());
         // Datetime
-        $argument->format(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument::FORMAT_DATE_TIME);
+        $argument->format(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument::FORMAT_DATE_TIME);
         $this->assertEquals('date-time', $argument->get_format());
         // Email
-        $argument->format(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument::FORMAT_EMAIL);
+        $argument->format(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument::FORMAT_EMAIL);
         $this->assertEquals('email', $argument->get_format());
         // URL
-        $argument->format(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument::FORMAT_URL);
+        $argument->format(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument::FORMAT_URL);
         $this->assertEquals('url', $argument->get_format());
     }
     /** @testdox It should be possible to set the expected values by pushing them either singulr or in a group. */
     public function test_expected_enum() : void
     {
-        $argument = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument('id');
+        $argument = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument('id');
         $this->assertNull($argument->get_expected());
         // It should be possible to push values.
         $argument->expected('ONE');
@@ -155,7 +155,7 @@ class Test_Argument extends \WP_UnitTestCase
     /** @testdox It should be possible to set a min value for a numerical argument and denote if the min value passed is exlcuded */
     public function test_minimum_with_exclusive() : void
     {
-        $argument = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument('id');
+        $argument = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument('id');
         $this->assertNull($argument->get_minimum());
         $this->assertFalse($argument->get_exclusive_minimum());
         // Set just min, but not exclusive
@@ -169,7 +169,7 @@ class Test_Argument extends \WP_UnitTestCase
     /** @testdox It should be possible to set a min value for a numerical argument and denote if the maximum value passed is exlcuded */
     public function test_maximum_with_exclusive() : void
     {
-        $argument = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument('id');
+        $argument = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument('id');
         $this->assertNull($argument->get_maximum());
         $this->assertFalse($argument->get_exclusive_maximum());
         // Set just min, but not exclusive

@@ -21,28 +21,28 @@ declare (strict_types=1);
  * @package PinkCrab\Route
  *
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Route\Tests\Unit\Registration;
+namespace pc_pink_pos_0_0_1\PinkCrab\Route\Tests\Unit\Registration;
 
-use pinkcrab_cccp_0_0_1\WP_UnitTestCase;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument;
-use pinkcrab_cccp_0_0_1\Gin0115\WPUnit_Helpers\Objects;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Registration\WP_Rest_Route;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Registration\WP_Rest_Registrar;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route_Exception;
+use pc_pink_pos_0_0_1\WP_UnitTestCase;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument;
+use pc_pink_pos_0_0_1\Gin0115\WPUnit_Helpers\Objects;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Registration\WP_Rest_Route;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Registration\WP_Rest_Registrar;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route_Exception;
 class Test_WP_Rest_Registrar extends \WP_UnitTestCase
 {
     /** @testdox When registering a route, the args array for register_rest_route() should be compiled from the Route object. */
     public function test_can_parse_options_with_args() : void
     {
-        $route = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route('GET', 'test');
+        $route = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route('GET', 'test');
         $route->namespace('NS');
         $route->authentication('is_array');
         $route->callback('is_string');
-        $route->argument(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument::on('id')->type(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument::TYPE_STRING)->sanitization('is_null')->validation('is_object')->required()->default('bacon'));
-        $route->argument(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument::on('all')->type(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument::TYPE_NUMBER)->sanitization('is_bool')->validation('is_array')->required(\false)->description('Description All')->format(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument::FORMAT_URL)->expected('tree', 'car')->default(12)->minimum(1)->exclusive_minimum()->maximum(45)->exclusive_maximum());
-        $registrar = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Registration\WP_Rest_Registrar();
-        $wp_route_args = \pinkcrab_cccp_0_0_1\Gin0115\WPUnit_Helpers\Objects::invoke_method($registrar, 'parse_options', array($route));
+        $route->argument(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument::on('id')->type(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument::TYPE_STRING)->sanitization('is_null')->validation('is_object')->required()->default('bacon'));
+        $route->argument(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument::on('all')->type(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument::TYPE_NUMBER)->sanitization('is_bool')->validation('is_array')->required(\false)->description('Description All')->format(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument::FORMAT_URL)->expected('tree', 'car')->default(12)->minimum(1)->exclusive_minimum()->maximum(45)->exclusive_maximum());
+        $registrar = new \pc_pink_pos_0_0_1\PinkCrab\Route\Registration\WP_Rest_Registrar();
+        $wp_route_args = \pc_pink_pos_0_0_1\Gin0115\WPUnit_Helpers\Objects::invoke_method($registrar, 'parse_options', array($route));
         // Basic Options
         $this->assertEquals('GET', $wp_route_args['methods']);
         $this->assertEquals('is_string', $wp_route_args['callback']);
@@ -78,21 +78,21 @@ class Test_WP_Rest_Registrar extends \WP_UnitTestCase
     /** @testdox It should be possible to set multiple permission/auth callbacks and have the requirement to have all the need to pass (true) */
     public function test_compose_permission_callback() : void
     {
-        $route = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route('GET', 'test');
-        $registrar = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Registration\WP_Rest_Registrar();
+        $route = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route('GET', 'test');
+        $registrar = new \pc_pink_pos_0_0_1\PinkCrab\Route\Registration\WP_Rest_Registrar();
         // Any value should pass.
-        $callback = \pinkcrab_cccp_0_0_1\Gin0115\WPUnit_Helpers\Objects::invoke_method($registrar, 'compose_permission_callback', array($route));
+        $callback = \pc_pink_pos_0_0_1\Gin0115\WPUnit_Helpers\Objects::invoke_method($registrar, 'compose_permission_callback', array($route));
         $this->assertTrue($callback(12));
         $this->assertTrue($callback(\false));
         // Set to allow any numeric
         $route->authentication('is_numeric');
-        $callback = \pinkcrab_cccp_0_0_1\Gin0115\WPUnit_Helpers\Objects::invoke_method($registrar, 'compose_permission_callback', array($route));
+        $callback = \pc_pink_pos_0_0_1\Gin0115\WPUnit_Helpers\Objects::invoke_method($registrar, 'compose_permission_callback', array($route));
         $this->assertTrue($callback(12));
         $this->assertTrue($callback('12'));
         $this->assertFalse($callback(\false));
         // Stack additional check
         $route->authentication('is_int');
-        $callback = \pinkcrab_cccp_0_0_1\Gin0115\WPUnit_Helpers\Objects::invoke_method($registrar, 'compose_permission_callback', array($route));
+        $callback = \pc_pink_pos_0_0_1\Gin0115\WPUnit_Helpers\Objects::invoke_method($registrar, 'compose_permission_callback', array($route));
         $this->assertTrue($callback(12));
         $this->assertFalse($callback('12'));
         $this->assertFalse($callback(\false));
@@ -100,14 +100,14 @@ class Test_WP_Rest_Registrar extends \WP_UnitTestCase
     /** @testdox It should be possible to map a Route object to a format for using with wordpress */
     public function test_can_map_from_route_wp_rest() : void
     {
-        $route = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route('PUT', 'test');
+        $route = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route('PUT', 'test');
         $route->namespace('NS');
         $route->authentication('is_array');
         $route->callback('is_string');
-        $route->argument(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument::on('key')->type(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument::TYPE_STRING)->sanitization('is_int')->validation('esc_html')->required()->default('<empty>'));
-        $registrar = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Registration\WP_Rest_Registrar();
+        $route->argument(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument::on('key')->type(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument::TYPE_STRING)->sanitization('is_int')->validation('esc_html')->required()->default('<empty>'));
+        $registrar = new \pc_pink_pos_0_0_1\PinkCrab\Route\Registration\WP_Rest_Registrar();
         $wp_route = $registrar->map_to_wp_rest($route);
-        $this->assertInstanceOf(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Registration\WP_Rest_Route::class, $wp_route);
+        $this->assertInstanceOf(\pc_pink_pos_0_0_1\PinkCrab\Route\Registration\WP_Rest_Route::class, $wp_route);
         $this->assertEquals('NS', $wp_route->namespace);
         $this->assertEquals('test', $wp_route->route);
         $this->assertIsArray($wp_route->args);
@@ -116,20 +116,20 @@ class Test_WP_Rest_Registrar extends \WP_UnitTestCase
     /** @testdox Attempting to register a route with no callback defined should result in an error. */
     public function test_throws_exception_if_no_callback_defined() : void
     {
-        $this->expectException(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route_Exception::class);
+        $this->expectException(\pc_pink_pos_0_0_1\PinkCrab\Route\Route_Exception::class);
         $this->expectExceptionCode(102);
-        $registrar = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Registration\WP_Rest_Registrar();
-        $route = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route('PUT', 'test');
-        \pinkcrab_cccp_0_0_1\Gin0115\WPUnit_Helpers\Objects::invoke_method($registrar, 'parse_options', array($route));
+        $registrar = new \pc_pink_pos_0_0_1\PinkCrab\Route\Registration\WP_Rest_Registrar();
+        $route = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route('PUT', 'test');
+        \pc_pink_pos_0_0_1\Gin0115\WPUnit_Helpers\Objects::invoke_method($registrar, 'parse_options', array($route));
     }
     /** @testdox Attempting to register a route with an invalid method defined should result in an error. */
     public function test_throws_exception_for_invalid_method() : void
     {
-        $this->expectException(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route_Exception::class);
+        $this->expectException(\pc_pink_pos_0_0_1\PinkCrab\Route\Route_Exception::class);
         $this->expectExceptionCode(103);
-        $registrar = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Registration\WP_Rest_Registrar();
-        $route = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route('INVALID', 'test');
+        $registrar = new \pc_pink_pos_0_0_1\PinkCrab\Route\Registration\WP_Rest_Registrar();
+        $route = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route('INVALID', 'test');
         $route->callback('is_string');
-        \pinkcrab_cccp_0_0_1\Gin0115\WPUnit_Helpers\Objects::invoke_method($registrar, 'parse_options', array($route));
+        \pc_pink_pos_0_0_1\Gin0115\WPUnit_Helpers\Objects::invoke_method($registrar, 'parse_options', array($route));
     }
 }

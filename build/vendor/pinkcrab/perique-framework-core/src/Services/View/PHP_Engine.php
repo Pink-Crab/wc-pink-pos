@@ -20,11 +20,11 @@ declare (strict_types=1);
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
  * @package PinkCrab\Perique\View
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Perique\Services\View;
+namespace pc_pink_pos_0_0_1\PinkCrab\Perique\Services\View;
 
 use Exception;
-use pinkcrab_cccp_0_0_1\PinkCrab\Perique\Interfaces\Renderable;
-class PHP_Engine implements \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Interfaces\Renderable
+use pc_pink_pos_0_0_1\PinkCrab\Perique\Interfaces\Renderable;
+class PHP_Engine implements \pc_pink_pos_0_0_1\PinkCrab\Perique\Interfaces\Renderable
 {
     /**
      * The path to base of templates.

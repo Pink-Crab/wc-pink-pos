@@ -21,28 +21,28 @@ declare (strict_types=1);
  * @package PinkCrab\Route
  *
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Route\Tests\Unit;
+namespace pc_pink_pos_0_0_1\PinkCrab\Route\Tests\Unit;
 
-use pinkcrab_cccp_0_0_1\WP_UnitTestCase;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route_Factory;
-use pinkcrab_cccp_0_0_1\Gin0115\WPUnit_Helpers\Objects;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route_Group;
+use pc_pink_pos_0_0_1\WP_UnitTestCase;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route_Factory;
+use pc_pink_pos_0_0_1\Gin0115\WPUnit_Helpers\Objects;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route_Group;
 class Test_Route_Factory extends \WP_UnitTestCase
 {
     /** @testdox It should be possible to create the factory with a defined namespace. */
     public function test_create_with_static() : void
     {
-        $factory = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route_Factory('constructor');
-        $factory_static = \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route_Factory::for('static');
-        $this->assertEquals('constructor', \pinkcrab_cccp_0_0_1\Gin0115\WPUnit_Helpers\Objects::get_property($factory, 'namespace'));
-        $this->assertEquals('static', \pinkcrab_cccp_0_0_1\Gin0115\WPUnit_Helpers\Objects::get_property($factory_static, 'namespace'));
+        $factory = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route_Factory('constructor');
+        $factory_static = \pc_pink_pos_0_0_1\PinkCrab\Route\Route_Factory::for('static');
+        $this->assertEquals('constructor', \pc_pink_pos_0_0_1\Gin0115\WPUnit_Helpers\Objects::get_property($factory, 'namespace'));
+        $this->assertEquals('static', \pc_pink_pos_0_0_1\Gin0115\WPUnit_Helpers\Objects::get_property($factory_static, 'namespace'));
     }
     /** @testdox It should be possible to create a get request and have namespace and methd defined. */
     public function test_create_get_route() : void
     {
-        $route = \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route_Factory::for('static')->get('route', 'is_string');
-        $this->assertInstanceOf(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route::class, $route);
+        $route = \pc_pink_pos_0_0_1\PinkCrab\Route\Route_Factory::for('static')->get('route', 'is_string');
+        $this->assertInstanceOf(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route::class, $route);
         $this->assertEquals('GET', $route->get_method());
         $this->assertEquals('route', $route->get_route());
         $this->assertEquals('static', $route->get_namespace());
@@ -51,8 +51,8 @@ class Test_Route_Factory extends \WP_UnitTestCase
     /** @testdox It should be possible to create a post request and have namespace and methd defined. */
     public function test_create_post_route() : void
     {
-        $route = \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route_Factory::for('static')->post('route', 'is_string');
-        $this->assertInstanceOf(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route::class, $route);
+        $route = \pc_pink_pos_0_0_1\PinkCrab\Route\Route_Factory::for('static')->post('route', 'is_string');
+        $this->assertInstanceOf(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route::class, $route);
         $this->assertEquals('POST', $route->get_method());
         $this->assertEquals('route', $route->get_route());
         $this->assertEquals('static', $route->get_namespace());
@@ -61,8 +61,8 @@ class Test_Route_Factory extends \WP_UnitTestCase
     /** @testdox It should be possible to create a delete request and have namespace and methd defined. */
     public function test_create_delete_route() : void
     {
-        $route = \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route_Factory::for('static')->delete('route', 'is_string');
-        $this->assertInstanceOf(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route::class, $route);
+        $route = \pc_pink_pos_0_0_1\PinkCrab\Route\Route_Factory::for('static')->delete('route', 'is_string');
+        $this->assertInstanceOf(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route::class, $route);
         $this->assertEquals('DELETE', $route->get_method());
         $this->assertEquals('route', $route->get_route());
         $this->assertEquals('static', $route->get_namespace());
@@ -71,8 +71,8 @@ class Test_Route_Factory extends \WP_UnitTestCase
     /** @testdox It should be possible to create a patch request and have namespace and methd defined. */
     public function test_create_patch_route() : void
     {
-        $route = \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route_Factory::for('static')->patch('route', 'is_string');
-        $this->assertInstanceOf(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route::class, $route);
+        $route = \pc_pink_pos_0_0_1\PinkCrab\Route\Route_Factory::for('static')->patch('route', 'is_string');
+        $this->assertInstanceOf(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route::class, $route);
         $this->assertEquals('PATCH', $route->get_method());
         $this->assertEquals('route', $route->get_route());
         $this->assertEquals('static', $route->get_namespace());
@@ -81,8 +81,8 @@ class Test_Route_Factory extends \WP_UnitTestCase
     /** @testdox It should be possible to create a put request and have namespace and methd defined. */
     public function test_create_put_route() : void
     {
-        $route = \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route_Factory::for('static')->put('route', 'is_string');
-        $this->assertInstanceOf(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route::class, $route);
+        $route = \pc_pink_pos_0_0_1\PinkCrab\Route\Route_Factory::for('static')->put('route', 'is_string');
+        $this->assertInstanceOf(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route::class, $route);
         $this->assertEquals('PUT', $route->get_method());
         $this->assertEquals('route', $route->get_route());
         $this->assertEquals('static', $route->get_namespace());
@@ -91,11 +91,11 @@ class Test_Route_Factory extends \WP_UnitTestCase
     /** @testdox It should be possible to create a group with the namespace passed to the factory. */
     public function test_build_group() : void
     {
-        $group = \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route_Factory::for('badger/v1')->group_builder('newNS', function (\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route_Group $group) {
+        $group = \pc_pink_pos_0_0_1\PinkCrab\Route\Route_Factory::for('badger/v1')->group_builder('newNS', function (\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route_Group $group) {
             $group->get('is_string');
             $group->delete('is_float');
         });
-        $this->assertInstanceOf(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route_Group::class, $group);
+        $this->assertInstanceOf(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route_Group::class, $group);
         $this->assertTrue($group->method_exists('GET'));
         $this->assertTrue($group->method_exists('DELETE'));
         $this->assertFalse($group->method_exists('PATCH'));

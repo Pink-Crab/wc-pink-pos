@@ -8,10 +8,10 @@ declare (strict_types=1);
  * @author Glynn Quelch glynn@pinkcrab.co.uk
  * @since 0.0.1
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Route;
+namespace pc_pink_pos_0_0_1\PinkCrab\Route;
 
 use Exception;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route;
 class Route_Exception extends \Exception
 {
     /**
@@ -32,7 +32,7 @@ class Route_Exception extends \Exception
      * @return self
      * @code 102
      */
-    public static function callback_not_defined(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route $route) : self
+    public static function callback_not_defined(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route $route) : self
     {
         // Set the namespace if exists.
         $namespace = '' !== $route->get_namespace() ? $route->get_namespace() : '_MISSING_NAMESPACE_';
@@ -44,7 +44,7 @@ class Route_Exception extends \Exception
      * @param Route $route
      * @return self
      */
-    public static function invalid_http_method(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route $route) : self
+    public static function invalid_http_method(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route $route) : self
     {
         return new self(\sprintf('%s is a none supported HTTP Mehtod.', \strtoupper($route->get_method())), 103);
     }

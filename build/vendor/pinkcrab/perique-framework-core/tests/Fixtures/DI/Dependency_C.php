@@ -10,10 +10,10 @@ declare (strict_types=1);
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
  * @package PinkCrab\Perique
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Perique\Tests\Fixtures\DI;
+namespace pc_pink_pos_0_0_1\PinkCrab\Perique\Tests\Fixtures\DI;
 
-use pinkcrab_cccp_0_0_1\PinkCrab\Perique\Tests\Fixtures\DI\Abstract_B;
-class Dependency_C extends \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Tests\Fixtures\DI\Abstract_B
+use pc_pink_pos_0_0_1\PinkCrab\Perique\Tests\Fixtures\DI\Abstract_B;
+class Dependency_C extends \pc_pink_pos_0_0_1\PinkCrab\Perique\Tests\Fixtures\DI\Abstract_B
 {
     public function foo()
     {

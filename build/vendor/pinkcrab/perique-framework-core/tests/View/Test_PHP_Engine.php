@@ -9,12 +9,12 @@ declare (strict_types=1);
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
  * @package PinkCrab\Perique
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Perique\Tests\View;
+namespace pc_pink_pos_0_0_1\PinkCrab\Perique\Tests\View;
 
 use Exception;
-use pinkcrab_cccp_0_0_1\WP_UnitTestCase;
-use pinkcrab_cccp_0_0_1\PinkCrab\Perique\Services\View\View;
-use pinkcrab_cccp_0_0_1\PinkCrab\Perique\Services\View\PHP_Engine;
+use pc_pink_pos_0_0_1\WP_UnitTestCase;
+use pc_pink_pos_0_0_1\PinkCrab\Perique\Services\View\View;
+use pc_pink_pos_0_0_1\PinkCrab\Perique\Services\View\PHP_Engine;
 class Test_PHP_Engine extends \WP_UnitTestCase
 {
     /**
@@ -31,7 +31,7 @@ class Test_PHP_Engine extends \WP_UnitTestCase
     public function setUp()
     {
         parent::setUp();
-        $this->view = new \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Services\View\PHP_Engine(\dirname(__DIR__, 1) . '/Fixtures/Views/');
+        $this->view = new \pc_pink_pos_0_0_1\PinkCrab\Perique\Services\View\PHP_Engine(\dirname(__DIR__, 1) . '/Fixtures/Views/');
     }
     /**
      * Test a single template can be rendered.
@@ -50,7 +50,7 @@ class Test_PHP_Engine extends \WP_UnitTestCase
      */
     public function test_return_single_template() : void
     {
-        $this->assertEquals('Hello World', $this->view->render('hello', array('hello' => 'Hello World'), \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Services\View\View::RETURN_VIEW));
+        $this->assertEquals('Hello World', $this->view->render('hello', array('hello' => 'Hello World'), \pc_pink_pos_0_0_1\PinkCrab\Perique\Services\View\View::RETURN_VIEW));
     }
     /**
      * Test can print partial template from parent.
@@ -60,7 +60,7 @@ class Test_PHP_Engine extends \WP_UnitTestCase
     public function test_print_partial_template() : void
     {
         $this->expectOutputString('partial_value');
-        $this->view->render('layout', array('partial_data' => array('partial' => 'partial_value')), \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Services\View\View::PRINT_VIEW);
+        $this->view->render('layout', array('partial_data' => array('partial' => 'partial_value')), \pc_pink_pos_0_0_1\PinkCrab\Perique\Services\View\View::PRINT_VIEW);
     }
     /**
      * The partial returns HTML then echos.
@@ -70,7 +70,7 @@ class Test_PHP_Engine extends \WP_UnitTestCase
     public function test_returns_partial_from_template() : void
     {
         $this->expectOutputString('partial_value');
-        $this->view->render('returns_partial', array('partial_data' => array('partial' => 'partial_value')), \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Services\View\View::PRINT_VIEW);
+        $this->view->render('returns_partial', array('partial_data' => array('partial' => 'partial_value')), \pc_pink_pos_0_0_1\PinkCrab\Perique\Services\View\View::PRINT_VIEW);
     }
     /**
      * Test can return the view as a string.
@@ -79,7 +79,7 @@ class Test_PHP_Engine extends \WP_UnitTestCase
      */
     public function test_return_partial_template() : void
     {
-        $this->assertEquals('partial_value', $this->view->render('layout', array('partial_data' => array('partial' => 'partial_value')), \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Services\View\View::RETURN_VIEW));
+        $this->assertEquals('partial_value', $this->view->render('layout', array('partial_data' => array('partial' => 'partial_value')), \pc_pink_pos_0_0_1\PinkCrab\Perique\Services\View\View::RETURN_VIEW));
     }
     /**
      * Test that files that done exist, throw exception.
@@ -119,7 +119,7 @@ class Test_PHP_Engine extends \WP_UnitTestCase
     public function test_throws_exception_view_dir_not_exists() : void
     {
         $this->expectException(\Exception::class);
-        new \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Services\View\PHP_Engine(\dirname(__DIR__, 1) . '/Fixtures/Fake_Views/');
+        new \pc_pink_pos_0_0_1\PinkCrab\Perique\Services\View\PHP_Engine(\dirname(__DIR__, 1) . '/Fixtures/Fake_Views/');
     }
     /**
      * Test the view path has the leading slash added if not set.
@@ -130,7 +130,7 @@ class Test_PHP_Engine extends \WP_UnitTestCase
     public function test_adds_trailing_slash_to_view_path() : void
     {
         $this->expectOutputString('Hello World');
-        $view = new \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Services\View\PHP_Engine(\dirname(__DIR__, 1) . '/Fixtures/Views');
+        $view = new \pc_pink_pos_0_0_1\PinkCrab\Perique\Services\View\PHP_Engine(\dirname(__DIR__, 1) . '/Fixtures/Views');
         $view->render('/hello.php', array('hello' => 'Hello World'));
     }
 }

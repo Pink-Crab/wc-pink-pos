@@ -1,6 +1,6 @@
 <?php
 
-namespace pinkcrab_cccp_0_0_1;
+namespace pc_pink_pos_0_0_1;
 
 /* @description Dice - A minimal Dependency Injection Container for PHP *
  * @author Tom Butler tom@r.je *
@@ -32,7 +32,7 @@ abstract class DiceTest extends \PHPUnit\Framework\TestCase
     protected function setUp() : void
     {
         parent::setUp();
-        $this->dice = new \pinkcrab_cccp_0_0_1\Dice\Dice();
+        $this->dice = new \pc_pink_pos_0_0_1\Dice\Dice();
     }
     protected function tearDown() : void
     {
@@ -45,4 +45,4 @@ abstract class DiceTest extends \PHPUnit\Framework\TestCase
  * @copyright 2012-2018 Tom Butler <tom@r.je> | https:// r.je/dice.html *
  * @license http:// www.opensource.org/licenses/bsd-license.php BSD License *
  * @version 3.0 */
-\class_alias('pinkcrab_cccp_0_0_1\\DiceTest', 'DiceTest', \false);
+\class_alias('pc_pink_pos_0_0_1\\DiceTest', 'DiceTest', \false);

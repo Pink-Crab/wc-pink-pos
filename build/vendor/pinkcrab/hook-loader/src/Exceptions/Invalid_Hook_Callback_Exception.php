@@ -21,10 +21,10 @@ declare (strict_types=1);
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
  * @package PinkCrab\Loader
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Loader\Exceptions;
+namespace pc_pink_pos_0_0_1\PinkCrab\Loader\Exceptions;
 
 use Exception;
-use pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook;
+use pc_pink_pos_0_0_1\PinkCrab\Loader\Hook;
 class Invalid_Hook_Callback_Exception extends \Exception
 {
     /**
@@ -33,9 +33,9 @@ class Invalid_Hook_Callback_Exception extends \Exception
      * @param \PinkCrab\Loader\Hook $hook
      * @return Invalid_Hook_Callback_Exception
      */
-    public static function from_hook(\pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook $hook) : \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Exceptions\Invalid_Hook_Callback_Exception
+    public static function from_hook(\pc_pink_pos_0_0_1\PinkCrab\Loader\Hook $hook) : \pc_pink_pos_0_0_1\PinkCrab\Loader\Exceptions\Invalid_Hook_Callback_Exception
     {
-        $message = \sprintf('%s hook was called with an invalid callback. Only %s hooks may use malformed callback arrays', $hook->get_type(), \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook::REMOVE);
-        return new \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Exceptions\Invalid_Hook_Callback_Exception($message);
+        $message = \sprintf('%s hook was called with an invalid callback. Only %s hooks may use malformed callback arrays', $hook->get_type(), \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook::REMOVE);
+        return new \pc_pink_pos_0_0_1\PinkCrab\Loader\Exceptions\Invalid_Hook_Callback_Exception($message);
     }
 }

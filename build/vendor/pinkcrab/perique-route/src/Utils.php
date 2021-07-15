@@ -8,12 +8,12 @@ declare (strict_types=1);
  * @author Glynn Quelch glynn@pinkcrab.co.uk
  * @since 0.0.1
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Route;
+namespace pc_pink_pos_0_0_1\PinkCrab\Route;
 
-use pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook_Loader;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Registration\Route_Manager;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Registration\WP_Rest_Registrar;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Registration_Middleware\Route_Middleware;
+use pc_pink_pos_0_0_1\PinkCrab\Loader\Hook_Loader;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Registration\Route_Manager;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Registration\WP_Rest_Registrar;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Registration_Middleware\Route_Middleware;
 class Utils
 {
     /**
@@ -76,8 +76,8 @@ class Utils
      *
      * @return \PinkCrab\Route\Registration_Middleware\Route_Middleware
      */
-    public static function middleware_provider() : \pinkcrab_cccp_0_0_1\PinkCrab\Route\Registration_Middleware\Route_Middleware
+    public static function middleware_provider() : \pc_pink_pos_0_0_1\PinkCrab\Route\Registration_Middleware\Route_Middleware
     {
-        return new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Registration_Middleware\Route_Middleware(new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Registration\Route_Manager(new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Registration\WP_Rest_Registrar(), new \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook_Loader()));
+        return new \pc_pink_pos_0_0_1\PinkCrab\Route\Registration_Middleware\Route_Middleware(new \pc_pink_pos_0_0_1\PinkCrab\Route\Registration\Route_Manager(new \pc_pink_pos_0_0_1\PinkCrab\Route\Registration\WP_Rest_Registrar(), new \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook_Loader()));
     }
 }

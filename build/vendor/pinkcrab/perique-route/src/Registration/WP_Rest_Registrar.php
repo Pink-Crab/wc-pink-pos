@@ -8,11 +8,11 @@ declare (strict_types=1);
  * @author Glynn Quelch glynn@pinkcrab.co.uk
  * @since 0.0.1
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Route\Registration;
+namespace pc_pink_pos_0_0_1\PinkCrab\Route\Registration;
 
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Utils;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route_Exception;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Utils;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route_Exception;
 class WP_Rest_Registrar
 {
     /**
@@ -21,7 +21,7 @@ class WP_Rest_Registrar
      * @param \PinkCrab\Route\Route\Route $route
      * @return callable
      */
-    public function create_callback(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route $route) : callable
+    public function create_callback(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route $route) : callable
     {
         return function () use($route) : void {
             $model = $this->map_to_wp_rest($route);
@@ -34,9 +34,9 @@ class WP_Rest_Registrar
      * @param \PinkCrab\Route\Route\Route $route
      * @return WP_Rest_Route
      */
-    public function map_to_wp_rest(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route $route) : \pinkcrab_cccp_0_0_1\PinkCrab\Route\Registration\WP_Rest_Route
+    public function map_to_wp_rest(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route $route) : \pc_pink_pos_0_0_1\PinkCrab\Route\Registration\WP_Rest_Route
     {
-        $wp_rest = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Registration\WP_Rest_Route();
+        $wp_rest = new \pc_pink_pos_0_0_1\PinkCrab\Route\Registration\WP_Rest_Route();
         $wp_rest->namespace = $route->get_namespace();
         $wp_rest->route = $route->get_route();
         $wp_rest->args = $this->parse_options($route);
@@ -49,15 +49,15 @@ class WP_Rest_Registrar
      * @return array<mixed>
      * @throws Route_Exception
      */
-    protected function parse_options(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route $route) : array
+    protected function parse_options(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route $route) : array
     {
         // If we have no callback defined for route, throw.
         if (\is_null($route->get_callback())) {
-            throw \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route_Exception::callback_not_defined($route);
+            throw \pc_pink_pos_0_0_1\PinkCrab\Route\Route_Exception::callback_not_defined($route);
         }
         // If we have an invlaid method, throw
         if (!$this->is_valid_method($route->get_method())) {
-            throw \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route_Exception::invalid_http_method($route);
+            throw \pc_pink_pos_0_0_1\PinkCrab\Route\Route_Exception::invalid_http_method($route);
         }
         $options = array();
         $options['methods'] = $route->get_method();
@@ -72,7 +72,7 @@ class WP_Rest_Registrar
      * @param Route $route
      * @return array<mixed>
      */
-    protected function parse_args(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route $route) : array
+    protected function parse_args(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route $route) : array
     {
         $args = array();
         foreach ($route->get_arguments() as $argument) {
@@ -124,7 +124,7 @@ class WP_Rest_Registrar
         return \in_array($method, apply_filters(
             'pinkcrab/route/accepted_http_methods',
             // phpcs:ignore WordPress.NamingConventions.ValidHookName
-            array(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route::DELETE, \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route::POST, \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route::PUT, \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route::PATCH, \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route::GET)
+            array(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route::DELETE, \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route::POST, \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route::PUT, \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route::PATCH, \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route::GET)
         ), \true);
     }
     /**
@@ -133,7 +133,7 @@ class WP_Rest_Registrar
      * @param Route $route
      * @return callable
      */
-    protected function compose_permission_callback(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route $route) : callable
+    protected function compose_permission_callback(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route $route) : callable
     {
         $callbacks = $route->get_authentication();
         // If we have no callback defined, use return true.
@@ -144,6 +144,6 @@ class WP_Rest_Registrar
         if (\count($callbacks) === 1) {
             return $callbacks[0];
         }
-        return \pinkcrab_cccp_0_0_1\PinkCrab\Route\Utils::compose_conditional_all_true(...$callbacks);
+        return \pc_pink_pos_0_0_1\PinkCrab\Route\Utils::compose_conditional_all_true(...$callbacks);
     }
 }

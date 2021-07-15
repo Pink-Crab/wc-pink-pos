@@ -9,11 +9,11 @@ declare (strict_types=1);
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
  * @package PinkCrab\Collection
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Collection\Tests\Fixtures;
+namespace pc_pink_pos_0_0_1\PinkCrab\Collection\Tests\Fixtures;
 
-use pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection;
-use pinkcrab_cccp_0_0_1\PinkCrab\Collection\Tests\Fixtures\Type_A;
-class Typed_Collection extends \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection
+use pc_pink_pos_0_0_1\PinkCrab\Collection\Collection;
+use pc_pink_pos_0_0_1\PinkCrab\Collection\Tests\Fixtures\Type_A;
+class Typed_Collection extends \pc_pink_pos_0_0_1\PinkCrab\Collection\Collection
 {
     /**
      * Ensure only instances of Sample_Class are populated.
@@ -24,7 +24,7 @@ class Typed_Collection extends \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collecti
     protected function map_construct(array $data) : array
     {
         return \array_filter($data, function ($class) : bool {
-            return \is_a($class, \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Tests\Fixtures\Type_A::class, \false);
+            return \is_a($class, \pc_pink_pos_0_0_1\PinkCrab\Collection\Tests\Fixtures\Type_A::class, \false);
         });
     }
 }

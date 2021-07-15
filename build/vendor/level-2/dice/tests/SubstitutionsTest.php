@@ -1,19 +1,19 @@
 <?php
 
-namespace pinkcrab_cccp_0_0_1;
+namespace pc_pink_pos_0_0_1;
 
 /* @description Dice - A minimal Dependency Injection Container for PHP *
  * @author Tom Butler tom@r.je *
  * @copyright 2012-2018 Tom Butler <tom@r.je> | https:// r.je/dice.html *
  * @license http:// www.opensource.org/licenses/bsd-license.php BSD License *
  * @version 3.0 */
-class SubstitutionsTest extends \pinkcrab_cccp_0_0_1\DiceTest
+class SubstitutionsTest extends \pc_pink_pos_0_0_1\DiceTest
 {
     public function testNoMoreAssign()
     {
         $rule = [];
-        $rule['substitutions']['Bar77'] = [\pinkcrab_cccp_0_0_1\Dice\Dice::INSTANCE => function () {
-            return \pinkcrab_cccp_0_0_1\Baz77::create();
+        $rule['substitutions']['Bar77'] = [\pc_pink_pos_0_0_1\Dice\Dice::INSTANCE => function () {
+            return \pc_pink_pos_0_0_1\Baz77::create();
         }];
         $dice = $this->dice->addRule('Foo77', $rule);
         $foo = $dice->create('Foo77');
@@ -31,7 +31,7 @@ class SubstitutionsTest extends \pinkcrab_cccp_0_0_1\DiceTest
     public function testSubstitutionText()
     {
         $rule = [];
-        $rule['substitutions']['B'] = [\pinkcrab_cccp_0_0_1\Dice\Dice::INSTANCE => 'ExtendedB'];
+        $rule['substitutions']['B'] = [\pc_pink_pos_0_0_1\Dice\Dice::INSTANCE => 'ExtendedB'];
         $dice = $this->dice->addRule('A', $rule);
         $a = $dice->create('A');
         $this->assertInstanceOf('ExtendedB', $a->b);
@@ -39,7 +39,7 @@ class SubstitutionsTest extends \pinkcrab_cccp_0_0_1\DiceTest
     public function testSubstitutionTextMixedCase()
     {
         $rule = [];
-        $rule['substitutions']['B'] = [\pinkcrab_cccp_0_0_1\Dice\Dice::INSTANCE => 'exTenDedb'];
+        $rule['substitutions']['B'] = [\pc_pink_pos_0_0_1\Dice\Dice::INSTANCE => 'exTenDedb'];
         $dice = $this->dice->addRule('A', $rule);
         $a = $dice->create('A');
         $this->assertInstanceOf('ExtendedB', $a->b);
@@ -48,7 +48,7 @@ class SubstitutionsTest extends \pinkcrab_cccp_0_0_1\DiceTest
     {
         $rule = [];
         $injection = $this->dice;
-        $rule['substitutions']['B'] = [\pinkcrab_cccp_0_0_1\Dice\Dice::INSTANCE => function () use($injection) {
+        $rule['substitutions']['B'] = [\pc_pink_pos_0_0_1\Dice\Dice::INSTANCE => function () use($injection) {
             return $injection->create('ExtendedB');
         }];
         $dice = $this->dice->addRule('A', $rule);
@@ -66,7 +66,7 @@ class SubstitutionsTest extends \pinkcrab_cccp_0_0_1\DiceTest
     public function testSubstitutionString()
     {
         $rule = [];
-        $rule['substitutions']['B'] = [\pinkcrab_cccp_0_0_1\Dice\Dice::INSTANCE => 'ExtendedB'];
+        $rule['substitutions']['B'] = [\pc_pink_pos_0_0_1\Dice\Dice::INSTANCE => 'ExtendedB'];
         $dice = $this->dice->addRule('A', $rule);
         $a = $dice->create('A');
         $this->assertInstanceOf('ExtendedB', $a->b);
@@ -81,7 +81,7 @@ class SubstitutionsTest extends \pinkcrab_cccp_0_0_1\DiceTest
     public function testSubstitutionWithFuncCall()
     {
         $rule = [];
-        $rule['substitutions']['Bar'] = [\pinkcrab_cccp_0_0_1\Dice\Dice::INSTANCE => ['Foo2', 'bar']];
+        $rule['substitutions']['Bar'] = [\pc_pink_pos_0_0_1\Dice\Dice::INSTANCE => ['Foo2', 'bar']];
         $dice = $this->dice->addRule('Foo', $rule);
         $a = $dice->create('Foo');
         $this->assertInstanceOf('Baz', $a->bar);
@@ -92,29 +92,29 @@ class SubstitutionsTest extends \pinkcrab_cccp_0_0_1\DiceTest
  * @copyright 2012-2018 Tom Butler <tom@r.je> | https:// r.je/dice.html *
  * @license http:// www.opensource.org/licenses/bsd-license.php BSD License *
  * @version 3.0 */
-\class_alias('pinkcrab_cccp_0_0_1\\SubstitutionsTest', 'SubstitutionsTest', \false);
+\class_alias('pc_pink_pos_0_0_1\\SubstitutionsTest', 'SubstitutionsTest', \false);
 class Foo
 {
     public $bar;
-    public function __construct(\pinkcrab_cccp_0_0_1\Bar $bar)
+    public function __construct(\pc_pink_pos_0_0_1\Bar $bar)
     {
         $this->bar = $bar;
     }
 }
-\class_alias('pinkcrab_cccp_0_0_1\\Foo', 'Foo', \false);
+\class_alias('pc_pink_pos_0_0_1\\Foo', 'Foo', \false);
 class Foo2
 {
     public function bar()
     {
-        return new \pinkcrab_cccp_0_0_1\Baz();
+        return new \pc_pink_pos_0_0_1\Baz();
     }
 }
-\class_alias('pinkcrab_cccp_0_0_1\\Foo2', 'Foo2', \false);
+\class_alias('pc_pink_pos_0_0_1\\Foo2', 'Foo2', \false);
 interface Bar
 {
 }
-\class_alias('pinkcrab_cccp_0_0_1\\Bar', 'Bar', \false);
-class Baz implements \pinkcrab_cccp_0_0_1\Bar
+\class_alias('pc_pink_pos_0_0_1\\Bar', 'Bar', \false);
+class Baz implements \pc_pink_pos_0_0_1\Bar
 {
 }
-\class_alias('pinkcrab_cccp_0_0_1\\Baz', 'Baz', \false);
+\class_alias('pc_pink_pos_0_0_1\\Baz', 'Baz', \false);

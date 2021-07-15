@@ -21,12 +21,12 @@ declare (strict_types=1);
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
  * @package PinkCrab\Loader
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Loader;
+namespace pc_pink_pos_0_0_1\PinkCrab\Loader;
 
-use pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook;
-use pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook_Factory;
-use pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook_Collection;
-use pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook_Manager;
+use pc_pink_pos_0_0_1\PinkCrab\Loader\Hook;
+use pc_pink_pos_0_0_1\PinkCrab\Loader\Hook_Factory;
+use pc_pink_pos_0_0_1\PinkCrab\Loader\Hook_Collection;
+use pc_pink_pos_0_0_1\PinkCrab\Loader\Hook_Manager;
 class Hook_Loader
 {
     /**
@@ -43,8 +43,8 @@ class Hook_Loader
     protected $hook_factory;
     public final function __construct()
     {
-        $this->hook_factory = new \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook_Factory();
-        $this->hooks = new \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook_Collection();
+        $this->hook_factory = new \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook_Factory();
+        $this->hooks = new \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook_Collection();
     }
     /**
      * Adds an action hook globally
@@ -55,7 +55,7 @@ class Hook_Loader
      * @param integer $priority
      * @return Hook
      */
-    public function action(string $handle, callable $callback, int $args = 1, int $priority = 10) : \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook
+    public function action(string $handle, callable $callback, int $args = 1, int $priority = 10) : \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook
     {
         $hook = $this->hook_factory->action($handle, $callback, $args, $priority);
         $this->hooks->push($hook);
@@ -70,7 +70,7 @@ class Hook_Loader
      * @param integer $priority
      * @return Hook
      */
-    public function admin_action(string $handle, callable $callback, int $args = 1, int $priority = 10) : \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook
+    public function admin_action(string $handle, callable $callback, int $args = 1, int $priority = 10) : \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook
     {
         $hook = $this->hook_factory->action($handle, $callback, $args, $priority, \true, \false);
         $this->hooks->push($hook);
@@ -85,7 +85,7 @@ class Hook_Loader
      * @param integer $priority
      * @return Hook
      */
-    public function front_action(string $handle, callable $callback, int $args = 1, int $priority = 10) : \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook
+    public function front_action(string $handle, callable $callback, int $args = 1, int $priority = 10) : \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook
     {
         $hook = $this->hook_factory->action($handle, $callback, $args, $priority, \false, \true);
         $this->hooks->push($hook);
@@ -100,7 +100,7 @@ class Hook_Loader
      * @param integer $priority
      * @return Hook
      */
-    public function filter(string $handle, callable $callback, int $args = 1, int $priority = 10) : \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook
+    public function filter(string $handle, callable $callback, int $args = 1, int $priority = 10) : \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook
     {
         $hook = $this->hook_factory->filter($handle, $callback, $args, $priority);
         $this->hooks->push($hook);
@@ -115,7 +115,7 @@ class Hook_Loader
      * @param integer $priority
      * @return Hook
      */
-    public function admin_filter(string $handle, callable $callback, int $args = 1, int $priority = 10) : \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook
+    public function admin_filter(string $handle, callable $callback, int $args = 1, int $priority = 10) : \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook
     {
         $hook = $this->hook_factory->filter($handle, $callback, $args, $priority, \true, \false);
         $this->hooks->push($hook);
@@ -130,7 +130,7 @@ class Hook_Loader
      * @param integer $priority
      * @return Hook
      */
-    public function front_filter(string $handle, callable $callback, int $args = 1, int $priority = 10) : \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook
+    public function front_filter(string $handle, callable $callback, int $args = 1, int $priority = 10) : \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook
     {
         $hook = $this->hook_factory->filter($handle, $callback, $args, $priority, \false, \true);
         $this->hooks->push($hook);
@@ -144,7 +144,7 @@ class Hook_Loader
      * @param integer $priority
      * @return Hook
      */
-    public function remove(string $handle, $callback, int $priority = 10) : \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook
+    public function remove(string $handle, $callback, int $priority = 10) : \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook
     {
         $hook = $this->hook_factory->remove($handle, $callback, $priority);
         $this->hooks->push($hook);
@@ -159,7 +159,7 @@ class Hook_Loader
      * @param integer $priority
      * @return Hook
      */
-    public function remove_action(string $handle, $callback, int $priority = 10) : \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook
+    public function remove_action(string $handle, $callback, int $priority = 10) : \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook
     {
         return $this->remove($handle, $callback, $priority);
     }
@@ -172,7 +172,7 @@ class Hook_Loader
      * @param integer $priority
      * @return Hook
      */
-    public function remove_filter(string $handle, $callback, int $priority = 10) : \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook
+    public function remove_filter(string $handle, $callback, int $priority = 10) : \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook
     {
         return $this->remove($handle, $callback, $priority);
     }
@@ -185,7 +185,7 @@ class Hook_Loader
      * @param boolean $private
      * @return Hook
      */
-    public function ajax(string $handle, callable $callback, bool $public = \true, bool $private = \true) : \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook
+    public function ajax(string $handle, callable $callback, bool $public = \true, bool $private = \true) : \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook
     {
         $hook = $this->hook_factory->ajax($handle, $callback, $public, $private);
         $this->hooks->push($hook);
@@ -198,7 +198,7 @@ class Hook_Loader
      * @param callable $callback
      * @return Hook
      */
-    public function shortcode(string $handle, callable $callback) : \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook
+    public function shortcode(string $handle, callable $callback) : \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook
     {
         $hook = $this->hook_factory->shortcode($handle, $callback);
         $this->hooks->push($hook);
@@ -210,12 +210,12 @@ class Hook_Loader
      * @param Hook_Manager|null $hook_manager
      * @return void
      */
-    public function register_hooks(?\pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook_Manager $hook_manager = null) : void
+    public function register_hooks(?\pc_pink_pos_0_0_1\PinkCrab\Loader\Hook_Manager $hook_manager = null) : void
     {
         if ($hook_manager === null) {
-            $hook_manager = new \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook_Manager();
+            $hook_manager = new \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook_Manager();
         }
-        $this->hooks->register(function (\pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook $hook) use($hook_manager) {
+        $this->hooks->register(function (\pc_pink_pos_0_0_1\PinkCrab\Loader\Hook $hook) use($hook_manager) {
             $hook_manager->process_hook($hook);
         });
     }

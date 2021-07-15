@@ -1,13 +1,13 @@
 <?php
 
-namespace pinkcrab_cccp_0_0_1;
+namespace pc_pink_pos_0_0_1;
 
 /* @description Dice - A minimal Dependency Injection Container for PHP *
  * @author Tom Butler tom@r.je *
  * @copyright 2012-2018 Tom Butler <tom@r.je> | https:// r.je/dice.html *
  * @license http:// www.opensource.org/licenses/bsd-license.php BSD License *
  * @version 3.0 */
-class CallTest extends \pinkcrab_cccp_0_0_1\DiceTest
+class CallTest extends \pc_pink_pos_0_0_1\DiceTest
 {
     public function testCall()
     {
@@ -29,7 +29,7 @@ class CallTest extends \pinkcrab_cccp_0_0_1\DiceTest
     public function testCallWithInstance()
     {
         $rule = [];
-        $rule['call'][] = array('callMe', array([\pinkcrab_cccp_0_0_1\Dice\Dice::INSTANCE => 'A']));
+        $rule['call'][] = array('callMe', array([\pc_pink_pos_0_0_1\Dice\Dice::INSTANCE => 'A']));
         $dice = $this->dice->addRule('TestCall3', $rule);
         $object = $dice->create('TestCall3');
         $this->assertInstanceOf('a', $object->a);
@@ -56,7 +56,7 @@ class CallTest extends \pinkcrab_cccp_0_0_1\DiceTest
     }
     public function testCallChain()
     {
-        $rules = ['TestCallImmutable' => ['call' => [['call1', ['foo'], \pinkcrab_cccp_0_0_1\Dice\Dice::CHAIN_CALL], ['call2', ['bar'], \pinkcrab_cccp_0_0_1\Dice\Dice::CHAIN_CALL]]]];
+        $rules = ['TestCallImmutable' => ['call' => [['call1', ['foo'], \pc_pink_pos_0_0_1\Dice\Dice::CHAIN_CALL], ['call2', ['bar'], \pc_pink_pos_0_0_1\Dice\Dice::CHAIN_CALL]]]];
         $dice = $this->dice->addRules($rules);
         $object = $dice->create('TestCallImmutable');
         $this->assertEquals('foo', $object->a);
@@ -67,7 +67,7 @@ class CallTest extends \pinkcrab_cccp_0_0_1\DiceTest
         // Shared params should not be passed to variadic call
         $rules = ['TestCallVariadic' => ['call' => [['callMe', ['test1']]]]];
         $dice = $this->dice->addRules($rules);
-        $object = $dice->create('TestCallVariadic', [], [new \pinkcrab_cccp_0_0_1\F()]);
+        $object = $dice->create('TestCallVariadic', [], [new \pc_pink_pos_0_0_1\F()]);
         $this->assertEquals(['test1'], $object->data);
     }
 }
@@ -76,4 +76,4 @@ class CallTest extends \pinkcrab_cccp_0_0_1\DiceTest
  * @copyright 2012-2018 Tom Butler <tom@r.je> | https:// r.je/dice.html *
  * @license http:// www.opensource.org/licenses/bsd-license.php BSD License *
  * @version 3.0 */
-\class_alias('pinkcrab_cccp_0_0_1\\CallTest', 'CallTest', \false);
+\class_alias('pc_pink_pos_0_0_1\\CallTest', 'CallTest', \false);

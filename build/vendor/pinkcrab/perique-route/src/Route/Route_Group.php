@@ -11,13 +11,13 @@ declare (strict_types=1);
  * @author Glynn Quelch glynn@pinkcrab.co.uk
  * @since 0.0.1
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Route\Route;
+namespace pc_pink_pos_0_0_1\PinkCrab\Route\Route;
 
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route_Factory;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route_Exception;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Abstract_Route;
-class Route_Group extends \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Abstract_Route
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route_Factory;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route_Exception;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route\Abstract_Route;
+class Route_Group extends \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Abstract_Route
 {
     /**
      * @var Route[]
@@ -33,7 +33,7 @@ class Route_Group extends \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Abstract_Rou
     {
         $this->route = $route;
         $this->namespace = $namespace;
-        $this->route_factory = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route_Factory($namespace);
+        $this->route_factory = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route_Factory($namespace);
     }
     /**
      * Get the value of route
@@ -50,11 +50,11 @@ class Route_Group extends \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Abstract_Rou
      * @param callable $callable
      * @return Route
      */
-    public function get(callable $callable) : \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route
+    public function get(callable $callable) : \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route
     {
         $route = $this->route_factory->get($this->route, $callable);
         $route->namespace($this->namespace);
-        $this->routes[\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route::GET] = $route;
+        $this->routes[\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route::GET] = $route;
         return $route;
     }
     /**
@@ -63,11 +63,11 @@ class Route_Group extends \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Abstract_Rou
      * @param callable $callable
      * @return Route
      */
-    public function post(callable $callable) : \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route
+    public function post(callable $callable) : \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route
     {
         $route = $this->route_factory->post($this->route, $callable);
         $route->namespace($this->namespace);
-        $this->routes[\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route::POST] = $route;
+        $this->routes[\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route::POST] = $route;
         return $route;
     }
     /**
@@ -76,11 +76,11 @@ class Route_Group extends \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Abstract_Rou
      * @param callable $callable
      * @return Route
      */
-    public function put(callable $callable) : \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route
+    public function put(callable $callable) : \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route
     {
         $route = $this->route_factory->put($this->route, $callable);
         $route->namespace($this->namespace);
-        $this->routes[\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route::PUT] = $route;
+        $this->routes[\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route::PUT] = $route;
         return $route;
     }
     /**
@@ -89,11 +89,11 @@ class Route_Group extends \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Abstract_Rou
      * @param callable $callable
      * @return Route
      */
-    public function patch(callable $callable) : \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route
+    public function patch(callable $callable) : \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route
     {
         $route = $this->route_factory->patch($this->route, $callable);
         $route->namespace($this->namespace);
-        $this->routes[\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route::PATCH] = $route;
+        $this->routes[\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route::PATCH] = $route;
         return $route;
     }
     /**
@@ -102,11 +102,11 @@ class Route_Group extends \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Abstract_Rou
      * @param callable $callable
      * @return Route
      */
-    public function delete(callable $callable) : \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route
+    public function delete(callable $callable) : \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route
     {
         $route = $this->route_factory->delete($this->route, $callable);
         $route->namespace($this->namespace);
-        $this->routes[\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route::DELETE] = $route;
+        $this->routes[\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route::DELETE] = $route;
         return $route;
     }
     /**
@@ -116,7 +116,7 @@ class Route_Group extends \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Abstract_Rou
      * @deprecated 0.0.2 This is not really used and should be removed in a future version.
      * @return self
      */
-    public function add_rest_route(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route $route) : self
+    public function add_rest_route(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route $route) : self
     {
         $this->routes[$route->get_method()] = $route;
         return $this;

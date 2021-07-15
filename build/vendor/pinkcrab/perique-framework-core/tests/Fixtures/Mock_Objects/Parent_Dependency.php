@@ -9,11 +9,11 @@ declare (strict_types=1);
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
  * @package PinkCrab\Perique
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Perique\Tests\Fixtures\Mock_Objects;
+namespace pc_pink_pos_0_0_1\PinkCrab\Perique\Tests\Fixtures\Mock_Objects;
 
-use pinkcrab_cccp_0_0_1\PinkCrab\Perique\Tests\Fixtures\Mock_Objects\Sample_Class;
-use pinkcrab_cccp_0_0_1\PinkCrab\Perique\Tests\Fixtures\Mock_Objects\Interface_Get;
-class Parent_Dependency implements \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Tests\Fixtures\Mock_Objects\Interface_Get
+use pc_pink_pos_0_0_1\PinkCrab\Perique\Tests\Fixtures\Mock_Objects\Sample_Class;
+use pc_pink_pos_0_0_1\PinkCrab\Perique\Tests\Fixtures\Mock_Objects\Interface_Get;
+class Parent_Dependency implements \pc_pink_pos_0_0_1\PinkCrab\Perique\Tests\Fixtures\Mock_Objects\Interface_Get
 {
     /**
      * Test property
@@ -21,7 +21,7 @@ class Parent_Dependency implements \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Tests\F
      * @var \PinkCrab\Perique\Tests\Fixtures\Mock_Objects\Sample_Class
      */
     public $sample_class;
-    public function __construct(\pinkcrab_cccp_0_0_1\PinkCrab\Perique\Tests\Fixtures\Mock_Objects\Sample_Class $sample_class)
+    public function __construct(\pc_pink_pos_0_0_1\PinkCrab\Perique\Tests\Fixtures\Mock_Objects\Sample_Class $sample_class)
     {
         $this->sample_class = $sample_class;
     }
@@ -30,7 +30,7 @@ class Parent_Dependency implements \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Tests\F
      *
      * @return \PinkCrab\Perique\Tests\Fixtures\Mock_Objects\Sample_Class
      */
-    public function get_sample_class() : \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Tests\Fixtures\Mock_Objects\Sample_Class
+    public function get_sample_class() : \pc_pink_pos_0_0_1\PinkCrab\Perique\Tests\Fixtures\Mock_Objects\Sample_Class
     {
         return $this->sample_class;
     }

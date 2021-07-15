@@ -21,13 +21,13 @@ declare (strict_types=1);
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
  * @package PinkCrab\Route
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Route\Tests\Fixtures;
+namespace pc_pink_pos_0_0_1\PinkCrab\Route\Tests\Fixtures;
 
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Registration_Middleware\Route_Controller;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route_Group;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route_Factory;
-use pinkcrab_cccp_0_0_1\WP_HTTP_Response;
-class Fixture_Valid_Route_Controller extends \pinkcrab_cccp_0_0_1\PinkCrab\Route\Registration_Middleware\Route_Controller
+use pc_pink_pos_0_0_1\PinkCrab\Route\Registration_Middleware\Route_Controller;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route_Group;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route_Factory;
+use pc_pink_pos_0_0_1\WP_HTTP_Response;
+class Fixture_Valid_Route_Controller extends \pc_pink_pos_0_0_1\PinkCrab\Route\Registration_Middleware\Route_Controller
 {
     /**
      * The namespace for this controllers routes
@@ -42,9 +42,9 @@ class Fixture_Valid_Route_Controller extends \pinkcrab_cccp_0_0_1\PinkCrab\Route
      * @param Route_Factory $factory
      * @return array<Route|Route_Group>
      */
-    protected function define_routes(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route_Factory $factory) : array
+    protected function define_routes(\pc_pink_pos_0_0_1\PinkCrab\Route\Route_Factory $factory) : array
     {
-        return [$factory->get('valid-get', [$this, 'get_callback']), $factory->group_builder('valid-group', function (\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route_Group $group) {
+        return [$factory->get('valid-get', [$this, 'get_callback']), $factory->group_builder('valid-group', function (\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route_Group $group) {
             $group->post([$this, 'post_callback']);
             $group->delete([$this, 'delete_callback']);
             return $group;

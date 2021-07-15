@@ -21,10 +21,10 @@ declare (strict_types=1);
  * @package PinkCrab\Perique\Exceptions
  * @version 0.4.0
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Perique\Exceptions;
+namespace pc_pink_pos_0_0_1\PinkCrab\Perique\Exceptions;
 
 use Exception;
-use pinkcrab_cccp_0_0_1\Psr\Container\NotFoundExceptionInterface;
-class DI_Container_Exception extends \Exception implements \pinkcrab_cccp_0_0_1\Psr\Container\NotFoundExceptionInterface
+use pc_pink_pos_0_0_1\Psr\Container\NotFoundExceptionInterface;
+class DI_Container_Exception extends \Exception implements \pc_pink_pos_0_0_1\Psr\Container\NotFoundExceptionInterface
 {
 }

@@ -9,19 +9,19 @@ declare (strict_types=1);
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
  * @package PinkCrab\Loader
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Loader\Tests;
+namespace pc_pink_pos_0_0_1\PinkCrab\Loader\Tests;
 
-use pinkcrab_cccp_0_0_1\WP_UnitTestCase;
-use pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook;
-use pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook_Factory;
-use pinkcrab_cccp_0_0_1\PinkCrab\Loader\Tests\Fixtures\Hooks_Via_Static;
+use pc_pink_pos_0_0_1\WP_UnitTestCase;
+use pc_pink_pos_0_0_1\PinkCrab\Loader\Hook;
+use pc_pink_pos_0_0_1\PinkCrab\Loader\Hook_Factory;
+use pc_pink_pos_0_0_1\PinkCrab\Loader\Tests\Fixtures\Hooks_Via_Static;
 class Test_Hook_Factory extends \WP_UnitTestCase
 {
     /** @var Hook_Factory */
     protected $hook_factory;
     public function setup() : void
     {
-        $this->hook_factory = new \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook_Factory();
+        $this->hook_factory = new \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook_Factory();
     }
     /** @testdox A hook can be created by passing in the handle, callback, args, priority and its loading preference for admin and front */
     public function test_create_action_hook_for_front_and_admin()
@@ -43,7 +43,7 @@ class Test_Hook_Factory extends \WP_UnitTestCase
     public function test_create_action_hook()
     {
         $hook_default = $this->hook_factory->action('init', 'is_int');
-        $this->assertEquals(\pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook::ACTION, $hook_default->get_type());
+        $this->assertEquals(\pc_pink_pos_0_0_1\PinkCrab\Loader\Hook::ACTION, $hook_default->get_type());
         $this->assertEquals('init', $hook_default->get_handle());
         $this->assertEquals('is_int', $hook_default->get_callback());
         $this->assertEquals(10, $hook_default->get_priority());
@@ -51,7 +51,7 @@ class Test_Hook_Factory extends \WP_UnitTestCase
         $this->assertTrue($hook_default->is_admin());
         $this->assertTrue($hook_default->is_front());
         $hook = $this->hook_factory->action('init', 'is_string', 2, 20);
-        $this->assertEquals(\pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook::ACTION, $hook->get_type());
+        $this->assertEquals(\pc_pink_pos_0_0_1\PinkCrab\Loader\Hook::ACTION, $hook->get_type());
         $this->assertEquals('init', $hook->get_handle());
         $this->assertEquals('is_string', $hook->get_callback());
         $this->assertEquals(20, $hook->get_priority());
@@ -79,7 +79,7 @@ class Test_Hook_Factory extends \WP_UnitTestCase
     public function test_create_filter_hook()
     {
         $hook_default = $this->hook_factory->filter('init', 'is_int');
-        $this->assertEquals(\pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook::FILTER, $hook_default->get_type());
+        $this->assertEquals(\pc_pink_pos_0_0_1\PinkCrab\Loader\Hook::FILTER, $hook_default->get_type());
         $this->assertEquals('init', $hook_default->get_handle());
         $this->assertEquals('is_int', $hook_default->get_callback());
         $this->assertEquals(10, $hook_default->get_priority());
@@ -87,7 +87,7 @@ class Test_Hook_Factory extends \WP_UnitTestCase
         $this->assertTrue($hook_default->is_admin());
         $this->assertTrue($hook_default->is_front());
         $hook = $this->hook_factory->filter('the_content', 'is_bool', 2, 99999);
-        $this->assertEquals(\pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook::FILTER, $hook->get_type());
+        $this->assertEquals(\pc_pink_pos_0_0_1\PinkCrab\Loader\Hook::FILTER, $hook->get_type());
         $this->assertEquals('the_content', $hook->get_handle());
         $this->assertEquals('is_bool', $hook->get_callback());
         $this->assertEquals(99999, $hook->get_priority());
@@ -106,16 +106,16 @@ class Test_Hook_Factory extends \WP_UnitTestCase
     public function test_create_removal_hook()
     {
         $hook_default = $this->hook_factory->remove('init', 'is_int');
-        $this->assertEquals(\pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook::REMOVE, $hook_default->get_type());
+        $this->assertEquals(\pc_pink_pos_0_0_1\PinkCrab\Loader\Hook::REMOVE, $hook_default->get_type());
         $this->assertEquals('init', $hook_default->get_handle());
         $this->assertEquals('is_int', $hook_default->get_callback());
         $this->assertEquals(10, $hook_default->get_priority());
         $this->assertTrue($hook_default->is_admin());
         $this->assertTrue($hook_default->is_front());
-        $hook = $this->hook_factory->remove('some_action', array(\pinkcrab_cccp_0_0_1\PinkCrab\Loader\Tests\Fixtures\Hooks_Via_Static::class, 'filter_callback_static'), 50);
-        $this->assertEquals(\pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook::REMOVE, $hook->get_type());
+        $hook = $this->hook_factory->remove('some_action', array(\pc_pink_pos_0_0_1\PinkCrab\Loader\Tests\Fixtures\Hooks_Via_Static::class, 'filter_callback_static'), 50);
+        $this->assertEquals(\pc_pink_pos_0_0_1\PinkCrab\Loader\Hook::REMOVE, $hook->get_type());
         $this->assertEquals('some_action', $hook->get_handle());
-        $this->assertEquals(array(\pinkcrab_cccp_0_0_1\PinkCrab\Loader\Tests\Fixtures\Hooks_Via_Static::class, 'filter_callback_static'), $hook->get_callback());
+        $this->assertEquals(array(\pc_pink_pos_0_0_1\PinkCrab\Loader\Tests\Fixtures\Hooks_Via_Static::class, 'filter_callback_static'), $hook->get_callback());
         $this->assertEquals(50, $hook->get_priority());
         $this->assertTrue($hook->is_admin());
         $this->assertTrue($hook->is_front());

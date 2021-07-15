@@ -87,7 +87,14 @@ return array(
 			? $plugin_data['Version'] : '0.0.1',
 	),
 	'namespaces' => array(
-		'rest'  => 'pinkcrab/boilerplate',
-		'cache' => 'pinkcrab_boilerplate',
+		'rest'  => 'pinkcrab/wc-pink-pos/v1',
+		'cache' => 'pc_wc_pink_pos_',
+	),
+	'additional' => array(
+		// Webhook settings/keys
+		'webhook' => (object) array(
+			'route_namespace' => 'pinkcrab/wc-pink-pos/v1/webhook',
+			'settings_prefix' => 'pc_pink_pos_webhook_',
+		),
 	),
 );

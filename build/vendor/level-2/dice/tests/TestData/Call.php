@@ -1,6 +1,6 @@
 <?php
 
-namespace pinkcrab_cccp_0_0_1;
+namespace pc_pink_pos_0_0_1;
 
 /* @description Dice - A minimal Dependency Injection Container for PHP *
  * @author Tom Butler tom@r.je *
@@ -20,7 +20,7 @@ class TestCall
  * @copyright 2012-2018 Tom Butler <tom@r.je> | https:// r.je/dice.html *
  * @license http:// www.opensource.org/licenses/bsd-license.php BSD License *
  * @version 3.0 */
-\class_alias('pinkcrab_cccp_0_0_1\\TestCall', 'TestCall', \false);
+\class_alias('pc_pink_pos_0_0_1\\TestCall', 'TestCall', \false);
 class TestCall2
 {
     public $foo;
@@ -31,17 +31,17 @@ class TestCall2
         $this->bar = $bar;
     }
 }
-\class_alias('pinkcrab_cccp_0_0_1\\TestCall2', 'TestCall2', \false);
+\class_alias('pc_pink_pos_0_0_1\\TestCall2', 'TestCall2', \false);
 class TestCall3
 {
     public $a;
-    public function callMe(\pinkcrab_cccp_0_0_1\A $a)
+    public function callMe(\pc_pink_pos_0_0_1\A $a)
     {
         $this->a = $a;
         return 'callMe called';
     }
 }
-\class_alias('pinkcrab_cccp_0_0_1\\TestCall3', 'TestCall3', \false);
+\class_alias('pc_pink_pos_0_0_1\\TestCall3', 'TestCall3', \false);
 class TestCallImmutable
 {
     public $a;
@@ -59,7 +59,7 @@ class TestCallImmutable
         return $new;
     }
 }
-\class_alias('pinkcrab_cccp_0_0_1\\TestCallImmutable', 'TestCallImmutable', \false);
+\class_alias('pc_pink_pos_0_0_1\\TestCallImmutable', 'TestCallImmutable', \false);
 class TestCallVariadic
 {
     public $data;
@@ -68,4 +68,4 @@ class TestCallVariadic
         $this->data = $data;
     }
 }
-\class_alias('pinkcrab_cccp_0_0_1\\TestCallVariadic', 'TestCallVariadic', \false);
+\class_alias('pc_pink_pos_0_0_1\\TestCallVariadic', 'TestCallVariadic', \false);

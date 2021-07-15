@@ -21,18 +21,18 @@ declare (strict_types=1);
  * @package PinkCrab\Route
  *
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Route\Tests\Unit;
+namespace pc_pink_pos_0_0_1\PinkCrab\Route\Tests\Unit;
 
-use pinkcrab_cccp_0_0_1\WP_UnitTestCase;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Registration_Middleware\Route_Middleware;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Utils;
+use pc_pink_pos_0_0_1\WP_UnitTestCase;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Registration_Middleware\Route_Middleware;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Utils;
 use stdClass;
 class Test_Utils extends \WP_UnitTestCase
 {
     /** @testdox It should be possible to combine callables to create an ALL_TRUE function where each callable MUST return true */
     public function test_compose_conditional_all_true() : void
     {
-        $all_true = \pinkcrab_cccp_0_0_1\PinkCrab\Route\Utils::compose_conditional_all_true('is_string', 'is_numeric');
+        $all_true = \pc_pink_pos_0_0_1\PinkCrab\Route\Utils::compose_conditional_all_true('is_string', 'is_numeric');
         $this->assertFalse($all_true(1));
         $this->assertFalse($all_true('NUMBER'));
         $this->assertTrue($all_true('12'));
@@ -40,7 +40,7 @@ class Test_Utils extends \WP_UnitTestCase
     /** @testdox It should be possible to combine callables to create an ANY_TRUE function where any callable CAN return true */
     public function test_compose_any_true() : void
     {
-        $any_true = \pinkcrab_cccp_0_0_1\PinkCrab\Route\Utils::compose_conditional_any_true('is_string', 'is_float', 'is_array');
+        $any_true = \pc_pink_pos_0_0_1\PinkCrab\Route\Utils::compose_conditional_any_true('is_string', 'is_float', 'is_array');
         $this->assertTrue($any_true('string'));
         $this->assertTrue($any_true(12.5));
         $this->assertTrue($any_true(['arrray']));
@@ -50,7 +50,7 @@ class Test_Utils extends \WP_UnitTestCase
     /** @testdox It should be possible to combine callables to create a function where each callable MUST return true */
     public function test_compose_piped_callable() : void
     {
-        $piped = \pinkcrab_cccp_0_0_1\PinkCrab\Route\Utils::compose_piped_callable('strtoupper', function ($e) {
+        $piped = \pc_pink_pos_0_0_1\PinkCrab\Route\Utils::compose_piped_callable('strtoupper', function ($e) {
             return $e . $e;
         });
         $this->assertEquals('ERER', $piped('er'));
@@ -58,7 +58,7 @@ class Test_Utils extends \WP_UnitTestCase
     /** @testdox It should be possible to get a populated instance of the Route Middleware using a helper. */
     public function test_middleware_provider() : void
     {
-        $middleware = \pinkcrab_cccp_0_0_1\PinkCrab\Route\Utils::middleware_provider();
-        $this->assertInstanceOf(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Registration_Middleware\Route_Middleware::class, $middleware);
+        $middleware = \pc_pink_pos_0_0_1\PinkCrab\Route\Utils::middleware_provider();
+        $this->assertInstanceOf(\pc_pink_pos_0_0_1\PinkCrab\Route\Registration_Middleware\Route_Middleware::class, $middleware);
     }
 }

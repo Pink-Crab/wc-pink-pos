@@ -9,9 +9,9 @@ declare (strict_types=1);
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
  * @package PinkCrab\Perique
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Perique\Tests\Fixtures\Mock_Objects;
+namespace pc_pink_pos_0_0_1\PinkCrab\Perique\Tests\Fixtures\Mock_Objects;
 
-use pinkcrab_cccp_0_0_1\PinkCrab\Perique\Interfaces\DI_Container;
+use pc_pink_pos_0_0_1\PinkCrab\Perique\Interfaces\DI_Container;
 class Has_DI_Container
 {
     /**
@@ -20,7 +20,7 @@ class Has_DI_Container
      * @var \PinkCrab\Perique\Interfaces\DI_Container
      */
     public $di_container;
-    public function __construct(\pinkcrab_cccp_0_0_1\PinkCrab\Perique\Interfaces\DI_Container $di_container)
+    public function __construct(\pc_pink_pos_0_0_1\PinkCrab\Perique\Interfaces\DI_Container $di_container)
     {
         $this->di_container = $di_container;
     }
@@ -31,6 +31,6 @@ class Has_DI_Container
      */
     public function di_set() : bool
     {
-        return \is_a($this->di_container, \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Interfaces\DI_Container::class);
+        return \is_a($this->di_container, \pc_pink_pos_0_0_1\PinkCrab\Perique\Interfaces\DI_Container::class);
     }
 }

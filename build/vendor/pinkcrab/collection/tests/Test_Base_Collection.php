@@ -9,13 +9,13 @@ declare (strict_types=1);
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
  * @package PinkCrab\Collection
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Core\Tests\Collection;
+namespace pc_pink_pos_0_0_1\PinkCrab\Core\Tests\Collection;
 
 use TypeError;
 use UnderflowException;
 use PHPUnit\Framework\TestCase;
-use pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection;
-use pinkcrab_cccp_0_0_1\PinkCrab\Collection\Tests\Fixtures\Sample_Class;
+use pc_pink_pos_0_0_1\PinkCrab\Collection\Collection;
+use pc_pink_pos_0_0_1\PinkCrab\Collection\Tests\Fixtures\Sample_Class;
 class Test_Base_Collection extends \PHPUnit\Framework\TestCase
 {
     /**
@@ -28,10 +28,10 @@ class Test_Base_Collection extends \PHPUnit\Framework\TestCase
     {
         $inital_data = array(1, 2, 3, 4);
         // Using constructor.
-        $collection = new \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection($inital_data);
+        $collection = new \pc_pink_pos_0_0_1\PinkCrab\Collection\Collection($inital_data);
         $this->assertSame($inital_data, $collection->to_array());
         // Using Collection::from()
-        $this->assertSame($inital_data, \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection::from($inital_data)->to_array());
+        $this->assertSame($inital_data, \pc_pink_pos_0_0_1\PinkCrab\Collection\Collection::from($inital_data)->to_array());
     }
     /**
      * Test that a callback and be applied to the collection
@@ -41,7 +41,7 @@ class Test_Base_Collection extends \PHPUnit\Framework\TestCase
     public function test_can_apply_callback_to_collection() : void
     {
         $inital_data = array(1, 2, 3, 4);
-        $collection = \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection::from($inital_data);
+        $collection = \pc_pink_pos_0_0_1\PinkCrab\Collection\Collection::from($inital_data);
         $modified_collection = $collection->apply(static function ($e) {
             return $e + 1;
         });
@@ -64,7 +64,7 @@ class Test_Base_Collection extends \PHPUnit\Framework\TestCase
     public function test_map_creates_new_collection() : void
     {
         $inital_data = array(1, 2, 3, 4);
-        $collection = \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection::from($inital_data);
+        $collection = \pc_pink_pos_0_0_1\PinkCrab\Collection\Collection::from($inital_data);
         $modified_collection = $collection->map(static function ($e) {
             return $e + 1;
         });
@@ -88,7 +88,7 @@ class Test_Base_Collection extends \PHPUnit\Framework\TestCase
     public function test_can_use_filter() : void
     {
         $inital_data = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-        $collection = \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection::from($inital_data);
+        $collection = \pc_pink_pos_0_0_1\PinkCrab\Collection\Collection::from($inital_data);
         $modified_collection = $collection->filter(static function ($e) {
             return $e % 2 === 0;
         });
@@ -106,7 +106,7 @@ class Test_Base_Collection extends \PHPUnit\Framework\TestCase
     public function test_can_use_apply() : void
     {
         $inital_data = array(1, 2, 3, 4);
-        $collection = \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection::from($inital_data);
+        $collection = \pc_pink_pos_0_0_1\PinkCrab\Collection\Collection::from($inital_data);
         $collection->apply(static function ($e) {
             return $e + 1;
         });
@@ -124,7 +124,7 @@ class Test_Base_Collection extends \PHPUnit\Framework\TestCase
     public function test_can_use_each() : void
     {
         $inital_data = array(1, 2, 3, 4);
-        $collection = \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection::from($inital_data);
+        $collection = \pc_pink_pos_0_0_1\PinkCrab\Collection\Collection::from($inital_data);
         \ob_start();
         $collection->each(static function ($value, $key) {
             echo $value;
@@ -141,7 +141,7 @@ class Test_Base_Collection extends \PHPUnit\Framework\TestCase
     public function test_can_use_reduce() : void
     {
         $inital_data = array(1, 2, 3, 4);
-        $collection = \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection::from($inital_data);
+        $collection = \pc_pink_pos_0_0_1\PinkCrab\Collection\Collection::from($inital_data);
         $result = $collection->reduce(static function ($carry, $value) {
             $carry .= $value * 2;
             return $carry;
@@ -157,7 +157,7 @@ class Test_Base_Collection extends \PHPUnit\Framework\TestCase
     public function test_can_merge_with_array() : void
     {
         $inital_data = array(1, 2, 3, 4);
-        $collection = \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection::from($inital_data);
+        $collection = \pc_pink_pos_0_0_1\PinkCrab\Collection\Collection::from($inital_data);
         $new_collection = $collection->merge(array(5, 6, 7, 8, 9, 10));
         $this->assertEquals(1, $new_collection->to_array()[0]);
         $this->assertEquals(2, $new_collection->to_array()[1]);
@@ -181,8 +181,8 @@ class Test_Base_Collection extends \PHPUnit\Framework\TestCase
     public function test_can_merge_with_collection() : void
     {
         $inital_data = array(1, 2, 3, 4);
-        $collection = \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection::from($inital_data);
-        $merge_collection = \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection::from(array(5, 6, 7, 8, 9, 10));
+        $collection = \pc_pink_pos_0_0_1\PinkCrab\Collection\Collection::from($inital_data);
+        $merge_collection = \pc_pink_pos_0_0_1\PinkCrab\Collection\Collection::from(array(5, 6, 7, 8, 9, 10));
         $new_collection = $collection->merge($merge_collection);
         $this->assertEquals(1, $new_collection->to_array()[0]);
         $this->assertEquals(2, $new_collection->to_array()[1]);
@@ -206,7 +206,7 @@ class Test_Base_Collection extends \PHPUnit\Framework\TestCase
     {
         $this->expectException(\TypeError::class);
         $inital_data = array(1, 2, 3, 4);
-        $collection = \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection::from($inital_data);
+        $collection = \pc_pink_pos_0_0_1\PinkCrab\Collection\Collection::from($inital_data);
         $collection->merge((object) array('A1' => 2));
     }
     /**
@@ -217,7 +217,7 @@ class Test_Base_Collection extends \PHPUnit\Framework\TestCase
     public function test_can_push_to_collection() : void
     {
         $inital_data = array(1, 2, 3, 4);
-        $collection = \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection::from($inital_data);
+        $collection = \pc_pink_pos_0_0_1\PinkCrab\Collection\Collection::from($inital_data);
         $collection->push(5);
         $this->assertEquals(5, $collection->to_array()[4]);
         $collection->push(10);
@@ -236,7 +236,7 @@ class Test_Base_Collection extends \PHPUnit\Framework\TestCase
     public function test_can_pop_from_tail() : void
     {
         $inital_data = array(1, 2, 3, 4);
-        $collection = \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection::from($inital_data);
+        $collection = \pc_pink_pos_0_0_1\PinkCrab\Collection\Collection::from($inital_data);
         // Test we can pop and its removed.
         $this->assertEquals(4, $collection->pop());
         $this->assertArrayNotHasKey(3, $collection->to_array());
@@ -251,7 +251,7 @@ class Test_Base_Collection extends \PHPUnit\Framework\TestCase
     public function test_pop_throws_exception_if_empty() : void
     {
         $this->expectException(\UnderflowException::class);
-        $collection = \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection::from(array());
+        $collection = \pc_pink_pos_0_0_1\PinkCrab\Collection\Collection::from(array());
         $collection->pop();
     }
     /**
@@ -262,7 +262,7 @@ class Test_Base_Collection extends \PHPUnit\Framework\TestCase
     public function test_can_add_to_head() : void
     {
         $inital_data = array(1, 2, 3, 4);
-        $collection = \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection::from($inital_data);
+        $collection = \pc_pink_pos_0_0_1\PinkCrab\Collection\Collection::from($inital_data);
         $collection->unshift(0);
         $this->assertEquals(0, $collection->to_array()[0]);
         $collection->unshift(0.5);
@@ -280,7 +280,7 @@ class Test_Base_Collection extends \PHPUnit\Framework\TestCase
     public function test_can_shift_from_tail() : void
     {
         $inital_data = array(1, 2, 3, 4);
-        $collection = \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection::from($inital_data);
+        $collection = \pc_pink_pos_0_0_1\PinkCrab\Collection\Collection::from($inital_data);
         // Test we can pop and its removed.
         $this->assertEquals(1, $collection->shift());
         $this->assertCount(3, $collection->to_array());
@@ -295,7 +295,7 @@ class Test_Base_Collection extends \PHPUnit\Framework\TestCase
     public function test_shift_throws_exception_if_empty() : void
     {
         $this->expectException(\UnderflowException::class);
-        $collection = \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection::from(array());
+        $collection = \pc_pink_pos_0_0_1\PinkCrab\Collection\Collection::from(array());
         $collection->shift();
     }
     /**
@@ -305,7 +305,7 @@ class Test_Base_Collection extends \PHPUnit\Framework\TestCase
      */
     public function test_can_check_if_empty() : void
     {
-        $collection = \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection::from(array());
+        $collection = \pc_pink_pos_0_0_1\PinkCrab\Collection\Collection::from(array());
         $this->assertTrue($collection->is_empty());
         $collection->push(1);
         $this->assertFalse($collection->is_empty());
@@ -318,18 +318,18 @@ class Test_Base_Collection extends \PHPUnit\Framework\TestCase
     public function test_contains() : void
     {
         $inital_data = array(1, 2, 3, 4);
-        $collection = \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection::from($inital_data);
+        $collection = \pc_pink_pos_0_0_1\PinkCrab\Collection\Collection::from($inital_data);
         $this->assertTrue($collection->contains(1, 3, 2));
         $this->assertFalse($collection->contains(1, 3, 5));
         // Test can be used with MD array.
-        $collection2 = \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection::from(array(array('name' => 'james'), array('name' => 'sam')));
+        $collection2 = \pc_pink_pos_0_0_1\PinkCrab\Collection\Collection::from(array(array('name' => 'james'), array('name' => 'sam')));
         $this->assertTrue($collection2->contains(array('name' => 'james')));
         // Test can be used with an array of objects.
-        $a = (new \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Tests\Fixtures\Sample_Class())->set_property_a('3');
-        $collection3 = \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection::from(array((new \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Tests\Fixtures\Sample_Class())->set_property_a('1'), (new \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Tests\Fixtures\Sample_Class())->set_property_a('2'), $a));
+        $a = (new \pc_pink_pos_0_0_1\PinkCrab\Collection\Tests\Fixtures\Sample_Class())->set_property_a('3');
+        $collection3 = \pc_pink_pos_0_0_1\PinkCrab\Collection\Collection::from(array((new \pc_pink_pos_0_0_1\PinkCrab\Collection\Tests\Fixtures\Sample_Class())->set_property_a('1'), (new \pc_pink_pos_0_0_1\PinkCrab\Collection\Tests\Fixtures\Sample_Class())->set_property_a('2'), $a));
         $this->assertTrue($collection3->contains($a));
         // This will fail as its a different instance.
-        $this->assertFalse($collection3->contains((new \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Tests\Fixtures\Sample_Class())->set_property_a('1')));
+        $this->assertFalse($collection3->contains((new \pc_pink_pos_0_0_1\PinkCrab\Collection\Tests\Fixtures\Sample_Class())->set_property_a('1')));
     }
     /**
      * Test the collection can be counted
@@ -340,7 +340,7 @@ class Test_Base_Collection extends \PHPUnit\Framework\TestCase
     public function test_can_count_contents()
     {
         $inital_data = array(1, 2, 3, 4);
-        $collection = \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection::from($inital_data);
+        $collection = \pc_pink_pos_0_0_1\PinkCrab\Collection\Collection::from($inital_data);
         $this->assertEquals(4, $collection->count());
         // Ensure implements countable.
         $this->assertCount(4, $collection);
@@ -353,7 +353,7 @@ class Test_Base_Collection extends \PHPUnit\Framework\TestCase
     public function test_can_clear_collection() : void
     {
         $inital_data = array(1, 2, 3, 4);
-        $collection = \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection::from($inital_data);
+        $collection = \pc_pink_pos_0_0_1\PinkCrab\Collection\Collection::from($inital_data);
         $this->assertEquals(4, $collection->count());
         $collection->clear();
         $this->assertEmpty($collection);
@@ -365,7 +365,7 @@ class Test_Base_Collection extends \PHPUnit\Framework\TestCase
      */
     public function test_can_copy_collection() : void
     {
-        $inital_collection = \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection::from(array(1, 2, 3));
+        $inital_collection = \pc_pink_pos_0_0_1\PinkCrab\Collection\Collection::from(array(1, 2, 3));
         $copy_collection = $inital_collection->copy();
         $this->assertNotSame($inital_collection, $copy_collection);
         $this->assertSame($inital_collection->to_array(), $copy_collection->to_array());
@@ -379,7 +379,7 @@ class Test_Base_Collection extends \PHPUnit\Framework\TestCase
     public function test_can_sort_collection() : void
     {
         // Sort naturally (no callable)
-        $nat_sorted_collection = \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection::from(array('a', 'z', 'f', 'y', 'o'));
+        $nat_sorted_collection = \pc_pink_pos_0_0_1\PinkCrab\Collection\Collection::from(array('a', 'z', 'f', 'y', 'o'));
         $nat_sorted_collection->sort();
         $this->assertEquals('a', $nat_sorted_collection->shift());
         $this->assertEquals('f', $nat_sorted_collection->shift());
@@ -387,7 +387,7 @@ class Test_Base_Collection extends \PHPUnit\Framework\TestCase
         $this->assertEquals('y', $nat_sorted_collection->shift());
         $this->assertEquals('z', $nat_sorted_collection->shift());
         // Sort in reverse with callable.
-        $revsersed_collection = \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection::from(array('a', 'z', 'f', 'y', 'o'));
+        $revsersed_collection = \pc_pink_pos_0_0_1\PinkCrab\Collection\Collection::from(array('a', 'z', 'f', 'y', 'o'));
         $revsersed_collection->sort(function ($a, $b) {
             return $b <=> $a;
         });
@@ -405,7 +405,7 @@ class Test_Base_Collection extends \PHPUnit\Framework\TestCase
     public function test_can_sorted_collection() : void
     {
         // Sort naturally (no callable)
-        $collection = \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection::from(array('a', 'z', 'f', 'y', 'o'));
+        $collection = \pc_pink_pos_0_0_1\PinkCrab\Collection\Collection::from(array('a', 'z', 'f', 'y', 'o'));
         $nat_sorted_collection = $collection->sorted();
         $this->assertEquals('a', $nat_sorted_collection->shift());
         $this->assertEquals('f', $nat_sorted_collection->shift());
@@ -421,7 +421,7 @@ class Test_Base_Collection extends \PHPUnit\Framework\TestCase
     }
     public function test_can_slice() : void
     {
-        $collection = \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection::from(array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+        $collection = \pc_pink_pos_0_0_1\PinkCrab\Collection\Collection::from(array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
         // Remove last 3.
         $last_3 = $collection->slice(-3);
         $this->assertEquals(8, $last_3->to_array()[0]);
@@ -443,13 +443,13 @@ class Test_Base_Collection extends \PHPUnit\Framework\TestCase
      */
     public function test_can_use_diff() : void
     {
-        $collection = \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection::from(array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+        $collection = \pc_pink_pos_0_0_1\PinkCrab\Collection\Collection::from(array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
         // Diff using array.
         $diff_array = $collection->diff(array(1, 2, 3, 4, 5, 6, 7, 8, 9));
         $this->assertCount(1, $diff_array);
         $this->assertEquals(10, $diff_array->shift());
         // Using Collection.
-        $diff_colection = $collection->diff(\pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection::from(array(2, 3, 4, 5, 6, 7, 8, 9, 10)));
+        $diff_colection = $collection->diff(\pc_pink_pos_0_0_1\PinkCrab\Collection\Collection::from(array(2, 3, 4, 5, 6, 7, 8, 9, 10)));
         $this->assertCount(1, $diff_colection);
         $this->assertEquals(1, $diff_colection->pop());
     }
@@ -461,7 +461,7 @@ class Test_Base_Collection extends \PHPUnit\Framework\TestCase
     public function test_throws_exception_if_diff_used_with_invalid_type() : void
     {
         $this->expectException(\TypeError::class);
-        $collection = \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection::from(array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+        $collection = \pc_pink_pos_0_0_1\PinkCrab\Collection\Collection::from(array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
         $collection->diff('IM NOT AN ARRAY OR COLLECTION');
     }
     /**
@@ -471,7 +471,7 @@ class Test_Base_Collection extends \PHPUnit\Framework\TestCase
      */
     public function test_can_use_intersect() : void
     {
-        $collection = \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection::from(array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+        $collection = \pc_pink_pos_0_0_1\PinkCrab\Collection\Collection::from(array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
         // Diff using array.
         $using_array = $collection->intersect(array(1, 2, 3, 4, 5));
         $this->assertCount(5, $using_array);
@@ -481,7 +481,7 @@ class Test_Base_Collection extends \PHPUnit\Framework\TestCase
         $this->assertEquals(4, $using_array->shift());
         $this->assertEquals(5, $using_array->shift());
         // Using Collection.
-        $using_colection = $collection->intersect(\pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection::from(array(6, 7, 8, 9, 10)));
+        $using_colection = $collection->intersect(\pc_pink_pos_0_0_1\PinkCrab\Collection\Collection::from(array(6, 7, 8, 9, 10)));
         $this->assertCount(5, $using_colection);
         $this->assertEquals(6, $using_colection->shift());
         $this->assertEquals(7, $using_colection->shift());
@@ -497,7 +497,7 @@ class Test_Base_Collection extends \PHPUnit\Framework\TestCase
     public function test_throws_exception_if_intersect_used_with_invalid_type() : void
     {
         $this->expectException(\TypeError::class);
-        $collection = \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection::from(array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+        $collection = \pc_pink_pos_0_0_1\PinkCrab\Collection\Collection::from(array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
         $collection->intersect('IM NOT AN ARRAY OR COLLECTION');
     }
 }

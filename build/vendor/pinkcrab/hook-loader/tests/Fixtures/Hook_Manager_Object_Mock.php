@@ -11,11 +11,11 @@ declare (strict_types=1);
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
  * @package PinkCrab\Core
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Loader\Tests\Fixtures;
+namespace pc_pink_pos_0_0_1\PinkCrab\Loader\Tests\Fixtures;
 
-use pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook;
-use pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook_Manager;
-class Hook_Manager_Object_Mock extends \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook_Manager
+use pc_pink_pos_0_0_1\PinkCrab\Loader\Hook;
+use pc_pink_pos_0_0_1\PinkCrab\Loader\Hook_Manager;
+class Hook_Manager_Object_Mock extends \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook_Manager
 {
     /** Holds all the hooks which have been registered. */
     public $_hooks = array('actions' => array(), 'filters' => array(), 'remove' => array());
@@ -45,7 +45,7 @@ class Hook_Manager_Object_Mock extends \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook
      * @param Hook $hook
      * @return Hook
      */
-    protected function register_action(\pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook $hook) : \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook
+    protected function register_action(\pc_pink_pos_0_0_1\PinkCrab\Loader\Hook $hook) : \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook
     {
         $this->_add_action($hook->get_handle(), $hook->get_callback(), $hook->get_priority(), $hook->args_count());
         $hook->registered();
@@ -57,7 +57,7 @@ class Hook_Manager_Object_Mock extends \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook
      * @param Hook $hook
      * @return Hook
      */
-    protected function register_filter(\pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook $hook) : \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook
+    protected function register_filter(\pc_pink_pos_0_0_1\PinkCrab\Loader\Hook $hook) : \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook
     {
         $this->_add_filter($hook->get_handle(), $hook->get_callback(), $hook->get_priority(), $hook->args_count());
         $hook->registered();
@@ -69,7 +69,7 @@ class Hook_Manager_Object_Mock extends \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook
      * @param Hook $hook
      * @return Hook
      */
-    protected function register_remove(\pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook $hook) : \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook
+    protected function register_remove(\pc_pink_pos_0_0_1\PinkCrab\Loader\Hook $hook) : \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook
     {
         $this->_remove_hook($hook->get_handle(), $hook->get_callback(), $hook->get_priority());
         $hook->registered();

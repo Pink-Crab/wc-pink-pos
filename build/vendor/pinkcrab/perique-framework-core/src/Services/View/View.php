@@ -20,9 +20,9 @@ declare (strict_types=1);
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
  * @package PinkCrab\Perique\View
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Perique\Services\View;
+namespace pc_pink_pos_0_0_1\PinkCrab\Perique\Services\View;
 
-use pinkcrab_cccp_0_0_1\PinkCrab\Perique\Interfaces\Renderable;
+use pc_pink_pos_0_0_1\PinkCrab\Perique\Interfaces\Renderable;
 class View
 {
     /**
@@ -44,7 +44,7 @@ class View
      *
      * @param Renderable $engine
      */
-    public function __construct(\pinkcrab_cccp_0_0_1\PinkCrab\Perique\Interfaces\Renderable $engine)
+    public function __construct(\pc_pink_pos_0_0_1\PinkCrab\Perique\Interfaces\Renderable $engine)
     {
         $this->engine = $engine;
     }
@@ -84,7 +84,7 @@ class View
      *
      * @return Renderable
      */
-    public function engine() : \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Interfaces\Renderable
+    public function engine() : \pc_pink_pos_0_0_1\PinkCrab\Perique\Interfaces\Renderable
     {
         return $this->engine;
     }

@@ -1,11 +1,11 @@
 <?php
 
-namespace pinkcrab_cccp_0_0_1\Dice\Extra;
+namespace pc_pink_pos_0_0_1\Dice\Extra;
 
 class RuleValidator
 {
     private $dice;
-    public function __construct(\pinkcrab_cccp_0_0_1\Dice\Dice $dice)
+    public function __construct(\pc_pink_pos_0_0_1\Dice\Dice $dice)
     {
         $this->dice = $dice;
     }

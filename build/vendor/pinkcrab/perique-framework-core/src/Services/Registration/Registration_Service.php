@@ -20,11 +20,11 @@ declare (strict_types=1);
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
  * @package PinkCrab\Perique\Registration
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Perique\Services\Registration;
+namespace pc_pink_pos_0_0_1\PinkCrab\Perique\Services\Registration;
 
-use pinkcrab_cccp_0_0_1\PinkCrab\Perique\Application\Hooks;
-use pinkcrab_cccp_0_0_1\PinkCrab\Perique\Interfaces\DI_Container;
-use pinkcrab_cccp_0_0_1\PinkCrab\Perique\Interfaces\Registration_Middleware;
+use pc_pink_pos_0_0_1\PinkCrab\Perique\Application\Hooks;
+use pc_pink_pos_0_0_1\PinkCrab\Perique\Interfaces\DI_Container;
+use pc_pink_pos_0_0_1\PinkCrab\Perique\Interfaces\Registration_Middleware;
 class Registration_Service
 {
     /**
@@ -51,7 +51,7 @@ class Registration_Service
      * @param DI_Container $di_container
      * @return self
      */
-    public function set_container(\pinkcrab_cccp_0_0_1\PinkCrab\Perique\Interfaces\DI_Container $di_container) : self
+    public function set_container(\pc_pink_pos_0_0_1\PinkCrab\Perique\Interfaces\DI_Container $di_container) : self
     {
         $this->di_container = $di_container;
         return $this;
@@ -62,7 +62,7 @@ class Registration_Service
      * @param Registration_Middleware $middleware
      * @return self
      */
-    public function push_middleware(\pinkcrab_cccp_0_0_1\PinkCrab\Perique\Interfaces\Registration_Middleware $middleware) : self
+    public function push_middleware(\pc_pink_pos_0_0_1\PinkCrab\Perique\Interfaces\Registration_Middleware $middleware) : self
     {
         $this->middleware[\get_class($middleware)] = $middleware;
         return $this;
@@ -97,7 +97,7 @@ class Registration_Service
     public function process() : void
     {
         // Filter all classes, before processing.
-        $class_list = apply_filters(\pinkcrab_cccp_0_0_1\PinkCrab\Perique\Application\Hooks::APP_INIT_REGISTRATION_CLASS_LIST, $this->class_list);
+        $class_list = apply_filters(\pc_pink_pos_0_0_1\PinkCrab\Perique\Application\Hooks::APP_INIT_REGISTRATION_CLASS_LIST, $this->class_list);
         foreach ($this->middleware as $middleware) {
             // Run middleware setup
             $middleware->setup();

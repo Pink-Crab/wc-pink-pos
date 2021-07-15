@@ -9,21 +9,21 @@ declare (strict_types=1);
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
  * @package PinkCrab\Route
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Route\Registration_Middleware;
+namespace pc_pink_pos_0_0_1\PinkCrab\Route\Registration_Middleware;
 
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route_Collection;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route_Group;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Abstract_Route;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Schema\Abstract_Type;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Registration\Route_Manager;
-use pinkcrab_cccp_0_0_1\PinkCrab\Perique\Interfaces\Registration_Middleware;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Registration_Middleware\Route_Controller;
-class Route_Middleware implements \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Interfaces\Registration_Middleware
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route_Collection;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route_Group;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route\Abstract_Route;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Schema\Abstract_Type;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Registration\Route_Manager;
+use pc_pink_pos_0_0_1\PinkCrab\Perique\Interfaces\Registration_Middleware;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Registration_Middleware\Route_Controller;
+class Route_Middleware implements \pc_pink_pos_0_0_1\PinkCrab\Perique\Interfaces\Registration_Middleware
 {
     /** @var Route_Manager */
     protected $route_manager;
-    public function __construct(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Registration\Route_Manager $route_manager)
+    public function __construct(\pc_pink_pos_0_0_1\PinkCrab\Route\Registration\Route_Manager $route_manager)
     {
         $this->route_manager = $route_manager;
     }
@@ -35,14 +35,14 @@ class Route_Middleware implements \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Interfac
      */
     public function process($class)
     {
-        if (\is_a($class, \pinkcrab_cccp_0_0_1\PinkCrab\Route\Registration_Middleware\Route_Controller::class)) {
-            $routes = $class->get_routes(new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route_Collection());
-            $routes->each(function (\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Abstract_Route $route) {
-                if (\is_a($route, \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route::class)) {
+        if (\is_a($class, \pc_pink_pos_0_0_1\PinkCrab\Route\Registration_Middleware\Route_Controller::class)) {
+            $routes = $class->get_routes(new \pc_pink_pos_0_0_1\PinkCrab\Route\Route_Collection());
+            $routes->each(function (\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Abstract_Route $route) {
+                if (\is_a($route, \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route::class)) {
                     $this->route_manager->from_route($route);
                     return;
                 }
-                if (\is_a($route, \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route_Group::class)) {
+                if (\is_a($route, \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route_Group::class)) {
                     $this->route_manager->from_group($route);
                     return;
                 }

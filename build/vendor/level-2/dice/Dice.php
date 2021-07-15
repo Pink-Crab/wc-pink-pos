@@ -5,7 +5,7 @@
  * @copyright 2012-2020 Tom Butler <tom@r.je> | https://r.je/dice
  * @license http://www.opensource.org/licenses/bsd-license.php BSD License
  * @version 4.0 */
-namespace pinkcrab_cccp_0_0_1\Dice;
+namespace pc_pink_pos_0_0_1\Dice;
 
 class Dice
 {
@@ -52,7 +52,7 @@ class Dice
         }
         return $dice;
     }
-    private function addRuleTo(\pinkcrab_cccp_0_0_1\Dice\Dice $dice, string $name, array $rule)
+    private function addRuleTo(\pc_pink_pos_0_0_1\Dice\Dice $dice, string $name, array $rule)
     {
         if (isset($rule['instanceOf']) && (!\array_key_exists('inherit', $rule) || $rule['inherit'] === \true)) {
             $rule = \array_replace_recursive($dice->getRule($rule['instanceOf']), $rule);

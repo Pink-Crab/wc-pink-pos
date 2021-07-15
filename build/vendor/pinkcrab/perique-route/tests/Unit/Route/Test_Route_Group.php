@@ -21,34 +21,34 @@ declare (strict_types=1);
  * @package PinkCrab\Route
  *
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Route\Tests\Unit\Route;
+namespace pc_pink_pos_0_0_1\PinkCrab\Route\Tests\Unit\Route;
 
-use pinkcrab_cccp_0_0_1\WP_UnitTestCase;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route_Factory;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument;
-use pinkcrab_cccp_0_0_1\Gin0115\WPUnit_Helpers\Objects;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route_Group;
+use pc_pink_pos_0_0_1\WP_UnitTestCase;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route_Factory;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument;
+use pc_pink_pos_0_0_1\Gin0115\WPUnit_Helpers\Objects;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route_Group;
 class Test_Route_Group extends \WP_UnitTestCase
 {
     /** @testdox It should be possible to create a group with a single route and be able to access the route */
     public function test_get_route() : void
     {
-        $group = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route_Group('namespace', 'route');
+        $group = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route_Group('namespace', 'route');
         $this->assertEquals('route', $group->get_route());
     }
     /** @testdox It should be possible to set and get the namespace */
     public function test_can_set_get_namespace() : void
     {
-        $group = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route_Group('namespace', 'route');
+        $group = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route_Group('namespace', 'route');
         $this->assertEquals('namespace', $group->get_namespace());
     }
     /** @testdox It should be possible to add multiple routes to the group, check if routes exist and recall them. */
     public function test_can_add_routes() : void
     {
-        $route1 = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route('GET', 'test');
-        $route2 = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route('POST', 'test');
-        $group = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route_Group('namespace', 'test');
+        $route1 = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route('GET', 'test');
+        $route2 = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route('POST', 'test');
+        $group = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route_Group('namespace', 'test');
         $this->assertFalse($group->has_routes());
         $group->add_rest_route($route1);
         $group->add_rest_route($route2);
@@ -60,7 +60,7 @@ class Test_Route_Group extends \WP_UnitTestCase
     /** @testdox It should be possible to set group wide authentication applied to all defined routes. */
     public function test_group_authentication() : void
     {
-        $group = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route_Group('namespace', 'route');
+        $group = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route_Group('namespace', 'route');
         $group->authentication('is_null');
         $group->authentication('is_float');
         $this->assertCount(2, $group->get_authentication());
@@ -70,9 +70,9 @@ class Test_Route_Group extends \WP_UnitTestCase
     /** @testdox It should be possible to set group wide arguments applied to all defined routes. */
     public function test_group_arguments() : void
     {
-        $group = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route_Group('namespace', 'route');
-        $arg1 = \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument::on('arg1');
-        $arg2 = \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Argument::on('arg2');
+        $group = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route_Group('namespace', 'route');
+        $arg1 = \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument::on('arg1');
+        $arg2 = \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Argument::on('arg2');
         $group->argument($arg1);
         $group->argument($arg2);
         $this->assertSame($arg1, $group->get_arguments()['arg1']);
@@ -81,7 +81,7 @@ class Test_Route_Group extends \WP_UnitTestCase
     /** @testdox It should be possible to use helper methods to create get, post, delete, put and patch routes for the group. */
     public function test_method_helpers() : void
     {
-        $group = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route_Group('namespace', 'route');
+        $group = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route_Group('namespace', 'route');
         $group->get('is_string');
         $group->post('is_null');
         $group->put('is_float');
@@ -94,11 +94,11 @@ class Test_Route_Group extends \WP_UnitTestCase
         $this->assertArrayHasKey('PUT', $group->get_rest_routes());
         $this->assertArrayHasKey('PATCH', $group->get_rest_routes());
         // Check are valid routes.
-        $this->assertInstanceOf(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route::class, $group->get_rest_routes()['GET']);
-        $this->assertInstanceOf(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route::class, $group->get_rest_routes()['POST']);
-        $this->assertInstanceOf(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route::class, $group->get_rest_routes()['DELETE']);
-        $this->assertInstanceOf(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route::class, $group->get_rest_routes()['PUT']);
-        $this->assertInstanceOf(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route::class, $group->get_rest_routes()['PATCH']);
+        $this->assertInstanceOf(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route::class, $group->get_rest_routes()['GET']);
+        $this->assertInstanceOf(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route::class, $group->get_rest_routes()['POST']);
+        $this->assertInstanceOf(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route::class, $group->get_rest_routes()['DELETE']);
+        $this->assertInstanceOf(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route::class, $group->get_rest_routes()['PUT']);
+        $this->assertInstanceOf(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route::class, $group->get_rest_routes()['PATCH']);
         // Check Values.
         $this->assertEquals('is_string', $group->get_rest_routes()['GET']->get_callback());
         $this->assertEquals('is_null', $group->get_rest_routes()['POST']->get_callback());
@@ -109,10 +109,10 @@ class Test_Route_Group extends \WP_UnitTestCase
     /** @testdox It should be possible to check if a specified route is defined. */
     public function test_method_exists() : void
     {
-        $group = new \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route_Group('namespace', 'route');
+        $group = new \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route_Group('namespace', 'route');
         $group->post('is_string');
-        $this->assertTrue($group->method_exists(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route::POST));
-        $this->assertFalse($group->method_exists(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route::PATCH));
+        $this->assertTrue($group->method_exists(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route::POST));
+        $this->assertFalse($group->method_exists(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route::PATCH));
         // Test with mixed case.
         $this->assertTrue($group->method_exists('post'));
         $this->assertFalse($group->method_exists('patch'));

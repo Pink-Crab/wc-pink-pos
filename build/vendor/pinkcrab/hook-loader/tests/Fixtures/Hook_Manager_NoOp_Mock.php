@@ -10,18 +10,18 @@ declare (strict_types=1);
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
  * @package PinkCrab\Core
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Loader\Tests\Fixtures;
+namespace pc_pink_pos_0_0_1\PinkCrab\Loader\Tests\Fixtures;
 
-use pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook;
-use pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook_Manager;
-class Hook_Manager_NoOp_Mock extends \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook_Manager
+use pc_pink_pos_0_0_1\PinkCrab\Loader\Hook;
+use pc_pink_pos_0_0_1\PinkCrab\Loader\Hook_Manager;
+class Hook_Manager_NoOp_Mock extends \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook_Manager
 {
     /** Toggles if or not the hooks should be marked as registered */
     public $registered_value = \true;
     /**
      * Callback used to process a hook
      */
-    public function process_hook(\pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook $hook) : \pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook
+    public function process_hook(\pc_pink_pos_0_0_1\PinkCrab\Loader\Hook $hook) : \pc_pink_pos_0_0_1\PinkCrab\Loader\Hook
     {
         $hook->registered($this->registered_value);
         return $hook;

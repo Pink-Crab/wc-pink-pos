@@ -5,7 +5,7 @@
  * @copyright 2012-2018 Tom Butler <tom@r.je> | https:// r.je/dice.html *
  * @license http:// www.opensource.org/licenses/bsd-license.php BSD License *
  * @version 3.0 */
-namespace pinkcrab_cccp_0_0_1\Foo;
+namespace pc_pink_pos_0_0_1\Foo;
 
 class A
 {
@@ -13,23 +13,23 @@ class A
 class B
 {
     public $a;
-    public function __construct(\pinkcrab_cccp_0_0_1\Foo\A $a)
+    public function __construct(\pc_pink_pos_0_0_1\Foo\A $a)
     {
         $this->a = $a;
     }
 }
-class ExtendedA extends \pinkcrab_cccp_0_0_1\Foo\A
+class ExtendedA extends \pc_pink_pos_0_0_1\Foo\A
 {
 }
 class C
 {
     public $a;
-    public function __construct(\pinkcrab_cccp_0_0_1\Bar\A $a)
+    public function __construct(\pc_pink_pos_0_0_1\Bar\A $a)
     {
         $this->a = $a;
     }
 }
-namespace pinkcrab_cccp_0_0_1\Bar;
+namespace pc_pink_pos_0_0_1\Bar;
 
 class A
 {

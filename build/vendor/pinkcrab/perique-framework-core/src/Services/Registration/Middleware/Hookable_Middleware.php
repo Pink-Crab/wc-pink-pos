@@ -22,16 +22,16 @@ declare (strict_types=1);
  * @package PinkCrab\Perique\Registration
  * @since 0.4.0
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Perique\Services\Registration\Middleware;
+namespace pc_pink_pos_0_0_1\PinkCrab\Perique\Services\Registration\Middleware;
 
-use pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook_Loader;
-use pinkcrab_cccp_0_0_1\PinkCrab\Perique\Interfaces\Hookable;
-use pinkcrab_cccp_0_0_1\PinkCrab\Perique\Interfaces\Registration_Middleware;
-class Hookable_Middleware implements \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Interfaces\Registration_Middleware
+use pc_pink_pos_0_0_1\PinkCrab\Loader\Hook_Loader;
+use pc_pink_pos_0_0_1\PinkCrab\Perique\Interfaces\Hookable;
+use pc_pink_pos_0_0_1\PinkCrab\Perique\Interfaces\Registration_Middleware;
+class Hookable_Middleware implements \pc_pink_pos_0_0_1\PinkCrab\Perique\Interfaces\Registration_Middleware
 {
     /** @var Hook_Loader */
     protected $loader;
-    public function __construct(\pinkcrab_cccp_0_0_1\PinkCrab\Loader\Hook_Loader $loader)
+    public function __construct(\pc_pink_pos_0_0_1\PinkCrab\Loader\Hook_Loader $loader)
     {
         $this->loader = $loader;
     }
@@ -43,7 +43,7 @@ class Hookable_Middleware implements \pinkcrab_cccp_0_0_1\PinkCrab\Perique\Inter
      */
     public function process($class)
     {
-        if (\in_array(\pinkcrab_cccp_0_0_1\PinkCrab\Perique\Interfaces\Hookable::class, \class_implements($class) ?: array(), \true)) {
+        if (\in_array(\pc_pink_pos_0_0_1\PinkCrab\Perique\Interfaces\Hookable::class, \class_implements($class) ?: array(), \true)) {
             /** @phpstan-ignore-next-line class must implement register for interface*/
             $class->register($this->loader);
         }

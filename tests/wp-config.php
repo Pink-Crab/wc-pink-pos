@@ -34,7 +34,7 @@ define( 'WP_DEBUG', true );
 // These GitHub action MYSQL credentials are set in the actions yaml file
 // If you wish to change them, ensure you change them in both places
 if ( getenv( 'environment_github' ) ) {
-	define( 'DB_NAME', 'pc_plugin_bp' );
+	define( 'DB_NAME', 'pc_pink_pos_tests' );
 	define( 'DB_USER', 'root' );
 	define( 'DB_PASSWORD', 'crab' );
 	define( 'DB_HOST', '0.0.0.0' );
@@ -42,10 +42,10 @@ if ( getenv( 'environment_github' ) ) {
 	define( 'DB_COLLATE', '' );
 } else {
 	// IF YOU ARE PLANNING TO RUN THESE TESTS LOCALLY, SET THESE TO MATCH YOUR DB.
-	define( 'DB_NAME', getenv( 'WP_DB_NAME' ) ?: '##DB_NAME##' );
-	define( 'DB_USER', getenv( 'WP_DB_USER' ) ?: '##DB_USER##' );
-	define( 'DB_PASSWORD', getenv( 'WP_DB_PASS' ) ?: '##DB_PASSWORD##' );
-	define( 'DB_HOST', '##DB_HOST##' );
+	define( 'DB_NAME', getenv( 'WP_DB_NAME' ) ?: 'pc_pink_pos_tests' );
+	define( 'DB_USER', getenv( 'WP_DB_USER' ) ?: 'root' );
+	define( 'DB_PASSWORD', getenv( 'WP_DB_PASS' ) ?: '' );
+	define( 'DB_HOST', '127.0.0.1' );
 	define( 'DB_CHARSET', 'utf8' );
 	define( 'DB_COLLATE', '' );
 }

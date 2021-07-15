@@ -1,6 +1,6 @@
 <?php
 
-namespace pinkcrab_cccp_0_0_1;
+namespace pc_pink_pos_0_0_1;
 
 /* Path to the WordPress codebase you'd like to test. Add a forward slash in the end. */
 \define('ABSPATH', \dirname(\dirname(__FILE__)) . '/wordpress/');

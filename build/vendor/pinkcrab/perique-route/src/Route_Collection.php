@@ -8,14 +8,14 @@ declare (strict_types=1);
  * @author Glynn Quelch glynn@pinkcrab.co.uk
  * @since 0.0.1
  */
-namespace pinkcrab_cccp_0_0_1\PinkCrab\Route;
+namespace pc_pink_pos_0_0_1\PinkCrab\Route;
 
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route;
-use pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection;
-use pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route_Group;
-class Route_Collection extends \pinkcrab_cccp_0_0_1\PinkCrab\Collection\Collection
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route;
+use pc_pink_pos_0_0_1\PinkCrab\Collection\Collection;
+use pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route_Group;
+class Route_Collection extends \pc_pink_pos_0_0_1\PinkCrab\Collection\Collection
 {
-    protected const ALLOWED_ROUTE_TYPES = array(\pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route::class, \pinkcrab_cccp_0_0_1\PinkCrab\Route\Route\Route_Group::class);
+    protected const ALLOWED_ROUTE_TYPES = array(\pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route::class, \pc_pink_pos_0_0_1\PinkCrab\Route\Route\Route_Group::class);
     /**
      * Overwrite this method in any extended classes, to modify the inital data.
      *

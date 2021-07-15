@@ -1,6 +1,6 @@
 <?php
 
-namespace pinkcrab_cccp_0_0_1;
+namespace pc_pink_pos_0_0_1;
 
 /* @description Dice - A minimal Dependency Injection Container for PHP *
  * @author Tom Butler tom@r.je *
@@ -15,7 +15,7 @@ class MyDirectoryIterator extends \DirectoryIterator
  * @copyright 2012-2018 Tom Butler <tom@r.je> | https:// r.je/dice.html *
  * @license http:// www.opensource.org/licenses/bsd-license.php BSD License *
  * @version 3.0 */
-\class_alias('pinkcrab_cccp_0_0_1\\MyDirectoryIterator', 'MyDirectoryIterator', \false);
+\class_alias('pc_pink_pos_0_0_1\\MyDirectoryIterator', 'MyDirectoryIterator', \false);
 class MyDirectoryIterator2 extends \DirectoryIterator
 {
     public function __construct($f)
@@ -23,29 +23,29 @@ class MyDirectoryIterator2 extends \DirectoryIterator
         parent::__construct($f);
     }
 }
-\class_alias('pinkcrab_cccp_0_0_1\\MyDirectoryIterator2', 'MyDirectoryIterator2', \false);
+\class_alias('pc_pink_pos_0_0_1\\MyDirectoryIterator2', 'MyDirectoryIterator2', \false);
 class ParamRequiresArgs
 {
     public $a;
-    public function __construct(\pinkcrab_cccp_0_0_1\D $d, \pinkcrab_cccp_0_0_1\RequiresConstructorArgsA $a)
+    public function __construct(\pc_pink_pos_0_0_1\D $d, \pc_pink_pos_0_0_1\RequiresConstructorArgsA $a)
     {
         $this->a = $a;
     }
 }
-\class_alias('pinkcrab_cccp_0_0_1\\ParamRequiresArgs', 'ParamRequiresArgs', \false);
+\class_alias('pc_pink_pos_0_0_1\\ParamRequiresArgs', 'ParamRequiresArgs', \false);
 class RequiresConstructorArgsB
 {
     public $a;
     public $foo;
     public $bar;
-    public function __construct(\pinkcrab_cccp_0_0_1\A $a, $foo, $bar)
+    public function __construct(\pc_pink_pos_0_0_1\A $a, $foo, $bar)
     {
         $this->a = $a;
         $this->foo = $foo;
         $this->bar = $bar;
     }
 }
-\class_alias('pinkcrab_cccp_0_0_1\\RequiresConstructorArgsB', 'RequiresConstructorArgsB', \false);
+\class_alias('pc_pink_pos_0_0_1\\RequiresConstructorArgsB', 'RequiresConstructorArgsB', \false);
 trait MyTrait
 {
     public function foo()
@@ -56,7 +56,7 @@ class MyDirectoryIteratorWithTrait extends \DirectoryIterator
 {
     use MyTrait;
 }
-\class_alias('pinkcrab_cccp_0_0_1\\MyDirectoryIteratorWithTrait', 'MyDirectoryIteratorWithTrait', \false);
+\class_alias('pc_pink_pos_0_0_1\\MyDirectoryIteratorWithTrait', 'MyDirectoryIteratorWithTrait', \false);
 class NullScalar
 {
     public $string;
@@ -65,54 +65,54 @@ class NullScalar
         $this->string = $string;
     }
 }
-\class_alias('pinkcrab_cccp_0_0_1\\NullScalar', 'NullScalar', \false);
+\class_alias('pc_pink_pos_0_0_1\\NullScalar', 'NullScalar', \false);
 class NullScalarNested
 {
     public $nullScalar;
-    public function __construct(\pinkcrab_cccp_0_0_1\NullScalar $nullScalar)
+    public function __construct(\pc_pink_pos_0_0_1\NullScalar $nullScalar)
     {
         $this->nullScalar = $nullScalar;
     }
 }
-\class_alias('pinkcrab_cccp_0_0_1\\NullScalarNested', 'NullScalarNested', \false);
+\class_alias('pc_pink_pos_0_0_1\\NullScalarNested', 'NullScalarNested', \false);
 class NB
 {
 }
-\class_alias('pinkcrab_cccp_0_0_1\\NB', 'NB', \false);
+\class_alias('pc_pink_pos_0_0_1\\NB', 'NB', \false);
 class NC
 {
 }
-\class_alias('pinkcrab_cccp_0_0_1\\NC', 'NC', \false);
+\class_alias('pc_pink_pos_0_0_1\\NC', 'NC', \false);
 class MethodWithTwoDefaultNullC
 {
     public $a;
     public $b;
-    public function __construct($a = null, \pinkcrab_cccp_0_0_1\NB $b = null)
+    public function __construct($a = null, \pc_pink_pos_0_0_1\NB $b = null)
     {
         $this->a = $a;
         $this->b = $b;
     }
 }
-\class_alias('pinkcrab_cccp_0_0_1\\MethodWithTwoDefaultNullC', 'MethodWithTwoDefaultNullC', \false);
+\class_alias('pc_pink_pos_0_0_1\\MethodWithTwoDefaultNullC', 'MethodWithTwoDefaultNullC', \false);
 class MethodWithTwoDefaultNullCC
 {
     public $a;
     public $b;
     public $c;
-    public function __construct($a = null, \pinkcrab_cccp_0_0_1\NB $b = null, \pinkcrab_cccp_0_0_1\NC $c = null)
+    public function __construct($a = null, \pc_pink_pos_0_0_1\NB $b = null, \pc_pink_pos_0_0_1\NC $c = null)
     {
         $this->a = $a;
         $this->b = $b;
         $this->c = $c;
     }
 }
-\class_alias('pinkcrab_cccp_0_0_1\\MethodWithTwoDefaultNullCC', 'MethodWithTwoDefaultNullCC', \false);
+\class_alias('pc_pink_pos_0_0_1\\MethodWithTwoDefaultNullCC', 'MethodWithTwoDefaultNullCC', \false);
 class NullableClassTypeHint
 {
     public $obj;
-    public function __construct(?\pinkcrab_cccp_0_0_1\D $obj)
+    public function __construct(?\pc_pink_pos_0_0_1\D $obj)
     {
         $this->obj = $obj;
     }
 }
-\class_alias('pinkcrab_cccp_0_0_1\\NullableClassTypeHint', 'NullableClassTypeHint', \false);
+\class_alias('pc_pink_pos_0_0_1\\NullableClassTypeHint', 'NullableClassTypeHint', \false);
