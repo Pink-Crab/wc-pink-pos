@@ -6,7 +6,7 @@ declare(strict_types=1);
  * Repository for working with customers.
  *
  * @package PinkCrab/WC_Pink_Pos
- * @Customer webhook
+ * @Customer Customer
  * @since 0.1.0
  * @author Glynn <glynn@pinkcrab.co.uk>
  */
