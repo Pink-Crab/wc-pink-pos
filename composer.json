@@ -37,12 +37,14 @@
         "bamarni/composer-bin-plugin": "^1.4",
         "kimhf/woocommerce-stubs": "^0.2.0",
         "kimhf/advanced-custom-fields-pro-stubs": "^5.9",
-        "pxlrbt/php-scoper-prefix-remover": "^0.1.0"
+        "pxlrbt/php-scoper-prefix-remover": "^0.1.0",
+        "php-stubs/woocommerce-stubs": "^5.5"
     },
     "require": {
         "php": ">=7.1.0",
         "pinkcrab/perique-framework-core": "^1.0",
-        "pinkcrab/perique-route": "*"
+        "pinkcrab/perique-route": "*",
+        "psr/log": "^1.1"
     },
     "scripts": {
         "test": "./vendor/bin/phpunit --coverage-clover coverage.xml --testdox",

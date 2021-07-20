@@ -11,6 +11,9 @@ require_once dirname( __DIR__ ) . '/build/vendor/autoload.php';
 // Give access to tests_add_filter() function.
 require_once getenv( 'WP_PHPUNIT__DIR' ) . '/includes/functions.php';
 
+// Fixtures base path.
+define( 'PC_TESTS_FIXTURES', __DIR__ . '/Fixtures' );
+
 tests_add_filter(
 	'muplugins_loaded',
 	function() {

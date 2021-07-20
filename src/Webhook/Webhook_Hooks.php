@@ -35,5 +35,8 @@ class Webhook_Hooks {
 	 */
 	public const INVALID_WEBHOOK_PAYLOAD = self::HOOK_PREFIX . 'invalid_payload';
 
-
+	/**
+	 * Action fired when exception thrown handling webhook.
+	 */
+	public const WEBHOOK_EXCEPTION_THROWN = self::HOOK_PREFIX . 'exception_throw';
 }

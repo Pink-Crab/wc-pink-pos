@@ -35,7 +35,7 @@ class Test_Customer_Route_Controller extends \WP_UnitTestCase {
 			)
 		);
 
-		// Construct the controller and its dependecies.
+		// Construct the controller and its dependencies.
 		$webhook_settings = new Webhook_Settings( $config );
 		$webhook_auth     = new Webhook_Authentication( $webhook_settings );
 		$subscriber       = new Customer_Webhook_Subscriber();

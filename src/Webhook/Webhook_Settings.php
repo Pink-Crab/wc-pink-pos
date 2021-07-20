@@ -24,8 +24,26 @@ class Webhook_Settings {
 	 */
 	protected $app_config;
 
+	/**
+	 * The prefix applied to all webhook settings keys.
+	 *
+	 * @var string
+	 */
+	protected $settings_prefix;
+
 	public function __construct( App_Config $app_config ) {
-		$this->app_config = $app_config;
+		$this->app_config      = $app_config;
+		$this->settings_prefix = $this->app_config->additional( 'webhook' )->settings_prefix;
+	}
+
+	/**
+	 * Prefixes the passed key.
+	 *
+	 * @param string $key
+	 * @return string
+	 */
+	protected function prefix_key( string $key ): string {
+		return $this->settings_prefix . $key;
 	}
 
 	/**
@@ -35,7 +53,7 @@ class Webhook_Settings {
 	 */
 	public function webhook_api_key(): string {
 		return get_option(
-			$this->app_config->webhook->settings_prefix . 'api_key',
+			$this->prefix_key( 'api_key' ),
 			'TODO'
 		);
 	}

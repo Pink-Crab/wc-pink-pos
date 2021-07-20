@@ -16,7 +16,10 @@ declare(strict_types=1);
 
 namespace PinkCrab\WC_Pink_Pos\Webhook;
 
+use Exception;
 use WP_REST_Request;
+use PinkCrab\WC_Pink_Pos\Webhook\Webhook_Exception;
+
 use WP_REST_Response;
 
 abstract class Webhook_Subscriber {
@@ -39,7 +42,21 @@ abstract class Webhook_Subscriber {
 		// Based on the request validation.
 		if ( $this->validate_webhook_data( $request ) ) {
 
-			$response = $this->handle_request( $request );
+			// Attempt to handle request.
+			try {
+				$response = $this->handle_request( $request );
+			} catch ( Exception $exception ) {
+
+				/**
+				 * Action fired for a Exception thrown.
+				 * @param Exception      Exception thrown
+				 * @param WP_HTTP_Request        The webhook data
+				 * @param string                 The webhook type
+				 */
+				do_action( Webhook_Hooks::WEBHOOK_EXCEPTION_THROWN, $exception, $request, $this->webhook_type() );
+
+				return new WP_REST_Response( array( 'error' => $exception->getMessage() ), 500 );
+			}
 
 			/**
 			 * Action fired for a valid request.
@@ -83,6 +100,7 @@ abstract class Webhook_Subscriber {
 	 *
 	 * @param WP_REST_Request $request
 	 * @return array<string, mixed>
+	 * @throws Webhook_Exception
 	 */
 	abstract public function handle_request( WP_REST_Request $request ): array;
 }

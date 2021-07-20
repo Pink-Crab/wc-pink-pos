@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace PinkCrab\WC_Pink_Pos\Webhook;
 
+use stdClass;
+
 class Webhook {
 
 	/**

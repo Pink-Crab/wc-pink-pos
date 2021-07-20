@@ -66,12 +66,13 @@ return array(
 	),
 	'meta'       => array(
 		'post' => array(
-			// 'key_1' => 'pinkcrab_post_meta_key_1',
+			'key_1' => 'pinkcrab_post_meta_key_1',
 			// Will allow Config::post_meta('key_1') === 'pinkcrab_post_meta_key_1'
 		),
 		'user' => array(
-			// 'key_1' => 'pinkcrab_user_meta_key_1',
-			// Will allow Config::user_meta('key_1') === 'pinkcrab_user_meta_key_1'
+			'customer_id'        => 'pink_pos_customer_id',
+			'customer_marketing' => 'pink_pos_customer_marketing',
+			'customer_notes'     => 'pink_pos_customer_notes',
 		),
 		'term' => array(
 			// 'key_1' => 'pinkcrab_term_meta_key_1',

@@ -1,5 +1,6 @@
 <?php
 
+
 declare(strict_types=1);
 
 /**
@@ -11,4 +12,6 @@ declare(strict_types=1);
  * @since 0.0.1
  */
 
-return array();
+return array(
+	PinkCrab\WC_Pink_Pos\Webhook\Customer\Customer_Route_Controller::class,
+);
