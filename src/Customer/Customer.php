@@ -73,13 +73,6 @@ class Customer {
 	 */
 	protected $notes = array();
 
-	/**
-	 * WP User if created.
-	 * Loaded lazily.
-	 *
-	 * @var \WP_User|null
-	 */
-	protected $wp_user;
 
 	public function __construct( int $customer_id = null ) {
 		$this->customer_id = $customer_id;
@@ -242,15 +235,4 @@ class Customer {
 		return $this;
 	}
 
-	/**
-	 * Get loaded lazily.
-	 *
-	 * @return \WP_User|null
-	 */
-	public function get_wp_user(): ?\WP_User {
-		if ( is_a( $this->user, \WP_User::class ) ) {
-			return $this->wp_user;
-		}
-		return $this->wp_user;
-	}
 }
