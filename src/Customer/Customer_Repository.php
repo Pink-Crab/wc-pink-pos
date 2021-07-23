@@ -93,7 +93,9 @@ class Customer_Repository {
 		$args          = \array_merge( array( 'role' => 'customer' ), $args );
 		$wp_user_query = new \WP_User_Query( $args );
 		return array_map(
-			fn( \WP_User $user): \WC_Customer => new \WC_Customer( $user->ID ),
+			function( \WP_User $user ): \WC_Customer {
+				return new \WC_Customer( $user->ID );
+			},
 			$wp_user_query->get_results()
 		);
 	}
