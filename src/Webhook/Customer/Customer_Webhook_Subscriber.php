@@ -75,12 +75,6 @@ class Customer_Webhook_Subscriber extends Webhook_Subscriber {
 		$payload = $request->get_json_params();
 
 		$r = $this->customer_factory->from_pink_pos_webhook( $payload['data'] );
-		$c = $this->customer_factory->create_user( $r );
-		dump( $r, $request->get_json_params(), $c );
-		return array(
-			'a' => 1,
-			'b' => 2,
-			'c' => 3,
-		);
+		return array( 'todo' => 'this' );
 	}
 }

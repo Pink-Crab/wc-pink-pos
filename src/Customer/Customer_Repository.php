@@ -38,7 +38,7 @@ class Customer_Repository {
 	public function find( int $id ): ?\WC_Customer {
 		$user = \get_user_by( 'id', $id );
 
-		if ( ! is_a( $user, \WP_User::class ) ) {
+		if ( ! is_object( $user ) || ! is_a( $user, \WP_User::class ) ) {
 			return null;
 		}
 
@@ -53,7 +53,7 @@ class Customer_Repository {
 	 */
 	public function find_by_email( string $email ): ?\WC_Customer {
 		$user = \get_user_by( 'email', $email );
-		if ( ! is_a( $user, \WP_User::class ) ) {
+		if ( ! is_object( $user ) || ! is_a( $user, \WP_User::class ) ) {
 			return null;
 		}
 
@@ -66,8 +66,9 @@ class Customer_Repository {
 	 * @param int $customer_id
 	 * @return \WC_Customer|null
 	 */
+	//phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.Found
 	public function find_by_customer_id( int $customer_id ): ?\WC_Customer {
-		# code...
+		return null;
 	}
 
 	/**
@@ -112,7 +113,7 @@ class Customer_Repository {
 		$user_id = \wc_create_new_customer( $customer->get_email(), $customer->get_email() );
 
 		// If we have a wp_error bail.
-		if ( is_a( $user_id, \WP_Error::class ) ) {
+		if ( \is_wp_error( $user_id ) ) {
 			return null;
 		}
 
@@ -136,7 +137,7 @@ class Customer_Repository {
 		);
 
 		// If we have a wp_error bail.
-		if ( is_a( $user_id, \WP_Error::class ) ) {
+		if ( \is_wp_error( $user_id ) ) {
 			return null;
 		}
 		// Populate meta.

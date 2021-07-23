@@ -163,7 +163,7 @@ class Customer {
 	/**
 	 * Set billing address
 	 *
-	 * @param Customer_Address|null $billing_address  Billing address
+	 * @param Customer_Address $billing_address  Billing address
 	 *
 	 * @return self
 	 */
@@ -178,13 +178,13 @@ class Customer {
 	 * @return Customer_Address
 	 */
 	public function get_delivery_address(): Customer_Address {
-		return $this->delivery_address ?? new Customer_Address( '', '', '', '', '', '' );;
+		return $this->delivery_address ?? new Customer_Address( '', '', '', '', '', '' );
 	}
 
 	/**
 	 * Set shipping address.
 	 *
-	 * @param Customer_Address|null $delivery_address  Shipping address.
+	 * @param Customer_Address $delivery_address  Shipping address.
 	 *
 	 * @return self
 	 */

@@ -52,10 +52,10 @@ class Customer_Factory {
 		$customer->set_marketing( General_Functions::maybe_get_value_from_array( 'marketing', $payload ) ?? array() );
 		$customer->set_notes( General_Functions::maybe_get_value_from_array( 'notes', $payload ) ?? array() );
 		$customer->set_billing_address(
-			$this->address_from_pink_pos_webhook( (array) General_Functions::maybe_get_value_from_array( 'billing_address', $payload ) ?? array() )
+			$this->address_from_pink_pos_webhook( (array) General_Functions::maybe_get_value_from_array( 'billing_address', $payload ) )
 		);
 		$customer->set_delivery_address(
-			$this->address_from_pink_pos_webhook( (array) General_Functions::maybe_get_value_from_array( 'delivery_address', $payload ) ?? array() )
+			$this->address_from_pink_pos_webhook( (array) General_Functions::maybe_get_value_from_array( 'delivery_address', $payload ) )
 		);
 
 		return $customer;
@@ -64,7 +64,7 @@ class Customer_Factory {
 	/**
 	 * Maps a customer address from pink pos webhook payload.
 	 *
-	 * @param array $payload_address
+	 * @param array<string, string> $payload_address
 	 * @return Customer_Address
 	 */
 	public function address_from_pink_pos_webhook( array $payload_address ): Customer_Address {
@@ -104,6 +104,7 @@ class Customer_Factory {
 		// If we dont have a user id, throw.
 		if ( ! is_int( $user_id ) ) {
 			throw new Exception(
+				//phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_print_r
 				\sprintf( 'Failed to create customer [%s]', print_r( $customer, true ) )
 			);
 		}

@@ -19,8 +19,8 @@ class General_Functions {
 	 * Attempts to get a value
 	 *
 	 * @param string $property
-	 * @param array $source
-	 * @return void
+	 * @param array<string|int, mixed> $source
+	 * @return mixed
 	 */
 	public static function maybe_get_value_from_array( string $property, array $source ) {
 		return array_key_exists( $property, $source )

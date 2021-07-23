@@ -72,7 +72,7 @@ abstract class Webhook_Subscriber {
 			/**
 			 * Action fired for invalid request
 			 * @param WP_HTTP_Request        The webhook data
-			 * @param string $name           The webhook type
+			 * @param string                 The webhook type
 			 */
 			do_action( Webhook_Hooks::INVALID_WEBHOOK_PAYLOAD, $request, $this->webhook_type() );
 

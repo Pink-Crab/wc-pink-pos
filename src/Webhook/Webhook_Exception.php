@@ -22,7 +22,7 @@ class Webhook_Exception extends Exception {
 	 *
 	 * @param string $action
 	 * @param string $type
-	 * @param $payload
+	 * @param mixed $payload
 	 * @return self
 	 * @code 200
 	 */
@@ -32,6 +32,7 @@ class Webhook_Exception extends Exception {
 				'Invalid %s payload request with %s action [%s]',
 				$type,
 				$action,
+				//phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_print_r
 				\print_r( $payload, true )
 			),
 			200
@@ -53,6 +54,7 @@ class Webhook_Exception extends Exception {
 				'Can not %s %s as already exits [%s]',
 				$action,
 				$type,
+				//phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_print_r
 				\print_r( $entity, true )
 			),
 			201
