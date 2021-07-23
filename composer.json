@@ -35,7 +35,6 @@
         "jetbrains/phpstorm-stubs": "dev-master",
         "humbug/php-scoper": "0.14.0",
         "bamarni/composer-bin-plugin": "^1.4",
-        "php-stubs/woocommerce-stubs": "^0.2.0",
         "kimhf/advanced-custom-fields-pro-stubs": "^5.9",
         "pxlrbt/php-scoper-prefix-remover": "^0.1.0",
         "php-stubs/woocommerce-stubs": "^5.5",
