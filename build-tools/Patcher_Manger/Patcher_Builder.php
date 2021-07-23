@@ -13,12 +13,12 @@ class Patcher_Builder {
 	/**
 	 * Path to vendor dir
 	 */
-	protected string $vendor_dir = '';
+	protected $vendor_dir = '';
 
 	/**
 	 * All passed stub details.
 	 */
-	protected array $stubs = array();
+	protected $stubs = array();
 
 	public function __construct( string $vendor_dir ) {
 		$this->vendor_dir = $vendor_dir;
