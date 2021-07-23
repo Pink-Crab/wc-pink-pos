@@ -11,19 +11,10 @@ declare(strict_types=1);
  * @since 0.0.1
  */
 
-// Base path and urls
+global $wpdb;
 $base_path  = \dirname( __DIR__, 1 );
 $plugin_dir = \basename( $base_path );
-
-// Useful WP helpers
 $wp_uploads = \wp_upload_dir();
-global $wpdb;
-
-// Include the plugins file for access plugin details before init.
-if ( ! function_exists( 'get_plugin_data' ) ) {
-	require_once ABSPATH . 'wp-admin/includes/plugin.php';
-}
-$plugin_data = get_plugin_data( $base_path . '/plugin.php' );
 
 // Include the plugins file for access plugin details before init.
 if ( ! function_exists( 'get_plugin_data' ) ) {
@@ -66,12 +57,13 @@ return array(
 	),
 	'meta'       => array(
 		'post' => array(
-			// 'key_1' => 'pinkcrab_post_meta_key_1',
+			'key_1' => 'pinkcrab_post_meta_key_1',
 			// Will allow Config::post_meta('key_1') === 'pinkcrab_post_meta_key_1'
 		),
 		'user' => array(
-			// 'key_1' => 'pinkcrab_user_meta_key_1',
-			// Will allow Config::user_meta('key_1') === 'pinkcrab_user_meta_key_1'
+			'customer_id'        => 'pink_pos_customer_id',
+			'customer_marketing' => 'pink_pos_customer_marketing',
+			'customer_notes'     => 'pink_pos_customer_notes',
 		),
 		'term' => array(
 			// 'key_1' => 'pinkcrab_term_meta_key_1',
@@ -87,7 +79,14 @@ return array(
 			? $plugin_data['Version'] : '0.0.1',
 	),
 	'namespaces' => array(
-		'rest'  => 'pinkcrab/boilerplate',
-		'cache' => 'pinkcrab_boilerplate',
+		'rest'  => 'pinkcrab/wc-pink-pos/v1',
+		'cache' => 'pc_wc_pink_pos_',
+	),
+	'additional' => array(
+		// Webhook settings/keys
+		'webhook' => (object) array(
+			'route_namespace' => 'pinkcrab/wc-pink-pos/v1/webhook',
+			'settings_prefix' => 'pc_pink_pos_webhook_',
+		),
 	),
 );

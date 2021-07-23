@@ -11,6 +11,7 @@ parameters:
     excludes_analyse:
         - %currentWorkingDirectory%/tests/*
     bootstrapFiles:
+        - build/vendor/autoload.php
         - vendor/php-stubs/wordpress-stubs/wordpress-stubs.php
-        #- vendor/kimhf/woocommerce-stubs/woocommerce-stubs.php
+        - vendor/php-stubs/woocommerce-stubs/woocommerce-stubs.php
         #- vendor/kimhf/advanced-custom-fields-pro-stubs/advanced-custom-fields-pro-stubs.php

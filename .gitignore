@@ -4,3 +4,5 @@
 coverage.xml
 /coverage-report
 composer.lock
+/build/vendor
+/build/composer.json

@@ -13,12 +13,12 @@ class Patcher_Builder {
 	/**
 	 * Path to vendor dir
 	 */
-	protected string $vendor_dir = '';
+	protected $vendor_dir = '';
 
 	/**
 	 * All passed stub details.
 	 */
-	protected array $stubs = array();
+	protected $stubs = array();
 
 	public function __construct( string $vendor_dir ) {
 		$this->vendor_dir = $vendor_dir;
@@ -103,6 +103,8 @@ class Patcher_Builder {
 				continue;
 			}
 
+			$this->remove_protected_names( $path );
+
 			// Extract all element names from stub file.
 			$element_names = array_map(
 				function( $e ) {
@@ -116,6 +118,19 @@ class Patcher_Builder {
 		}
 
 		return $elements;
+	}
+
+	/**
+	 * Edge cases of names that phpparser dislikes.
+	 *
+	 * @param string $file
+	 * @return void
+	 */
+	public function remove_protected_names( string $file ): void {
+		$contents = file_get_contents( $file );
+		$contents = str_replace( 'function readonly(', 'function _readonly(', $contents );
+
+		file_put_contents( $file, $contents );
 	}
 }
 

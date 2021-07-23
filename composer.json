@@ -1,9 +1,9 @@
 {
-    "name": "pinkcrab/cccp-wc-bridge",
+    "name": "pinkcrab/wc_pink_pos-wc-bridge",
     "type": "library",
-    "description": "A bridge between WooCommerce and the PinkCrab CCCP Project.",
+    "description": "A bridge between WooCommerce and the PinkCrab WC_Pink_Pos Project.",
     "keywords": [],
-    "homepage": "https://github.com/pink-crab/cccp-wc-bridge",
+    "homepage": "https://github.com/pink-crab/wc_pink_pos-wc-bridge",
     "license": "MIT",
     "authors": [{
         "name": "Glynn Quelch",
@@ -12,13 +12,13 @@
     }],
     "autoload": {
         "psr-4": {
-            "PinkCrab\\CCCP\\": "../src"
+            "PinkCrab\\WC_Pink_Pos\\": "../src"
         },
         "files": []
     },
     "autoload-dev": {
         "psr-4": {
-            "PinkCrab\\CCCP\\Tests\\": "../tests"
+            "PinkCrab\\WC_Pink_Pos\\Tests\\": "../tests"
         }
     },
     "require-dev": {
@@ -33,15 +33,19 @@
         "wp-coding-standards/wpcs": "*",
         "object-calisthenics/phpcs-calisthenics-rules": "*",
         "jetbrains/phpstorm-stubs": "dev-master",
-        "humbug/php-scoper": "^0.14.0",
+        "humbug/php-scoper": "0.14.0",
         "bamarni/composer-bin-plugin": "^1.4",
-        "kimhf/woocommerce-stubs": "^0.2.0",
         "kimhf/advanced-custom-fields-pro-stubs": "^5.9",
-        "pxlrbt/php-scoper-prefix-remover": "^0.1.0"
+        "pxlrbt/php-scoper-prefix-remover": "^0.1.0",
+        "php-stubs/woocommerce-stubs": "^5.5",
+        "gin0115/wpunit-helpers": "^1.0",
+        "nikic/php-parser": "^4.12"
     },
     "require": {
         "php": ">=7.1.0",
-        "pinkcrab/perique-framework-core": "^1.0"
+        "pinkcrab/perique-framework-core": "^1.0",
+        "pinkcrab/perique-route": "*",
+        "psr/log": "^1.1"
     },
     "scripts": {
         "test": "./vendor/bin/phpunit --coverage-clover coverage.xml --testdox",
@@ -51,11 +55,12 @@
         "all": "composer test && composer analyse && composer sniff",
         "build": "bash build.sh",
         "build-dev": "bash build.sh --dev",
-        "build-dump": "composer dump-autoload --working-dir build --classmap-authoritative"
+        "build-dump": "composer dump-autoload --working-dir build ",
+        "gh-action": "bash build.sh --dev && composer test && composer analyse && composer sniff"
     },
-    "prefer-stable": true,
+    "prefer-stable": false,
     "config": {
         "prepend-autoloader": true,
-        "autoloader-suffix": "pinkcrab_cccp_dev"
+        "autoloader-suffix": "pinkcrab_pinkpos_dev"
     }
 }

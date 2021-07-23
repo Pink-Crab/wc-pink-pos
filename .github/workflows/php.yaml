@@ -2,16 +2,16 @@ name: GitHub_CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, develop ]
   pull_request:
-    branches: [ master ]
+    branches: [ master, develop ]
 
 jobs:
   build:
     strategy:
       matrix:
         operating-system: [ubuntu-latest]
-        php-versions: ['7.1', '7.2', '7.3', '7.4']
+        php-versions: [ '7.3','7.4']
     runs-on: ${{ matrix.operating-system }}
     services:
       # Setup MYSQL
@@ -19,7 +19,7 @@ jobs:
         image: mysql:5.7
         env:
           MYSQL_ROOT_PASSWORD: 'crab'
-          MYSQL_DATABASE: pc_plugin_bp
+          MYSQL_DATABASE: pc_pink_pos_tests
         ports:
           - 3306:3306
         options: >-
@@ -53,6 +53,8 @@ jobs:
       - name: Run Tests
         env:
           environment_github: true
-        run: composer all
+        run: composer gh-action
 
+      - name: Codecov
+        run: bash <(curl -s https://codecov.io/bash) -t ${{ secrets.CODECOV }}
       

@@ -6,11 +6,11 @@
  *
  * This file should have the same namespace used in scoper.inc.php config.
  *
- * @package PinkCrab\CCCP
+ * @package PinkCrab\WC_Pink_Pos
  * @author Glynn Quelch glynn@pinkcrab.co.uk
  * @since 0.0.1
  */
 
-namespace pinkcrab_cccp_0_0_1; 
+namespace pinkcrab_wc_pink_pos_0_0_1; 
 
 

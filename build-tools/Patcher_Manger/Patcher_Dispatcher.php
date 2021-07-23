@@ -10,8 +10,9 @@ class Patcher_Dispatcher {
 
 	/**
 	 * Path to the serialised patcher files.
+	 * @var string
 	 */
-	protected string $patchers = '';
+	protected $patchers = '';
 
 	public function __construct( string $patchers ) {
 		$this->patchers = $patchers;

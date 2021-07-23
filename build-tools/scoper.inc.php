@@ -13,7 +13,7 @@ $parch_dispatcher = new Patcher_Dispatcher( __DIR__ . '/patchers' );
 
 return array(
 	// Set your namespace prefix here
-	'prefix'                     => 'pinkcrab_cccp_0_0_1',
+	'prefix'                     => 'pc_pink_pos_0_0_1',
 	'finders'                    => array(
 		Finder::create()
 			->files()
@@ -22,7 +22,7 @@ return array(
 			->exclude(
 				array(
 					'doc',
-					'vendor-bin',
+					'vendor-bin'
 				)
 			)
 			->in( 'vendor' ),
@@ -50,7 +50,7 @@ return array(
 	'whitelist'                  => array(
 		'PHPUnit\Framework\*',
 		'Composer\Autoload\ClassLoader',
-		'PinkCrab\Headless_Blog\*',
+		'PinkCrab\WC_Pink_Pos\*',
 	),
 	'whitelist-global-constants' => true,
 	'whitelist-global-classes'   => true,
