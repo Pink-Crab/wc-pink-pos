@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticIniteccc178d04c5dc73309607a19253c014
+class ComposerStaticInit5e5c8f325bee42f7d2b5d3bfc4ba6b89
 {
     public static $files = array (
         'be8785f285476d960a9374d1a827f21a' => __DIR__ . '/..' . '/pinkcrab/hook-loader/tests/Fixtures/functions.php',
@@ -74,9 +74,9 @@ class ComposerStaticIniteccc178d04c5dc73309607a19253c014
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticIniteccc178d04c5dc73309607a19253c014::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticIniteccc178d04c5dc73309607a19253c014::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticIniteccc178d04c5dc73309607a19253c014::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit5e5c8f325bee42f7d2b5d3bfc4ba6b89::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit5e5c8f325bee42f7d2b5d3bfc4ba6b89::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit5e5c8f325bee42f7d2b5d3bfc4ba6b89::$classMap;
 
         }, null, ClassLoader::class);
     }

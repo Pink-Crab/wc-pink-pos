@@ -103,6 +103,8 @@ class Patcher_Builder {
 				continue;
 			}
 
+			$this->remove_protected_names( $path );
+
 			// Extract all element names from stub file.
 			$element_names = array_map(
 				function( $e ) {
@@ -116,6 +118,13 @@ class Patcher_Builder {
 		}
 
 		return $elements;
+	}
+
+	public function remove_protected_names( string $file ): void {
+		$contents = file_get_contents( $file );
+		$contents = str_replace( 'function readonly(', 'function _readonly(', $contents );
+
+		file_put_contents( $file, $contents );
 	}
 }
 

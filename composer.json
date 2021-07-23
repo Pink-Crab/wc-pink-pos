@@ -33,13 +33,14 @@
         "wp-coding-standards/wpcs": "*",
         "object-calisthenics/phpcs-calisthenics-rules": "*",
         "jetbrains/phpstorm-stubs": "dev-master",
-        "humbug/php-scoper": "0.13.9",
+        "humbug/php-scoper": "0.14.0",
         "bamarni/composer-bin-plugin": "^1.4",
-        "kimhf/woocommerce-stubs": "^0.2.0",
+        "php-stubs/woocommerce-stubs": "^0.2.0",
         "kimhf/advanced-custom-fields-pro-stubs": "^5.9",
         "pxlrbt/php-scoper-prefix-remover": "^0.1.0",
         "php-stubs/woocommerce-stubs": "^5.5",
-        "gin0115/wpunit-helpers": "^1.0"
+        "gin0115/wpunit-helpers": "^1.0",
+        "nikic/php-parser": "^4.12"
     },
     "require": {
         "php": ">=7.1.0",

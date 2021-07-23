@@ -18,7 +18,7 @@ $builder->set_stubs(
 			'destination' => __DIR__ . '/patchers/wp_patcher.do',
 		),
 		array(
-			'package'     => 'kimhf/woocommerce-stubs',
+			'package'     => 'php-stubs/woocommerce-stubs',
 			'stubsPath'   => array( $vendor_dir . '/kimhf/woocommerce-stubs/woocommerce-stubs.php' ),
 			'destination' => __DIR__ . '/patchers/wc_patcher.do',
 		),
