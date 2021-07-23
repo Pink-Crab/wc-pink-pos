@@ -120,6 +120,12 @@ class Patcher_Builder {
 		return $elements;
 	}
 
+	/**
+	 * Edge cases of names that phpparser dislikes.
+	 *
+	 * @param string $file
+	 * @return void
+	 */
 	public function remove_protected_names( string $file ): void {
 		$contents = file_get_contents( $file );
 		$contents = str_replace( 'function readonly(', 'function _readonly(', $contents );
