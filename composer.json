@@ -56,7 +56,7 @@
         "build": "bash build.sh",
         "build-dev": "bash build.sh --dev",
         "build-dump": "composer dump-autoload --working-dir build ",
-        "gh-action": "bash build.sh --dev && composer test && composer analyse && composer sniff"
+        "gh-action": "mkdir build && bash build.sh --dev && composer test && composer analyse && composer sniff"
     },
     "prefer-stable": false,
     "config": {
