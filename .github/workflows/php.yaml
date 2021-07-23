@@ -53,6 +53,6 @@ jobs:
       - name: Run Tests
         env:
           environment_github: true
-        run: composer all
+        run: composer gh-action
 
       
