@@ -4,7 +4,7 @@
 declare(strict_types=1);
 
 /**
- * Customer Webhook Controller
+ * Customer Webhook Controller.
  *
  * @package PinkCrab/WC_Pink_Pos
  * @subpackage webhook
