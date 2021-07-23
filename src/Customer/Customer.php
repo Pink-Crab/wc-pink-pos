@@ -29,21 +29,21 @@ class Customer {
 	 *
 	 * @var string
 	 */
-	protected $name;
+	protected $name = '';
 
 	/**
 	 * Customer Email.
 	 *
 	 * @var string
 	 */
-	protected $email;
+	protected $email = '';
 
 	/**
 	 * Customer phone.
 	 *
 	 * @var string
 	 */
-	protected $phone;
+	protected $phone = '';
 
 	/**
 	 * All accepted marketing types.
@@ -94,7 +94,7 @@ class Customer {
 	 * @return string
 	 */
 	public function get_name(): string {
-		return $this->name ?? '';
+		return $this->name;
 	}
 
 	/**
@@ -154,10 +154,10 @@ class Customer {
 	/**
 	 * Get billing address
 	 *
-	 * @return Customer_Address|null
+	 * @return Customer_Address
 	 */
-	public function get_billing_address(): ?Customer_Address {
-		return $this->billing_address;
+	public function get_billing_address(): Customer_Address {
+		return $this->billing_address ?? new Customer_Address( '', '', '', '', '', '' );
 	}
 
 	/**
@@ -175,10 +175,10 @@ class Customer {
 	/**
 	 * Get shipping address.
 	 *
-	 * @return Customer_Address|null
+	 * @return Customer_Address
 	 */
-	public function get_delivery_address(): ?Customer_Address {
-		return $this->delivery_address;
+	public function get_delivery_address(): Customer_Address {
+		return $this->delivery_address ?? new Customer_Address( '', '', '', '', '', '' );;
 	}
 
 	/**

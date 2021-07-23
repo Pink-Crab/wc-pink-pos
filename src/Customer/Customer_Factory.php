@@ -49,13 +49,13 @@ class Customer_Factory {
 		$customer->set_name( General_Functions::maybe_get_value_from_array( 'name', $payload ) ?? '' );
 		$customer->set_email( General_Functions::maybe_get_value_from_array( 'email', $payload ) ?? '' );
 		$customer->set_phone( General_Functions::maybe_get_value_from_array( 'phone', $payload ) ?? '' );
-		$customer->set_marketing( General_Functions::maybe_get_value_from_array( 'marketing', $payload ) ?? '' );
-		$customer->set_notes( General_Functions::maybe_get_value_from_array( 'notes', $payload ) ?? '' );
+		$customer->set_marketing( General_Functions::maybe_get_value_from_array( 'marketing', $payload ) ?? array() );
+		$customer->set_notes( General_Functions::maybe_get_value_from_array( 'notes', $payload ) ?? array() );
 		$customer->set_billing_address(
-			$this->address_from_pink_pos_webhook( General_Functions::maybe_get_value_from_array( 'billing_address', $payload ) ?? array() )
+			$this->address_from_pink_pos_webhook( (array) General_Functions::maybe_get_value_from_array( 'billing_address', $payload ) ?? array() )
 		);
 		$customer->set_delivery_address(
-			$this->address_from_pink_pos_webhook( General_Functions::maybe_get_value_from_array( 'delivery_address', $payload ) ?? array() )
+			$this->address_from_pink_pos_webhook( (array) General_Functions::maybe_get_value_from_array( 'delivery_address', $payload ) ?? array() )
 		);
 
 		return $customer;

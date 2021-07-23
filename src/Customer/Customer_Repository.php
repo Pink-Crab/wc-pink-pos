@@ -53,7 +53,6 @@ class Customer_Repository {
 	 */
 	public function find_by_email( string $email ): ?\WC_Customer {
 		$user = \get_user_by( 'email', $email );
-		return null;
 		if ( ! is_a( $user, \WP_User::class ) ) {
 			return null;
 		}
@@ -108,7 +107,7 @@ class Customer_Repository {
 	 * @return int|null
 	 */
 	public function create( Customer $customer ): ?int {
-		$user_id = \wc_create_new_customer( $customer->get_email() );
+		$user_id = \wc_create_new_customer( $customer->get_email(), $customer->get_email() );
 
 		// If we have a wp_error bail.
 		if ( is_a( $user_id, \WP_Error::class ) ) {

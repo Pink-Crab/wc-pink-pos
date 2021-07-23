@@ -49,7 +49,7 @@ abstract class Webhook_Subscriber {
 
 				/**
 				 * Action fired for a Exception thrown.
-				 * @param Exception      Exception thrown
+				 * @param Exception              Exception thrown
 				 * @param WP_HTTP_Request        The webhook data
 				 * @param string                 The webhook type
 				 */

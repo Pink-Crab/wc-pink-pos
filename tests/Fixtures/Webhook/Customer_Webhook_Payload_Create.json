@@ -22,16 +22,15 @@
             "country": "UK"
         },
         "delivery_address": {
-            "address_1": "12 Street Road",
-            "address_2": "",
-            "city": "Townsville",
-            "county": "Countyshire",
-            "postcode": "TO1 2CS",
+            "address_1": "24 Avenue Close",
+            "address_2": "Near Wilton",
+            "city": "Placeton",
+            "county": "Cityinghamshire",
+            "postcode": "PC1 14IO",
             "country": "UK"
         },
         "notes": [
-            "Some note 1",
-            "Some note 2"
+            "Dislikes spoons"
         ]
     }
 }

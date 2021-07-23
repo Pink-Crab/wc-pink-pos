@@ -21,10 +21,10 @@ class Test_Customer_Webhook_Subscriber extends \WP_UnitTestCase {
 	}
 
 	public function test_validate_webhook_data(): void {
-		$subscriber = new Customer_Webhook_Subscriber();
-        $request = new WP_REST_Request('POST');
-        $request->set_body()
-        dump($this->mock_payload('json_decode'), $subscriber);
+		// $subscriber = new Customer_Webhook_Subscriber();
+        // $request = new WP_REST_Request('POST');
+        // $request->set_body();
+        // dump($this->mock_payload('json_decode'), $subscriber);
 
 	}
 }

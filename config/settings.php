@@ -11,19 +11,10 @@ declare(strict_types=1);
  * @since 0.0.1
  */
 
-// Base path and urls
+global $wpdb;
 $base_path  = \dirname( __DIR__, 1 );
 $plugin_dir = \basename( $base_path );
-
-// Useful WP helpers
 $wp_uploads = \wp_upload_dir();
-global $wpdb;
-
-// Include the plugins file for access plugin details before init.
-if ( ! function_exists( 'get_plugin_data' ) ) {
-	require_once ABSPATH . 'wp-admin/includes/plugin.php';
-}
-$plugin_data = get_plugin_data( $base_path . '/plugin.php' );
 
 // Include the plugins file for access plugin details before init.
 if ( ! function_exists( 'get_plugin_data' ) ) {

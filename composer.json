@@ -38,7 +38,8 @@
         "kimhf/woocommerce-stubs": "^0.2.0",
         "kimhf/advanced-custom-fields-pro-stubs": "^5.9",
         "pxlrbt/php-scoper-prefix-remover": "^0.1.0",
-        "php-stubs/woocommerce-stubs": "^5.5"
+        "php-stubs/woocommerce-stubs": "^5.5",
+        "gin0115/wpunit-helpers": "^1.0"
     },
     "require": {
         "php": ">=7.1.0",
