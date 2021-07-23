@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'pc_pink_pos_0_0_1\\Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'pc_pink_pos_0_0_1\\Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
     'pc_pink_pos_0_0_1\\PinkCrab\\Route\\' => array($vendorDir . '/pinkcrab/perique-route/src'),
     'pc_pink_pos_0_0_1\\PinkCrab\\Perique\\' => array($vendorDir . '/pinkcrab/perique-framework-core/src'),

@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit364dccd02f914cf0925b4f6fd2e888d4
+class ComposerStaticIniteccc178d04c5dc73309607a19253c014
 {
     public static $files = array (
         'be8785f285476d960a9374d1a827f21a' => __DIR__ . '/..' . '/pinkcrab/hook-loader/tests/Fixtures/functions.php',
@@ -13,6 +13,7 @@ class ComposerStaticInit364dccd02f914cf0925b4f6fd2e888d4
     public static $prefixLengthsPsr4 = array (
         'p' => 
         array (
+            'pc_pink_pos_0_0_1\\Psr\\Log\\' => 26,
             'pc_pink_pos_0_0_1\\Psr\\Container\\' => 32,
             'pc_pink_pos_0_0_1\\PinkCrab\\Route\\' => 33,
             'pc_pink_pos_0_0_1\\PinkCrab\\Perique\\' => 35,
@@ -28,6 +29,10 @@ class ComposerStaticInit364dccd02f914cf0925b4f6fd2e888d4
     );
 
     public static $prefixDirsPsr4 = array (
+        'pc_pink_pos_0_0_1\\Psr\\Log\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+        ),
         'pc_pink_pos_0_0_1\\Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
@@ -69,9 +74,9 @@ class ComposerStaticInit364dccd02f914cf0925b4f6fd2e888d4
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit364dccd02f914cf0925b4f6fd2e888d4::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit364dccd02f914cf0925b4f6fd2e888d4::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit364dccd02f914cf0925b4f6fd2e888d4::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticIniteccc178d04c5dc73309607a19253c014::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticIniteccc178d04c5dc73309607a19253c014::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticIniteccc178d04c5dc73309607a19253c014::$classMap;
 
         }, null, ClassLoader::class);
     }

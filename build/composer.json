@@ -35,16 +35,19 @@
         "wp-coding-standards\/wpcs": "*",
         "object-calisthenics\/phpcs-calisthenics-rules": "*",
         "jetbrains\/phpstorm-stubs": "dev-master",
-        "humbug\/php-scoper": "^0.14.0",
+        "humbug\/php-scoper": "0.13.9",
         "bamarni\/composer-bin-plugin": "^1.4",
         "kimhf\/woocommerce-stubs": "^0.2.0",
         "kimhf\/advanced-custom-fields-pro-stubs": "^5.9",
-        "pxlrbt\/php-scoper-prefix-remover": "^0.1.0"
+        "pxlrbt\/php-scoper-prefix-remover": "^0.1.0",
+        "php-stubs\/woocommerce-stubs": "^5.5",
+        "gin0115\/wpunit-helpers": "^1.0"
     },
     "require": {
         "php": ">=7.1.0",
         "pinkcrab\/perique-framework-core": "^1.0",
-        "pinkcrab\/perique-route": "*"
+        "pinkcrab\/perique-route": "*",
+        "psr\/log": "^1.1"
     },
     "scripts": {
         "test": ".\/vendor\/bin\/phpunit --coverage-clover coverage.xml --testdox",
@@ -54,7 +57,8 @@
         "all": "composer test && composer analyse && composer sniff",
         "build": "bash build.sh",
         "build-dev": "bash build.sh --dev",
-        "build-dump": "composer dump-autoload --working-dir build "
+        "build-dump": "composer dump-autoload --working-dir build ",
+        "gh-action": "bash build.sh --dev && composer test && composer analyse && composer sniff"
     },
     "prefer-stable": false,
     "config": {

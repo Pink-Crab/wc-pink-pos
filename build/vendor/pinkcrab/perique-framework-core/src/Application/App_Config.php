@@ -260,7 +260,6 @@ final class App_Config
             // Set all pairs which have both valid key and values.
             $this->meta[$meta_type] = $this->filter_key_value_pair($pairs);
         }
-
     }
     /**
      * Returns the key for a taxonomy.

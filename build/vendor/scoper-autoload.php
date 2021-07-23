@@ -249,8 +249,8 @@ if (!class_exists('Baz', false) && !interface_exists('Baz', false) && !trait_exi
 if (!class_exists('Composer\Autoload\ClassLoader', false) && !interface_exists('Composer\Autoload\ClassLoader', false) && !trait_exists('Composer\Autoload\ClassLoader', false)) {
     spl_autoload_call('pc_pink_pos_0_0_1\Composer\Autoload\ClassLoader');
 }
-if (!class_exists('ComposerAutoloaderInit364dccd02f914cf0925b4f6fd2e888d4', false) && !interface_exists('ComposerAutoloaderInit364dccd02f914cf0925b4f6fd2e888d4', false) && !trait_exists('ComposerAutoloaderInit364dccd02f914cf0925b4f6fd2e888d4', false)) {
-    spl_autoload_call('pc_pink_pos_0_0_1\ComposerAutoloaderInit364dccd02f914cf0925b4f6fd2e888d4');
+if (!class_exists('ComposerAutoloaderIniteccc178d04c5dc73309607a19253c014', false) && !interface_exists('ComposerAutoloaderIniteccc178d04c5dc73309607a19253c014', false) && !trait_exists('ComposerAutoloaderIniteccc178d04c5dc73309607a19253c014', false)) {
+    spl_autoload_call('pc_pink_pos_0_0_1\ComposerAutoloaderIniteccc178d04c5dc73309607a19253c014');
 }
 
 // Functions whitelisting. For more information see:
@@ -305,9 +305,9 @@ if (!function_exists('add_shortcode')) {
         return \pc_pink_pos_0_0_1\add_shortcode(...func_get_args());
     }
 }
-if (!function_exists('composerRequire364dccd02f914cf0925b4f6fd2e888d4')) {
-    function composerRequire364dccd02f914cf0925b4f6fd2e888d4() {
-        return \pc_pink_pos_0_0_1\composerRequire364dccd02f914cf0925b4f6fd2e888d4(...func_get_args());
+if (!function_exists('composerRequireeccc178d04c5dc73309607a19253c014')) {
+    function composerRequireeccc178d04c5dc73309607a19253c014() {
+        return \pc_pink_pos_0_0_1\composerRequireeccc178d04c5dc73309607a19253c014(...func_get_args());
     }
 }
 
