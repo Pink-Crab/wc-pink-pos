@@ -55,4 +55,6 @@ jobs:
           environment_github: true
         run: composer gh-action
 
+      - name: Codecov
+        run: bash <(curl -s https://codecov.io/bash) -t ${{ secrets.CODECOV }}
       
