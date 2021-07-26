@@ -82,28 +82,6 @@ class Customer_Repository {
 	}
 
 	/**
-	 * Queries users based on the args passed.
-	 * Maps all users to WC_Customers.
-	 *
-	 * @see https://developer.wordpress.org/reference/classes/wp_user_query/
-	 * @param array<string, mixed> $args
-	 * @return \WC_Customer[]
-	 */
-	public function query( array $args ): array {
-		// Ensure role is set as a fallback
-		$args          = \array_merge( array( 'role' => 'customer' ), $args );
-		$wp_user_query = new \WP_User_Query( $args );
-		return array_map(
-			function( \WP_User $user ): \WC_Customer {
-				return new \WC_Customer( $user->ID );
-			},
-			$wp_user_query->get_results()
-		);
-	}
-
-
-
-	/**
 	 * Attempts to create a customer
 	 *
 	 * @param Customer $customer
