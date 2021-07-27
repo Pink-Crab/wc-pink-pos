@@ -114,6 +114,12 @@ class Customer_Webhook_Subscriber extends Webhook_Subscriber {
 	 * @throws Webhook_Exception
 	 */
 	protected function create_user( Customer $customer ): ?int {
+
+		// Bail if we have no customer ID.
+		if ( is_null( $customer->get_customer_id() ) ) {
+			return null;
+		}
+
 		// Check if already exists.
 		if ( ! is_null( $this->customer_repository->find_by_customer_id( $customer->get_customer_id() ) ) ) {
 			throw Webhook_Exception::entity_exists( Webhook_Subscriber::CREATE, $this->webhook_type(), $customer );
@@ -131,6 +137,12 @@ class Customer_Webhook_Subscriber extends Webhook_Subscriber {
 	 * @throws Webhook_Exception
 	 */
 	protected function update_user( Customer $customer ): ?int {
+
+		// Bail if we have no customer ID.
+		if ( is_null( $customer->get_customer_id() ) ) {
+			return null;
+		}
+
 		$result = $this->customer_repository->find_by_customer_id( $customer->get_customer_id() );
 
 		// If customer not found, bail.
@@ -141,7 +153,8 @@ class Customer_Webhook_Subscriber extends Webhook_Subscriber {
 		return $this->customer_repository->update( $result->get_id(), $customer );
 	}
 
+	//phpcs:ignore 
 	protected function delete_user( Customer $customer ): ?int {
-		# code...
+		return null;
 	}
 }

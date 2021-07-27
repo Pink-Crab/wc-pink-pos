@@ -80,7 +80,7 @@ class Customer_Repository {
 	/**
 	 * Checks if a customer exists.
 	 *
-	 * @param int $id
+	 * @param int $customer_id
 	 * @return bool
 	 */
 	public function customer_id_exists( int $customer_id ): bool {
