@@ -68,7 +68,15 @@ class Customer_Repository {
 	 */
 	//phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.Found
 	public function find_by_customer_id( int $customer_id ): ?\WC_Customer {
-		return null;
+		$users = get_users(
+			array(
+				'meta_key'   => $this->app_config->user_meta( 'customer_id' ),
+				'meta_value' => $customer_id,
+			)
+		);
+		// dump( $users );
+
+		return ! empty( $users ) ? new \WC_Customer( $users[0]->ID ) : null;
 	}
 
 	/**
@@ -77,8 +85,8 @@ class Customer_Repository {
 	 * @param int $id
 	 * @return bool
 	 */
-	public function exists( int $id ): bool {
-		return ! is_null( $this->find( $id ) );
+	public function customer_id_exists( int $customer_id ): bool {
+		return ! is_null( $this->find_by_customer_id( $customer_id ) );
 	}
 
 	/**

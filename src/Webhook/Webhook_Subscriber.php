@@ -25,6 +25,13 @@ use WP_REST_Response;
 abstract class Webhook_Subscriber {
 
 	/**
+	 * Actions.
+	 */
+	public const CREATE = 'create';
+	public const UPDATE = 'update';
+	public const DELETE = 'delete';
+
+	/**
 	 * Main callback method.
 	 *
 	 * @param WP_REST_Request $request
