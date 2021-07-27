@@ -140,12 +140,12 @@ class Test_Customer_Repository extends \WP_UnitTestCase {
 		$this->assertEquals( 'UK', $wc_customer->get_shipping_country() );
 	}
 
-    /** @testdox It should be possible to check if a customer exists based on the customer id.*/
+	/** @testdox It should be possible to check if a customer exists based on the customer id.*/
 	public function test_customer_exists(): void {
 		$customer = $this->get_customer( 25 )->set_email( 'why@why.com' );
 		$this->get_repository()->create( $customer );
-		
-        $this->assertTrue( $this->get_repository()->customer_id_exists( 25 ) );
+
+		$this->assertTrue( $this->get_repository()->customer_id_exists( 25 ) );
 		$this->assertFalse( $this->get_repository()->customer_id_exists( \PHP_INT_MAX ) );
 	}
 
@@ -189,5 +189,24 @@ class Test_Customer_Repository extends \WP_UnitTestCase {
 		$this->assertNull( $user_id );
 	}
 
+	/** @testdox [INT] It should be possible to delete a valid user. */
+	public function test_delete(): void {
+		$customer = $this->get_customer( 32 )->set_email( 'test_delete@email.com' );
+		$user_id  = $this->get_repository()->create( $customer );
+
+		// Check it exists
+		$this->assertInstanceOf( \WC_Customer::class, $this->get_repository()->find_by_email( 'test_delete@email.com' ) );
+
+		// Delete
+		$this->assertTrue( $this->get_repository()->delete( $user_id, $customer ) );
+		$this->assertNull( $this->get_repository()->find_by_email( 'test_delete@email.com' ) );
+	}
+
+	/** @testdox [INT] If there is an error deleting a user, false should be returned when creating a new user/wc_customer */
+	public function test_fail_delete(): void {
+		$customer     = $this->get_customer( 34 );
+		$confirmation = $this->get_repository()->delete( \PHP_INT_MAX, $customer );
+		$this->assertFalse( $confirmation );
+	}
 
 }

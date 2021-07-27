@@ -148,5 +148,23 @@ class Customer_Repository {
 		return $user_id;
 	}
 
+	/**
+	 * Deletes a users based on its ID.
+	 *
+	 * @param int $user_id
+	 * @param Customer $customer
+	 * @return bool
+	 */
+	public function delete( int $user_id, Customer $customer ): bool {
+		require_once( ABSPATH . 'wp-admin/includes/user.php' );
+		$wc_customer = new \WC_Customer( $user_id );
+		// Check we have the correct user.
+		if ( (int) $wc_customer->get_meta( $this->app_config->user_meta( 'customer_id' ) ) !== $customer->get_customer_id() ) {
+			return false;
+		}
+
+		return $wc_customer->delete();
+	}
+
 
 }

@@ -71,6 +71,7 @@ class Customer_Webhook_Subscriber extends Webhook_Subscriber {
 		) {
 			return false;
 		}
+
 		return true;
 	}
 
@@ -100,6 +101,11 @@ class Customer_Webhook_Subscriber extends Webhook_Subscriber {
 					parent::UPDATE => $this->update_user( $customer ),
 				);
 
+			case parent::DELETE:
+				return array(
+					parent::DELETE => $this->delete_user( $customer ),
+				);
+
 			default:
 				throw Webhook_Exception::invalid_action( $payload['action'], $this->webhook_type(), $payload );
 		}
@@ -107,7 +113,7 @@ class Customer_Webhook_Subscriber extends Webhook_Subscriber {
 
 	/**
 	 * Creates a user if it doesn't exist.
-	 * Does nothing if it does.
+	 * Throws Webhook Exception if it does.
 	 *
 	 * @param \PinkCrab\WC_Pink_Pos\Customer\Customer $customer
 	 * @return int|null
@@ -117,7 +123,7 @@ class Customer_Webhook_Subscriber extends Webhook_Subscriber {
 
 		// Bail if we have no customer ID.
 		if ( is_null( $customer->get_customer_id() ) ) {
-			return null;
+			throw Webhook_Exception::invalid_payload( Webhook_Subscriber::CREATE, $this->webhook_type(), $customer );
 		}
 
 		// Check if already exists.
@@ -130,7 +136,7 @@ class Customer_Webhook_Subscriber extends Webhook_Subscriber {
 
 	/**
 	 * Updates a user if it exists.
-	 * Does nothing if it doesn't.
+	 * Throws Webhook Exception if it doesn't.
 	 *
 	 * @param \PinkCrab\WC_Pink_Pos\Customer\Customer $customer
 	 * @return int|null
@@ -140,7 +146,7 @@ class Customer_Webhook_Subscriber extends Webhook_Subscriber {
 
 		// Bail if we have no customer ID.
 		if ( is_null( $customer->get_customer_id() ) ) {
-			return null;
+			throw Webhook_Exception::invalid_payload( Webhook_Subscriber::UPDATE, $this->webhook_type(), $customer );
 		}
 
 		$result = $this->customer_repository->find_by_customer_id( $customer->get_customer_id() );
@@ -153,8 +159,26 @@ class Customer_Webhook_Subscriber extends Webhook_Subscriber {
 		return $this->customer_repository->update( $result->get_id(), $customer );
 	}
 
-	//phpcs:ignore 
-	protected function delete_user( Customer $customer ): ?int {
-		return null;
+	/**
+	 * Deletes a user if it exists.
+	 * Throws Webhook Exception if it doesn't.
+	 *
+	 * @param \PinkCrab\WC_Pink_Pos\Customer\Customer $customer
+	 * @return bool
+	 */
+	protected function delete_user( Customer $customer ): bool {
+		// Bail if we have no customer ID.
+		if ( is_null( $customer->get_customer_id() ) ) {
+			throw Webhook_Exception::invalid_payload( Webhook_Subscriber::DELETE, $this->webhook_type(), $customer );
+		}
+
+		$result = $this->customer_repository->find_by_customer_id( $customer->get_customer_id() );
+
+		// If customer not found, bail.
+		if ( is_null( $result ) ) {
+			throw Webhook_Exception::entity_doesnt_exist( Webhook_Subscriber::DELETE, $this->webhook_type(), $customer );
+		}
+
+		return $this->customer_repository->delete( $result->get_id(), $customer );
 	}
 }
