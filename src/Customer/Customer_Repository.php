@@ -66,7 +66,6 @@ class Customer_Repository {
 	 * @param int $customer_id
 	 * @return \WC_Customer|null
 	 */
-	//phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.Found
 	public function find_by_customer_id( int $customer_id ): ?\WC_Customer {
 		$users = get_users(
 			array(
@@ -74,7 +73,6 @@ class Customer_Repository {
 				'meta_value' => $customer_id,
 			)
 		);
-		// dump( $users );
 
 		return ! empty( $users ) ? new \WC_Customer( $users[0]->ID ) : null;
 	}
