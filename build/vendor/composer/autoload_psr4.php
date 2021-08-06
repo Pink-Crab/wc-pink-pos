@@ -9,6 +9,7 @@ return array(
     'pc_pink_pos_0_0_1\\Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'pc_pink_pos_0_0_1\\Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
     'pc_pink_pos_0_0_1\\PinkCrab\\Route\\' => array($vendorDir . '/pinkcrab/perique-route/src'),
+    'pc_pink_pos_0_0_1\\PinkCrab\\Perique_Admin_Menu\\' => array($vendorDir . '/pinkcrab/perique-admin-menu/src'),
     'pc_pink_pos_0_0_1\\PinkCrab\\Perique\\' => array($vendorDir . '/pinkcrab/perique-framework-core/src'),
     'pc_pink_pos_0_0_1\\PinkCrab\\Loader\\' => array($vendorDir . '/pinkcrab/hook-loader/src'),
     'pc_pink_pos_0_0_1\\PinkCrab\\Collection\\' => array($vendorDir . '/pinkcrab/collection/src'),

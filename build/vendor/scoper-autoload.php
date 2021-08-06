@@ -249,8 +249,8 @@ if (!class_exists('Baz', false) && !interface_exists('Baz', false) && !trait_exi
 if (!class_exists('Composer\Autoload\ClassLoader', false) && !interface_exists('Composer\Autoload\ClassLoader', false) && !trait_exists('Composer\Autoload\ClassLoader', false)) {
     spl_autoload_call('pc_pink_pos_0_0_1\Composer\Autoload\ClassLoader');
 }
-if (!class_exists('ComposerAutoloaderInit5e5c8f325bee42f7d2b5d3bfc4ba6b89', false) && !interface_exists('ComposerAutoloaderInit5e5c8f325bee42f7d2b5d3bfc4ba6b89', false) && !trait_exists('ComposerAutoloaderInit5e5c8f325bee42f7d2b5d3bfc4ba6b89', false)) {
-    spl_autoload_call('pc_pink_pos_0_0_1\ComposerAutoloaderInit5e5c8f325bee42f7d2b5d3bfc4ba6b89');
+if (!class_exists('ComposerAutoloaderInitc6c8e9f42f1c2446ea88dd223fa6c116', false) && !interface_exists('ComposerAutoloaderInitc6c8e9f42f1c2446ea88dd223fa6c116', false) && !trait_exists('ComposerAutoloaderInitc6c8e9f42f1c2446ea88dd223fa6c116', false)) {
+    spl_autoload_call('pc_pink_pos_0_0_1\ComposerAutoloaderInitc6c8e9f42f1c2446ea88dd223fa6c116');
 }
 
 // Functions whitelisting. For more information see:
@@ -305,9 +305,9 @@ if (!function_exists('add_shortcode')) {
         return \pc_pink_pos_0_0_1\add_shortcode(...func_get_args());
     }
 }
-if (!function_exists('composerRequire5e5c8f325bee42f7d2b5d3bfc4ba6b89')) {
-    function composerRequire5e5c8f325bee42f7d2b5d3bfc4ba6b89() {
-        return \pc_pink_pos_0_0_1\composerRequire5e5c8f325bee42f7d2b5d3bfc4ba6b89(...func_get_args());
+if (!function_exists('composerRequirec6c8e9f42f1c2446ea88dd223fa6c116')) {
+    function composerRequirec6c8e9f42f1c2446ea88dd223fa6c116() {
+        return \pc_pink_pos_0_0_1\composerRequirec6c8e9f42f1c2446ea88dd223fa6c116(...func_get_args());
     }
 }
 
