@@ -175,6 +175,69 @@
             "install-path": "..\/pinkcrab\/hook-loader"
         },
         {
+            "name": "pinkcrab\/perique-admin-menu",
+            "version": "0.1.0",
+            "version_normalized": "0.1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https:\/\/github.com\/Pink-Crab\/Perique_Admin_Menu.git",
+                "reference": "0a04770ccf7cc51891261fec98e8f52c9a9e06f1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https:\/\/api.github.com\/repos\/Pink-Crab\/Perique_Admin_Menu\/zipball\/0a04770ccf7cc51891261fec98e8f52c9a9e06f1",
+                "reference": "0a04770ccf7cc51891261fec98e8f52c9a9e06f1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0",
+                "pinkcrab\/collection": "^0.1.0",
+                "pinkcrab\/perique-framework-core": "^1"
+            },
+            "require-dev": {
+                "dealerdirect\/phpcodesniffer-composer-installer": "*",
+                "gin0115\/wpunit-helpers": "dev-main",
+                "object-calisthenics\/phpcs-calisthenics-rules": "*",
+                "php-stubs\/wordpress-stubs": "^5.6.0",
+                "phpstan\/phpstan": "^0.12.6",
+                "phpunit\/phpunit": "^7.0",
+                "roots\/wordpress": "^5.5",
+                "symfony\/var-dumper": "4.*",
+                "szepeviktor\/phpstan-wordpress": "^0.7.2",
+                "wp-coding-standards\/wpcs": "*",
+                "wp-phpunit\/wp-phpunit": "^5.0",
+                "yoast\/phpunit-polyfills": "^0.2.0"
+            },
+            "time": "2021-08-06T23:04:29+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "pc_pink_pos_0_0_1\\PinkCrab\\Perique_Admin_Menu\\": "src"
+                },
+                "files": []
+            },
+            "notification-url": "https:\/\/packagist.org\/downloads\/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Glynn Quelch",
+                    "email": "glynn.quelch@pinkcrab.co.uk",
+                    "homepage": "http:\/\/clappo.co.uk",
+                    "role": "Developer"
+                }
+            ],
+            "description": "The PinkCrab framework package for creating admin pages\/groups using inheritance very easyly from plugins and themes.",
+            "homepage": "https:\/\/pinkcrab.co.uk",
+            "support": {
+                "issues": "https:\/\/github.com\/Pink-Crab\/Perique_Admin_Menu\/issues",
+                "source": "https:\/\/github.com\/Pink-Crab\/Perique_Admin_Menu\/tree\/0.1.0"
+            },
+            "install-path": "..\/pinkcrab\/perique-admin-menu"
+        },
+        {
             "name": "pinkcrab\/perique-framework-core",
             "version": "1.0.0",
             "version_normalized": "1.0.0.0",

@@ -66,19 +66,25 @@ class Customer_Repository {
 	 * @param int $customer_id
 	 * @return \WC_Customer|null
 	 */
-	//phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.Found
 	public function find_by_customer_id( int $customer_id ): ?\WC_Customer {
-		return null;
+		$users = get_users(
+			array(
+				'meta_key'   => $this->app_config->user_meta( 'customer_id' ),
+				'meta_value' => $customer_id,
+			)
+		);
+
+		return ! empty( $users ) ? new \WC_Customer( $users[0]->ID ) : null;
 	}
 
 	/**
 	 * Checks if a customer exists.
 	 *
-	 * @param int $id
+	 * @param int $customer_id
 	 * @return bool
 	 */
-	public function exists( int $id ): bool {
-		return ! is_null( $this->find( $id ) );
+	public function customer_id_exists( int $customer_id ): bool {
+		return ! is_null( $this->find_by_customer_id( $customer_id ) );
 	}
 
 	/**
@@ -140,6 +146,24 @@ class Customer_Repository {
 		\update_user_meta( $user_id, $this->app_config->user_meta( 'customer_notes' ), $customer->get_notes() );
 
 		return $user_id;
+	}
+
+	/**
+	 * Deletes a users based on its ID.
+	 *
+	 * @param int $user_id
+	 * @param Customer $customer
+	 * @return bool
+	 */
+	public function delete( int $user_id, Customer $customer ): bool {
+		require_once ABSPATH . 'wp-admin/includes/user.php';
+		$wc_customer = new \WC_Customer( $user_id );
+		// Check we have the correct user.
+		if ( (int) $wc_customer->get_meta( $this->app_config->user_meta( 'customer_id' ) ) !== $customer->get_customer_id() ) {
+			return false;
+		}
+
+		return $wc_customer->delete();
 	}
 
 

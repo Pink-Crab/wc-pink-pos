@@ -41,7 +41,7 @@ class Test_Customer_Route_Controller extends \WP_UnitTestCase {
 		$webhook_settings = new Webhook_Settings( $config );
 		$webhook_auth     = new Webhook_Authentication( $webhook_settings );
 		$customer_factory = new Customer_Factory( new Customer_Repository( $config ) );
-		$subscriber       = new Customer_Webhook_Subscriber( $customer_factory );
+		$subscriber       = new Customer_Webhook_Subscriber( $customer_factory, new Customer_Repository( $config ) );
 		$controller       = new Customer_Route_Controller( $config, $subscriber, $webhook_auth );
 
 		// Get all defined routes from controller
